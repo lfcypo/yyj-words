@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
-    <script>LA.init({id:"3LlEqJDMpNtyfyv7",ck:"3LlEqJDMpNtyfyv7",autoTrack:true})</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>期末考英语单词汇总</title>
+    <title>云间雨叫我整的喵......</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="button.css">
     <link rel="stylesheet" href="andro.css">
@@ -18,8 +16,8 @@
 </head>
 <body>
     <div class="header">
-        <h1>期末考英语单词汇总</h1>
-        <p class="creator">由小宋同学制作</p>
+        <h1>云间雨叫我整的喵......</h1>
+        <p class="creator">源自小宋同学的<a href="https://github.com/SAJ0214/English-lerning">English-learning</a></p>
         <div class="progress-container">
             <div class="progress-bar" id="progressBar"></div>
         </div>
@@ -42,14 +40,14 @@
             <div class="flashcard" id="flashcard">
                 <div class="flashcard-front">
                     <div class="word" id="wordFront"></div>
-                    <div class="pronunciation" id="pronunciation"></div>
+                    <!-- <div class="pronunciation" id="pronunciation"></div> -->
                     <div class="hint">点击卡片查看释义</div>
                 </div>
                 <div class="flashcard-back">
                     <button class="reset-btn" id="resetBtn">↺</button>
                     <div class="word" id="wordBack"></div>
                     <div class="meaning" id="meaning"></div>
-                    <div class="example" id="example"></div>
+                    <div class="comment" id="comment"></div>
                 </div>
             </div>
         </div>
@@ -125,10 +123,10 @@
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
-        // 为每个单词添加音标
-        wordData.forEach(item => {
-            item.pronunciation = pronunciationData[item.word.toLowerCase()] || "/音标未提供/";
-        });
+        // // 为每个单词添加音标
+        // wordData.forEach(item => {
+        //     item.pronunciation = pronunciationData[item.word.toLowerCase()] || "/音标未提供/";
+        // });
 
         // 应用状态
         let state = {
@@ -157,8 +155,8 @@
         const wordFront = document.getElementById('wordFront');
         const wordBack = document.getElementById('wordBack');
         const meaning = document.getElementById('meaning');
-        const example = document.getElementById('example');
-        const pronunciation = document.getElementById('pronunciation');
+        const comment = document.getElementById('comment');
+        // const pronunciation = document.getElementById('pronunciation');
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
         const starBtn = document.getElementById('starBtn');
@@ -311,8 +309,8 @@
             wordFront.textContent = currentWord.word;
             wordBack.textContent = currentWord.word;
             meaning.textContent = currentWord.meaning;
-            example.textContent = currentWord.example;
-            pronunciation.textContent = currentWord.pronunciation;
+            comment.textContent = currentWord.comment;
+            // pronunciation.textContent = currentWord.pronunciation;
             
             // 更新收藏按钮状态
             starBtn.classList.toggle('starred', state.starredWords.includes(state.currentIndex));
@@ -570,7 +568,7 @@
             const wordObj = wordData[wordIndex];
             
             quizPrompt.textContent = `请选择正确的释义 (${state.currentQuizIndex + 1}/${state.quizWords.length}):`;
-            quizHint.textContent = `${wordObj.word} ${wordObj.pronunciation}`;
+            // quizHint.textContent = `${wordObj.word} ${wordObj.pronunciation}`;
             
             // 生成选项 (1个正确答案 + 3个随机错误答案)
             const options = [wordObj.meaning];
@@ -808,7 +806,7 @@
             const wordObj = wordData[wordIndex];
             
             spellingPrompt.textContent = `请拼写单词 (${state.currentSpellingIndex + 1}/${state.spellingWords.length}):`;
-            spellingHint.textContent = `${wordObj.meaning} (${wordObj.pronunciation})`.toLowerCase();
+            // spellingHint.textContent = `${wordObj.meaning} (${wordObj.pronunciation})`.toLowerCase();
             
             // 清空之前的输入
             state.spellingInput = [];

@@ -22,12 +22,16 @@
 
 .stats {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;      /* 改为 center，让内部卡片整体居中，而不是分散 */
+    align-items: center;          /* 垂直居中（可选） */
+    flex-wrap: wrap;              /* 允许换行，适应小屏 */
     width: 100%;
-    overflow: auto;
-    border-radius: 8px;
+    max-width: 600px;             /* 限制最大宽度 */
+    margin: 0 auto;               /* 关键：水平居中自身 */
+    padding: 10px 0;              /* 增加一点上下内边距，更好看 */
     gap: 8px;
-    max-width: 600px;
+    border-radius: 8px;
+    overflow: auto;
     margin-bottom: 20px;
 }
 
