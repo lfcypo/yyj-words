@@ -1,601 +1,29609 @@
 const wordData = [
-    { word: "airline", meaning: "n.航空公司", example: "I booked my flight with a reputable airline. 我通过一家信誉良好的航空公司预订了航班。" },
-    { word: "bay", meaning: "n.(海或湖的)湾", example: "We sailed into the calm bay at sunset. 日落时分，我们驶入了平静的海湾。" },
-    { word: "craft", meaning: "n.手艺;工艺;技艺", example: "She learned the craft of pottery from her grandmother. 她从祖母那里学到了陶艺手艺。" },
-    { word: "antique", meaning: "n.古物;古董 a.古老的", example: "This antique vase is worth a fortune. 这个古董花瓶价值连城。" },
-    { word: "pleasant", meaning: "a.令人愉快的;友好的", example: "The weather was pleasant during our picnic. 我们野餐时天气非常宜人。" },
-    { word: "arise", meaning: "vi.起身;出现;由…引起", example: "New challenges arise every day in this job. 这份工作每天都会出现新的挑战。" },
-    { word: "massive", meaning: "a.巨大的;非常严重的", example: "The earthquake caused massive damage to the city. 地震对城市造成了巨大的破坏。" },
-    { word: "literally", meaning: "ad.字面上;真正地", example: "He was literally jumping for joy. 他真的是高兴得跳了起来。" },
-    { word: "breath", meaning: "n.呼吸的空气", example: "She took a deep breath before speaking. 她在说话前深吸了一口气。" },
-    { word: "take sb's breath away", meaning: "令人惊叹", example: "The view from the mountaintop took my breath away. 山顶的景色让我惊叹不已。" },
-    { word: "bound", meaning: "a.准备前往(某地);一定会", example: "The train is bound for New York. 这列火车是开往纽约的。" },
-    { word: "scenery", meaning: "n.风景;景色", example: "The scenery along the coast is breathtaking. 沿海的风景令人叹为观止。" },
-    { word: "awesome", meaning: "a.令人惊叹的;可怕的", example: "The fireworks display was truly awesome. 烟花表演真是令人惊叹。" },
-    { word: "spectacular", meaning: "a.壮观的;壮丽的n.壮丽场面", example: "We watched a spectacular sunset over the ocean. 我们观赏了海上壮观的日落。" },
-    { word: "peak", meaning: "n.顶峰;山峰;尖形", example: "The climbers reached the peak at dawn. 登山者在黎明时分登顶。" },
-    { word: "highlight", meaning: "n.最好的部分 vt.突出;强调", example: "The highlight of the trip was visiting the ancient temple. 这次旅行的亮点是参观那座古老的寺庙。" },
-    { word: "goat", meaning: "n.山羊", example: "The farmer keeps goats for milk and cheese. 这位农民养山羊是为了获取羊奶和奶酪。" },
-    { word: "grizzly bear", meaning: "n.灰熊", example: "We saw a grizzly bear in the national park. 我们在国家公园里看到了一只灰熊。" },
-    { word: "drill", meaning: "vi.&vt.钻孔;打眼 n.钻头", example: "The workers drilled a hole in the wall. 工人们在墙上钻了一个洞。" },
-    { word: "freezing", meaning: "a.极冷的;冰冻的", example: "It was freezing outside, so we stayed indoors. 外面非常冷，所以我们待在室内。" },
-    { word: "freezing cold", meaning: "极冷的;冻僵的", example: "The water was freezing cold, but he still went for a swim. 水冰冷刺骨，但他还是去游泳了。" },
-    { word: "freeze", meaning: "vi.&vt.结冰;(使)冻住", example: "The lake freezes over in winter. 冬天湖面会结冰。" },
-    { word: "mall", meaning: "n.购物商场;购物广场", example: "We spent the afternoon shopping at the mall. 我们在购物中心逛了一下午。" },
-    { word: "prairie", meaning: "n.北美草原", example: "The prairie stretched as far as the eye could see. 草原一望无际。" },
-    { word: "anticipate", meaning: "vt.预料;预见;期望", example: "We didn't anticipate such a long delay. 我们没有预料到会耽搁这么久。" },
-    { word: "bunch", meaning: "n.束;串;捆", example: "She gave me a bunch of flowers for my birthday. 她送了我一束花作为生日礼物。" },
-    { word: "a bunch of", meaning: "一束;一串;一群;大量", example: "A bunch of kids were playing in the park. 一群孩子在公园里玩耍。" },
-    { word: "thunder", meaning: "vi.打雷;轰隆隆地响 n.雷声", example: "The thunder roared loudly during the storm. 暴风雨中雷声轰鸣。" },
-    { word: "frost", meaning: "n.霜;严寒天气 vt.使蒙上霜", example: "The grass was covered with frost in the morning. 早晨草地上覆盖了一层霜。" },
-    { word: "curtain", meaning: "n.窗帘", example: "She drew the curtains to let in some light. 她拉开窗帘让光线照进来。" },
-    { word: "border", meaning: "n.国界;边界(地区)", example: "We crossed the border into Canada. 我们越过边境进入了加拿大。" },
-    { word: "duration", meaning: "n.持续时间;期间", example: "The duration of the movie is two hours. 这部电影的时长是两小时。" },
-    { word: "harbour", meaning: "n.(海)港;港口", example: "The ship sailed into the harbour at dawn. 船在黎明时分驶入港口。" },
-    { word: "enrol", meaning: "vi.&vt.(使)加入;注册;登记", example: "She decided to enrol in a cooking class. 她决定报名参加烹饪课程。" },
-    { word: "quarry", meaning: "n.采石场", example: "The old quarry is now a popular swimming spot. 这个旧采石场现在是一个受欢迎的游泳地点。" },
-    { word: "idiom", meaning: "n.习语;成语", example: "Learning idioms can be challenging for language learners. 学习习语对语言学习者来说可能很有挑战性。" },
-    { word: "contrary", meaning: "a.相反的 n.相反的事实", example: "Contrary to popular belief, bats are not blind. 与普遍的看法相反，蝙蝠并不瞎。" },
-    { word: "contrary to", meaning: "相反的;相对立的", example: "Contrary to expectations, the event was a success. 与预期相反，这次活动取得了成功。" },
-    { word: "anyhow", meaning: "ad.(结束交谈)不过;反正", example: "Anyhow, I think we should give it a try. 不管怎样，我认为我们应该试一试。" },
-    { word: "alongside", meaning: "prep.在…旁边 ad.在旁边", example: "She worked alongside her colleagues on the project. 她和同事们一起完成了这个项目。" },
-    { word: "proceed", meaning: "vi.行进;继续做", example: "After the interruption, the speaker proceeded with his speech. 被打断后，演讲者继续他的讲话。" },
-    { word: "proceed to sth.", meaning: "进而做(参加)", example: "After dinner, we proceeded to the living room for coffee. 晚餐后，我们到客厅喝咖啡。" },
-    { word: "shore", meaning: "n.岸;滨", example: "We walked along the shore collecting seashells. 我们沿着海岸边走边捡贝壳。" },
-    { word: "astonish", meaning: "vi.使十分惊讶;使吃惊", example: "His sudden appearance astonished everyone. 他的突然出现让所有人都感到惊讶。" },
-    { word: "misty", meaning: "a.多雾的;模糊的", example: "The morning was misty, making it hard to see. 早晨雾气蒙蒙，视线模糊。" },
-    { word: "mist", meaning: "n.薄雾;水汽", example: "The mist cleared as the sun rose. 太阳升起时，薄雾散去了。" },
-    { word: "steel", meaning: "n.钢;钢铁工业", example: "The bridge is made of steel and concrete. 这座桥是用钢筋和混凝土建造的。" },
-    { word: "dusk", meaning: "n.黄昏;傍晚", example: "We arrived at the village at dusk. 我们在黄昏时分到达了村庄。" },
-    { word: "advertisement", meaning: "n.广告;启事", example: "I saw an advertisement for the job in the newspaper. 我在报纸上看到了这份工作的广告。" },
-    { word: "accent", meaning: "n.口音", example: "She has a strong British accent. 她有很重的英国口音。" },
-    { word: "photographer", meaning: "n.摄影师;拍照者", example: "The photographer took some amazing shots of the sunset. 摄影师拍了一些日落的精彩照片。" },
-    { word: "owe", meaning: "vt.欠(账、债、情等)", example: "I owe him a favor for helping me move. 我欠他一个人情，因为他帮我搬了家。" },
-    { word: "owe sth. to sb.", meaning: "欠(某人情);把…归功某人", example: "I owe my success to my parents' support. 我的成功归功于父母的支持。" },
-    { word: "toast", meaning: "n.烤面包片;干杯 vt.干杯", example: "We raised our glasses for a toast. 我们举杯干杯。" },
-    { word: "cobblestone", meaning: "a.铺有鹅卵石的", example: "The old town's streets are paved with cobblestones. 老城的街道铺着鹅卵石。" },
-    { word: "coherent", meaning: "a.有条理的;清楚易懂的", example: "Her argument was clear and coherent. 她的论点清晰且有逻辑。" },
-    { word: "technique", meaning: "n.技能;技术;技艺", example: "He has mastered the technique of oil painting. 他掌握了油画技巧。" },
-    { word: "leaflet", meaning: "n.散页印刷品;传单;小册子", example: "They handed out leaflets about the event. 他们分发了关于活动的传单。" },
-    { word: "organ", meaning: "n.(人或动植物的)器官", example: "The heart is a vital organ. 心脏是一个重要器官。" },
-    { word: "toxin", meaning: "n.毒素(细菌产生致病物质)", example: "Some plants produce toxins to protect themselves. 一些植物会产生毒素来保护自己。" },
-    { word: "ray", meaning: "n.光线;光束;(热/电)射线", example: "A ray of sunlight shone through the window. 一束阳光透过窗户照进来。" },
-    { word: "sense of touch", meaning: "触觉", example: "The sense of touch helps us interact with the world. 触觉帮助我们与世界互动。" },
-    { word: "radiation", meaning: "n.辐射;放射线", example: "Exposure to high levels of radiation can be harmful. 暴露在高辐射水平下可能有害。" },
-    { word: "acid", meaning: "n.酸 a.酸的;酸性的", example: "Vinegar contains acetic acid. 醋中含有乙酸。" },
-    { word: "millimetre", meaning: "n.毫米;千分之一米", example: "The gap was only a few millimetres wide. 这个缝隙只有几毫米宽。" },
-    { word: "minor", meaning: "a.较小的;次要的;轻微的", example: "He suffered a minor injury in the accident. 他在事故中受了轻伤。" },
-    { word: "layer", meaning: "n.层;表层;层次", example: "The cake has multiple layers of cream. 这个蛋糕有多层奶油。" },
-    { word: "electric", meaning: "a.电的;用电的;电动的", example: "The car runs on electric power. 这辆车是电动的。" },
-    { word: "electric shock", meaning: "触电;电击", example: "He got an electric shock from the faulty wire. 他被漏电的电线电了一下。" },
-    { word: "victim", meaning: "n.受害者;患者", example: "The victim was taken to the hospital immediately. 受害者被立即送往医院。" },
-    { word: "swollen", meaning: "a.(身体部位)肿起的;肿胀的", example: "Her ankle was swollen after the fall. 摔倒后她的脚踝肿了。" },
-    { word: "swell", meaning: "vi.膨胀;肿胀", example: "His knee began to swell after the injury. 受伤后他的膝盖开始肿胀。" },
-    { word: "blister", meaning: "n.(皮肤)水疱;(金属)气泡", example: "She got a blister from wearing new shoes. 她因为穿新鞋磨出了水疱。" },
-    { word: "underneath", meaning: "prep.&ad.在…底下", example: "The cat hid underneath the table. 猫躲在桌子底下。" },
-    { word: "nerve", meaning: "n.神经", example: "The doctor tested the patient's nerve responses. 医生测试了病人的神经反应。" },
-    { word: "fabric", meaning: "n.织物;布料;(社会等)结构", example: "This fabric is soft and comfortable. 这种布料柔软舒适。" },
-    { word: "loose", meaning: "a.松的;未系紧的;宽松的", example: "The screw is loose and needs tightening. 螺丝松了，需要拧紧。" },
-    { word: "urgent", meaning: "a.紧急的;急迫的;急切的", example: "There was an urgent call for help. 有一个紧急的求助电话。" },
-    { word: "ease", meaning: "v.(使)宽慰;减轻 n.容易", example: "The medicine helped ease the pain. 药物帮助缓解了疼痛。" },
-    { word: "paramedic", meaning: "n.急救医生;护理人员", example: "The paramedic arrived quickly at the scene. 急救医生迅速赶到了现场。" },
-    { word: "swallow", meaning: "vt.&vi.吞下;咽下", example: "She swallowed the pill with a glass of water. 她用一杯水吞下了药片。" },
-    { word: "wrap", meaning: "v1.包、裹;(用手臂等)围住", example: "He wrapped the gift in colorful paper. 他用彩纸包好了礼物。" },
-    { word: "bathtub", meaning: "n.浴缸;浴盆", example: "She relaxed in the bathtub after a long day. 漫长的一天后，她在浴缸里放松。" },
-    { word: "bath", meaning: "n.洗澡 vt.给…洗澡", example: "The baby enjoys his bath time. 宝宝喜欢洗澡时间。" },
-    { word: "slip", meaning: "vi.滑倒;滑落 n.滑倒", example: "He slipped on the wet floor. 他在湿滑的地板上滑倒了。" },
-    { word: "mosquito", meaning: "n.蚊子", example: "Mosquitoes are common in tropical areas. 蚊子在热带地区很常见。" },
-    { word: "elderly", meaning: "a.年纪较大的;上了年纪的", example: "The elderly man walked slowly with a cane. 这位老人拄着拐杖慢慢走。" },
-    { word: "carpet", meaning: "n.地毯", example: "The living room has a soft, red carpet. 客厅铺着一张柔软的红色地毯。" },
-    { word: "operator", meaning: "n.电话接线员;操作员", example: "The operator connected me to the right department. 接线员帮我转接到了正确的部门。" },
-    { word: "ambulance", meaning: "n.救护车", example: "An ambulance rushed the injured to the hospital. 救护车将伤者紧急送往医院。" },
-    { word: "delay", meaning: "v.推迟;延期;耽误 n.延误", example: "The flight was delayed due to bad weather. 航班因恶劣天气延误了。" },
-    { word: "needle", meaning: "n.针;缝衣针;注射针;指针", example: "The nurse used a sterile needle for the injection. 护士使用了一根无菌针头进行注射。" },
-    { word: "IV needle", meaning: "静脉注射针", example: "The doctor inserted an IV needle into the patient's arm. 医生将静脉注射针插入病人的手臂。" },
-    { word: "vital sign", meaning: "生命体征", example: "The nurse checked the patient's vital signs. 护士检查了病人的生命体征。" },
-    { word: "ward", meaning: "n.病房", example: "She was moved to a private ward. 她被转到了私人病房。" },
-    { word: "drown", meaning: "vi.&vt.(使)淹死;溺死;浸泡", example: "The lifeguard saved the child from drowning. 救生员救了那个溺水的孩子。" },
-    { word: "sprain", meaning: "vt.扭伤(关节) n.扭伤", example: "He sprained his ankle while playing basketball. 他在打篮球时扭伤了脚踝。" },
-    { word: "ankle", meaning: "n.踝;踝关节", example: "She wore a brace to support her weak ankle. 她戴了一个护具来支撑她脆弱的脚踝。" },
-    { word: "bleeding", meaning: "n.流血;失血", example: "The bleeding stopped after applying pressure. 按压后，流血止住了。" },
-    { word: "bleed", meaning: "vi.流血;失血", example: "The wound continued to bleed for a while. 伤口持续流了一会儿血。" },
-    { word: "panic", meaning: "vi.&vt.(使)惊慌 n.惊恐", example: "She panicked when she couldn't find her phone. 她找不到手机时惊慌失措。" },
-    { word: "interrupt", meaning: "vi.&v.打断;打扰 vt.使暂停", example: "Please don't interrupt me while I'm speaking. 我说话时请不要打断我。" },
-    { word: "scream", meaning: "v.(因愤怒等)高声喊 n.尖叫", example: "The child screamed when he saw the spider. 孩子看到蜘蛛时尖叫起来。" },
-    { word: "fellow", meaning: "a.同类的;同事的 n.男人", example: "He is a fellow student in my class. 他是我班上的同学。" },
-    { word: "diner", meaning: "n.(尤指餐馆的)就餐者", example: "The diner enjoyed his meal at the restaurant. 这位就餐者在餐厅享用他的餐点。" },
-    { word: "choke", meaning: "vi.&vt.(使)窒息;(使)哽咽", example: "He choked on a piece of food. 他被一块食物噎住了。" },
-    { word: "steak", meaning: "n.牛排;肉排", example: "She ordered a medium-rare steak. 她点了一份五分熟的牛排。" },
-    { word: "throat", meaning: "n.咽喉;喉咙", example: "His throat was sore from shouting. 他的喉咙因为喊叫而疼痛。" },
-    { word: "desperate", meaning: "a.绝望的;孤注一掷的", example: "He made a desperate attempt to save the business. 他孤注一掷地试图挽救生意。" },
-    { word: "slap", meaning: "v.&n(用手)打、拍,拍击声", example: "She gave him a playful slap on the shoulder. 她开玩笑地拍了一下他的肩膀。" },
-    { word: "help sb. to one's feet", meaning: "帮助某人站起身来", example: "He helped the old man to his feet after the fall. 老人摔倒后，他扶他站了起来。" },
-    { word: "practical", meaning: "a.切实可行的;实际的", example: "Her suggestion was very practical. 她的建议非常实际。" },
-    { word: "obstruction", meaning: "n.阻碍;堵塞;阻塞物", example: "The fallen tree caused an obstruction on the road. 倒下的树挡住了道路。" },
-    { word: "fist", meaning: "n.拳;拳头", example: "He clenched his fist in anger. 他愤怒地握紧了拳头。" },
-    { word: "grab", meaning: "vt.抓住;攫取 n.抓取;抢夺", example: "She grabbed her bag and ran out the door. 她抓起包冲出了门。" },
-    { word: "tightly", meaning: "ad.紧紧地;牢固地;紧密地", example: "He held the rope tightly to avoid falling. 他紧紧抓住绳子以防摔倒。" },
-    { word: "tight", meaning: "a.牢固的;紧身的 ad.紧紧地", example: "The lid was screwed on tight. 盖子拧得很紧。" },
-    { word: "motion", meaning: "n.运动;移动", example: "The motion of the boat made her feel dizzy. 船的晃动让她感到头晕。" },
-    { word: "face up", meaning: "面朝上", example: "The card was placed face up on the table. 卡片面朝上放在桌子上。" },
-    { word: "face down", meaning: "面朝下", example: "She laid the photo face down. 她把照片面朝下放着。" },
-    { word: "justify", meaning: "vt.证明…有理;为…辩护", example: "Can you justify your decision? 你能证明你的决定是正确的吗？" },
-    { word: "welfare", meaning: "n.幸福;福祉;安康;福利", example: "The government provides welfare for the needy. 政府为贫困人群提供福利。" },
-    { word: "collapse", meaning: "vi.(突然)倒塌;(因病)昏倒", example: "The old building collapsed during the earthquake. 旧建筑在地震中倒塌了。" },
-    { word: "manual", meaning: "n.使用手册;说明书a.用手的", example: "He fixed the machine using the manual. 他按照说明书修好了机器。" },
-    { word: "sleep in", meaning: "迟起;睡过头;睡懒觉", example: "On weekends, I like to sleep in. 周末我喜欢睡懒觉。" },
-    { word: "out of shape", meaning: "健康状况不好", example: "He felt out of shape after months of inactivity. 几个月不运动后，他感觉身体状态不佳。" },
-    { word: "foggy", meaning: "a.有雾的", example: "The morning was so foggy that visibility was low. 早晨雾气很重，能见度很低。" },
-    { word: "suburb", meaning: "n.郊区;城外", example: "They moved to a quiet suburb. 他们搬到了一个安静的郊区。" },
-    { word: "membership", meaning: "n.会员身份;全体会员", example: "She renewed her gym membership. 她续订了健身房的会员资格。" },
-    { word: "precise", meaning: "a.准确的;精确的", example: "The measurements need to be precise. 测量必须精确。" },
-    { word: "precisely", meaning: "ad.准确地;精确地;的确如此", example: "The meeting started precisely at 9 AM. 会议在上午9点准时开始。" },
-    { word: "Christianity", meaning: "n.基督教", example: "Christianity is one of the world's major religions. 基督教是世界主要宗教之一。" },
-    { word: "realistic", meaning: "a.现实的;通真的", example: "Her paintings are incredibly realistic. 她的画作非常逼真。" },
-    { word: "realism", meaning: "n.逼真;现实主义;务实作风", example: "The novel is praised for its realism. 这部小说因其现实主义风格而受到赞扬。" },
-    { word: "realist", meaning: "n.现实主义画家(或作家等)", example: "As a realist, he focused on everyday life. 作为现实主义者，他关注日常生活。" },
-    { word: "primitive", meaning: "a.发展水平低的;原始的", example: "The tribe uses primitive tools for hunting. 这个部落使用原始工具狩猎。" },
-    { word: "two-dimensional", meaning: "a.二维的", example: "The drawing is a two-dimensional representation. 这幅画是二维的表现形式。" },
-    { word: "dimension", meaning: "n.维;规模;范围", example: "The project has many dimensions to consider. 这个项目有许多方面需要考虑。" },
-    { word: "in particular", meaning: "尤其;特别", example: "I love all fruits, in particular strawberries. 我喜欢所有水果，尤其是草莓。" },
-    { word: "set apart from", meaning: "使与众不同;使突出", example: "Her talent sets her apart from the others. 她的才华使她与众不同。" },
-    { word: "humanistic", meaning: "a.人文主义的", example: "The course focuses on humanistic values. 这门课程关注人文主义价值观。" },
-    { word: "humanity", meaning: "n.人性;人道;(统称)人类", example: "We must protect the dignity of humanity. 我们必须保护人类的尊严。" },
-    { word: "breakthrough", meaning: "n.重大进展;突破", example: "The research led to a major breakthrough. 这项研究取得了重大突破。" },
-    { word: "influential", meaning: "a.有很大影响的;有支配力的", example: "He is an influential figure in the industry. 他是行业内有影响力的人物。" },
-    { word: "reputation", meaning: "n.名誉;名声", example: "She has a reputation for being honest. 她以诚实著称。" },
-    { word: "noble", meaning: "n.贵族成员 a.崇高的;宏伟的", example: "The castle was once home to a noble family. 这座城堡曾是一个贵族家庭的住所。" },
-    { word: "rank", meaning: "n.地位;级别;行列 v.分等级", example: "He holds a high rank in the company. 他在公司中职位很高。" },
-    { word: "purchase", meaning: "vt.购买;采购 n.购买", example: "She made a large purchase at the store. 她在商店里买了很多东西。" },
-    { word: "mythology", meaning: "n.神话;虚幻的想法", example: "Greek mythology is full of fascinating stories. 希腊神话充满了引人入胜的故事。" },
-    { word: "client", meaning: "n.委托人;当事人;客户", example: "The lawyer met with his client. 律师与他的委托人会面。" },
-    { word: "photography", meaning: "n.照相术;摄影", example: "She has a passion for photography. 她对摄影充满热情。" },
-    { word: "emerge", meaning: "vi.&vt.出现;浮现;暴露", example: "The sun emerged from behind the clouds. 太阳从云层后露出来。" },
-    { word: "sunrise", meaning: "n.日出", example: "We woke up early to watch the sunrise. 我们早起看日出。" },
-    { word: "convey", meaning: "vt.表达;传递(思想/感情等)", example: "Her words conveyed a sense of hope. 她的话传递了一种希望感。" },
-    { word: "subjective", meaning: "a.主观的", example: "Art appreciation is highly subjective. 艺术欣赏是非常主观的。" },
-    { word: "outer", meaning: "a.外表的;外边的;外围的", example: "The outer layer of the cake was crispy. 蛋糕的外层是酥脆的。" },
-    { word: "subsequent", meaning: "a.随后的;后来的;之后的", example: "Subsequent events proved him right. 随后的事件证明他是对的。" },
-    { word: "fond", meaning: "a.喜爱", example: "She is fond of classical music. 她喜欢古典音乐。" },
-    { word: "be fond of", meaning: "喜爱;喜欢", example: "He is fond of playing chess. 他喜欢下棋。" },
-    { word: "fine art", meaning: "美术(尤其绘画和雕塑)", example: "The museum has a collection of fine art. 博物馆收藏了许多美术作品。" },
-    { word: "sculpture", meaning: "n.雕像;雕刻品;雕刻术", example: "The sculpture in the park is impressive. 公园里的雕像令人印象深刻。" },
-    { word: "sculptor", meaning: "n.雕刻家;雕塑家", example: "The sculptor created a masterpiece. 这位雕塑家创作了一件杰作。" },
-    { word: "visual", meaning: "a.视觉的;视力的", example: "The film has stunning visual effects. 这部电影有令人惊叹的视觉效果。" },
-    { word: "water lily", meaning: "n.睡莲", example: "The pond was covered with water lilies. 池塘里长满了睡莲。" },
-    { word: "pond", meaning: "n.池塘;水池", example: "Children were playing by the pond. 孩子们在池塘边玩耍。" },
-    { word: "arched", meaning: "a.拱形的;弓形的", example: "The bridge has an arched design. 这座桥是拱形设计。" },
-    { word: "arch", meaning: "v.呈弧形横跨 n.拱;拱门", example: "The cat arched its back. 猫弓起了背。" },
-    { word: "investment", meaning: "n.投资额;投资;(时间)投入", example: "The company made a large investment in technology. 公司在技术上投入了大量资金。" },
-    { word: "bride", meaning: "n.新娘", example: "The bride looked beautiful in her dress. 新娘穿着婚纱，看起来很美。" },
-    { word: "permanent", meaning: "a.永久的;永恒的;长久的", example: "The tattoo is a permanent mark. 纹身是一个永久的标记。" },
-    { word: "memorial", meaning: "n.纪念碑;纪念物 a.纪念的", example: "They built a memorial to honor the soldiers. 他们建了一座纪念碑来纪念士兵。" },
-    { word: "humble", meaning: "a.谦逊的;虚心的;卑微的", example: "Despite his success, he remained humble. 尽管取得了成功，他仍然很谦逊。" },
-    { word: "criticise", meaning: "vi.&vt.批评;指责;评价", example: "She criticised his careless mistake. 她批评了他的粗心错误。" },
-    { word: "criticism", meaning: "n.批评;指责;评论", example: "He accepted the criticism gracefully. 他优雅地接受了批评。" },
-    { word: "representative", meaning: "a.典型的;代表性的 n.代表", example: "She is a representative of the company. 她是公司的代表。" },
-    { word: "ink", meaning: "n.墨水;墨汁;油墨", example: "The pen ran out of ink. 钢笔没墨水了。" },
-    { word: "animation", meaning: "n.(电脑)动画制作;动画片", example: "He works in the field of animation. 他从事动画制作工作。" },
-    { word: "frame", meaning: "n.画面;框架 vt.镶框", example: "She framed the photo and hung it on the wall. 她把照片装裱起来挂在墙上。" },
-    { word: "symphony", meaning: "n.交响乐;交响曲", example: "The orchestra performed a Beethoven symphony. 乐团演奏了一首贝多芬的交响曲。" },
-    { word: "decline", meaning: "n.(数量)减少;下降 v.减少", example: "The population of the town is in decline. 这个城镇的人口在减少。" },
-    { word: "exhibition", meaning: "n.展览;(技能/感情)表演", example: "The art exhibition attracted many visitors. 艺术展览吸引了许多参观者。" },
-    { word: "bronze", meaning: "n.青铜;深红 a.青铜色的", example: "The statue is made of bronze. 这座雕像是青铜制成的。" },
-    { word: "ceramic", meaning: "n.陶瓷制品;制陶艺术", example: "She collects ceramic bowls. 她收藏陶瓷碗。" },
-    { word: "vase", meaning: "n.花瓶;装饰瓶", example: "She placed the flowers in a vase. 她把花插在花瓶里。" },
-    { word: "artistic", meaning: "a.艺术的;艺术家的", example: "She has an artistic temperament. 她有艺术家的气质。" },
-    { word: "entry", meaning: "n.加入;进入;参与", example: "The entry fee for the contest is $10. 比赛的报名费是10美元。" },
-    { word: "civil", meaning: "a.国民的;民用的;民事的", example: "The case was settled in civil court. 此案在民事法庭得到解决。" },
-    { word: "recognition", meaning: "n.承认;认出;赞誉", example: "Her work earned her international recognition. 她的工作为她赢得了国际认可。" },
-    { word: "Buddhist", meaning: "a.佛教的 n.佛教徒", example: "The temple is a Buddhist site. 这座寺庙是佛教场所。" },
-    { word: "Buddhism", meaning: "n.佛教", example: "Buddhism teaches the path to enlightenment. 佛教教导通往觉悟的道路。" },
-    { word: "expansion", meaning: "n.扩张;扩展;扩大", example: "The company plans an expansion into new markets. 公司计划扩展到新市场。" },
-    { word: "bring ... to life", meaning: "赋…生命;使…鲜活起来", example: "The actor brought the character to life. 演员将这个角色演活了。" },
-    { word: "guarantee", meaning: "vt.保证;确保 n.保证", example: "The product comes with a one-year guarantee. 产品有一年的保修期。" },
-    { word: "contemporary", meaning: "a.当代的;现代的 n.同代人", example: "She is a contemporary artist. 她是一位当代艺术家。" },
-    { word: "worthy", meaning: "a.值得…的;有价值的", example: "The cause is worthy of support. 这项事业值得支持。" },
-    { word: "be worthy of", meaning: "值得", example: "His actions are worthy of praise. 他的行为值得赞扬。" },
-    { word: "tobacco", meaning: "n.烟草;烟叶", example: "Tobacco farming is common in this region. 这个地区普遍种植烟草。" },
-    { word: "alcohol", meaning: "n.酒;酒精", example: "The drink contains a small amount of alcohol. 这种饮料含有少量酒精。" },
-    { word: "abuse", meaning: "n.滥用;虐待 vt.滥用;虐待", example: "Drug abuse is a serious problem. 药物滥用是一个严重的问题。" },
-    { word: "physical", meaning: "a.身体的;客观存在的", example: "Regular exercise improves physical health. 定期锻炼有益身体健康。" },
-    { word: "dominate", meaning: "vt.&vi.支配;控制;占优势", example: "The team dominated the game. 这支球队在比赛中占据优势。" },
-    { word: "repeatedly", meaning: "ad.重复地", example: "He asked the same question repeatedly. 他反复问同一个问题。" },
-    { word: "psychology", meaning: "n.心理学;心理;心理影响", example: "She studied psychology in college. " },
-    { word: "cue", meaning: "n.提示;暗示 vt.给…暗示", example: "The actor missed his cue to enter the stage. 演员错过了上台的提示。" },
-    { word: "in response to", meaning: "回答;答复", example: "She smiled in response to his compliment. 她对他的赞美报以微笑。" },
-    { word: "reward", meaning: "n.回报;奖励 vt.奖励;奖赏", example: "Hard work always brings its own reward. 努力总会有回报。" },
-    { word: "rely", meaning: "vi.依赖;依靠;信赖", example: "You can rely on me to keep your secret. 你可以相信我会保守你的秘密。" },
-    { word: "rely on", meaning: "依赖;依靠;信赖", example: "Children rely on their parents for support. 孩子们依赖父母的支持。" },
-    { word: "facilitate", meaning: "vt.促进;促使;使便利", example: "The new software facilitates online collaboration. 新软件促进了在线协作。" },
-    { word: "examine", meaning: "vt.(仔细)检查;审查;测验", example: "The doctor will examine your throat tomorrow. 医生明天会检查你的喉咙。" },
-    { word: "negative", meaning: "a.消极的;有害的;否定的", example: "His negative attitude affected the whole team. 他的消极态度影响了整个团队。" },
-    { word: "escalator", meaning: "n.自动扶梯;滚梯", example: "Please hold the handrail while riding the escalator. 乘坐自动扶梯时请握紧扶手。" },
-    { word: "straight away", meaning: "立即;马上", example: "I'll call him straight away. 我马上给他打电话。" },
-    { word: "pessimistic", meaning: "a.悲观的;悲观主义的", example: "Don't be so pessimistic about the future. 不要对未来如此悲观。" },
-    { word: "discipline", meaning: "n.自制力;纪律 vt.自我控制", example: "Daily exercise requires great discipline. 每日锻炼需要很强的自制力。" },
-    { word: "pill", meaning: "n.药丸;药片", example: "She took a pill to relieve her headache. 她吃了一片药缓解头痛。" },
-    { word: "delete", meaning: "v.删去;删除", example: "Please delete the unnecessary files. 请删除不必要的文件。" },
-    { word: "decide on", meaning: "决定;选定", example: "Have you decided on a date for the party? 你决定好派对日期了吗？" },
-    { word: "make up one's mind", meaning: "下定决心", example: "He finally made up his mind to study abroad. 他终于下定决心出国留学。" },
-    { word: "compose", meaning: "vt.&vi.组成;作曲;撰写", example: "Mozart composed this symphony at age eight. 莫扎特八岁时创作了这首交响曲。" },
-    { word: "be composed of", meaning: "由…组成(或构成)的", example: "Water is composed of hydrogen and oxygen. 水由氢和氧组成。" },
-    { word: "surgeon", meaning: "n.外科医生", example: "The surgeon performed a successful heart operation. 外科医生成功完成了一台心脏手术。" },
-    { word: "surgery", meaning: "n.外科手术;外科学", example: "He underwent surgery to remove the tumor. 他接受了肿瘤切除手术。" },
-    { word: "liberation", meaning: "n.解放;摆脱", example: "The liberation of the city marked the end of the war. 城市的解放标志着战争的结束。" },
-    { word: "shave", meaning: "vi,vt.&n.剃(须发);刮脸", example: "He shaves every morning before work. 他每天上班前都会刮胡子。" },
-    { word: "shave off", meaning: "剃掉;刮去", example: "He decided to shave off his beard. 他决定剃掉胡子。" },
-    { word: "beard", meaning: "n.胡须;络腮胡子", example: "His beard grew thick during the winter. 他的胡子在冬天长得很浓密。" },
-    { word: "disturb", meaning: "vt.打扰;搅乱;使烦恼", example: "Please don't disturb him while he's working. 他工作时请不要打扰他。" },
-    { word: "cigarette", meaning: "n.香烟;卷烟", example: "Smoking cigarettes is harmful to health. 吸烟有害健康。" },
-    { word: "specialist", meaning: "n.专科医生;专家", example: "She is a specialist in ancient Greek history. 她是古希腊历史专家。" },
-    { word: "consultant", meaning: "n.顾问;高级顾问医师", example: "The company hired a consultant to improve efficiency. 公司聘请了一位顾问来提高效率。" },
-    { word: "drug", meaning: "n.毒品;药物", example: "This drug can effectively relieve pain. 这种药物能有效缓解疼痛。" },
-    { word: "skip", meaning: "v.跳过;不参加 vi.跳绳", example: "She skips breakfast to save time. 为了节省时间，她不吃早餐。" },
-    { word: "dizzy", meaning: "a.头晕目眩的", example: "I felt dizzy after spinning around. 转圈后我感到头晕目眩。" },
-    { word: "flu", meaning: "n.流感", example: "He caught the flu and had to stay in bed. 他得了流感，不得不卧床休息。" },
-    { word: "stimulate", meaning: "vt.激发;促进;刺激", example: "Coffee can stimulate the brain. 咖啡可以刺激大脑。" },
-    { word: "dentist", meaning: "n.牙科医生", example: "You should visit the dentist twice a year. 你应该每年看两次牙医。" },
-    { word: "sugary", meaning: "a.含糖的;甜的", example: "Avoid sugary drinks to protect your teeth. 为了保护牙齿，避免饮用含糖饮料。" },
-    { word: "nut", meaning: "n.坚果", example: "Squirrels love to eat nuts. 松鼠喜欢吃坚果。" },
-    { word: "skateboard", meaning: "n.滑板 vi.滑滑板", example: "He hurt his knee while skateboarding. 他滑滑板时伤了膝盖。" },
-    { word: "dynamic", meaning: "a.充满活力的;精力充沛的", example: "She has a dynamic personality. 她性格充满活力。" },
-    { word: "stressed out", meaning: "焦虑不安;疲惫不堪", example: "He was stressed out before the exam. 考试前他焦虑不安。" },
-    { word: "worn out", meaning: "筋疲力尽的;疲惫的", example: "After the marathon, I was completely worn out. 马拉松比赛后，我筋疲力尽。" },
-    { word: "bowling", meaning: "n.保龄球运动", example: "We went bowling last weekend. 我们上周末去打保龄球了。" },
-    { word: "comedy", meaning: "n.喜剧;喜剧片;滑稽节目", example: "This comedy made everyone laugh. 这部喜剧让所有人都笑了。" },
-    { word: "monthly", meaning: "ad.每月;每月一次的 n.月刊", example: "The magazine is published monthly. 这本杂志每月出版一次。" },
-    { word: "enhance", meaning: "vt.提高;增强;增进", example: "Exercise can enhance your health. 锻炼可以增强你的健康。" },
-    { word: "refresh", meaning: "v.使恢复精力;使凉爽;刷新", example: "A cold shower will refresh you. 冷水淋浴会让你恢复精力。" },
-    { word: "absorb", meaning: "vt.吸引全部注意力;吸收", example: "The sponge absorbed all the water. 海绵吸收了所有的水。" },
-    { word: "graph", meaning: "n.图;图表;曲线图", example: "The graph shows a steady increase. 图表显示稳定增长。" },
-    { word: "emission", meaning: "n.排放物;散发物;排放", example: "Car emissions pollute the air. 汽车排放物污染空气。" },
-    { word: "melt", meaning: "vi.&vt.(使)融化;熔化;软化", example: "The ice cream melted in the sun. 冰淇淋在阳光下融化了。" },
-    { word: "starve", meaning: "vi.&vt.(使)挨饿;饿死", example: "Many people starved during the famine. 许多人在饥荒中挨饿。" },
-    { word: "seal", meaning: "n.海豹", example: "We saw a seal at the aquarium. 我们在水族馆看到了一只海豹。" },
-    { word: "ecology", meaning: "n.生态;生态学", example: "We must protect the ecology of the forest. 我们必须保护森林生态。" },
-    { word: "release", meaning: "vt.&n.排放;释放;发布", example: "The company will release a new product next month. 公司下个月将发布新产品。" },
-    { word: "methane", meaning: "n.甲烷;沼气", example: "Methane is a potent greenhouse gas. 甲烷是一种强效温室气体。" },
-    { word: "carbon", meaning: "n.碳", example: "Diamonds are made of pure carbon. 钻石由纯碳构成。" },
-    { word: "dioxide", meaning: "n.二氧化物", example: "Carbon dioxide is essential for plant growth. 二氧化碳对植物生长至关重要。" },
-    { word: "carbon dioxide", meaning: "二氧化碳", example: "Plants absorb carbon dioxide and release oxygen. 植物吸收二氧化碳并释放氧气。" },
-    { word: "habitable", meaning: "a.适合居住的", example: "Scientists are searching for habitable planets. 科学家正在寻找适合居住的行星。" },
-    { word: "sustain", meaning: "vt.维持;遭受;承受住", example: "The pillars sustain the weight of the roof. 柱子承受着屋顶的重量。" },
-    { word: "sustainable", meaning: "a.可持续的;合理利用的", example: "We need sustainable energy sources. 我们需要可持续的能源。" },
-    { word: "fossil", meaning: "n.化石", example: "This fossil is millions of years old. 这块化石有数百万年的历史。" },
-    { word: "fuel", meaning: "n.燃料;刺激性言行", example: "Wood was used as fuel in ancient times. 古代用木头作燃料。" },
-    { word: "fossil fuel", meaning: "化石燃料(如煤或石油)", example: "Burning fossil fuels causes pollution. 燃烧化石燃料会造成污染。" },
-    { word: "comprehensive", meaning: "a.全部的;所有的;详尽的", example: "The report provides a comprehensive analysis. 报告提供了全面的分析。" },
-    { word: "worldwide", meaning: "ad.遍全球地 a.世界各地的", example: "This product is sold worldwide. 这种产品在全球销售。" },
-    { word: "trend", meaning: "n.趋势;趋向;动向", example: "Online shopping is a growing trend. 网购是一种增长趋势。" },
-    { word: "frequently", meaning: "ad.频繁地;经常", example: "She frequently visits her grandparents. 她经常去看望祖父母。" },
-    { word: "broadcast", meaning: "v.播送;广播 n.广播节目", example: "The news was broadcast live. 新闻是现场直播的。" },
-    { word: "policy", meaning: "n.政策;方针;原则", example: "The company has a strict no-smoking policy. 公司有严格的禁烟政策。" },
-    { word: "footprint", meaning: "n.足迹;(某物所占)空间量", example: "We found footprints in the snow. 我们在雪地里发现了足迹。" },
-    { word: "restrict", meaning: "vt.限制;限定;束缚", example: "The law restricts smoking in public places. 法律限制在公共场所吸烟。" },
-    { word: "restriction", meaning: "n.限制规定;限制法规;约束", example: "There are no restrictions on parking here. 这里停车没有限制。" },
-    { word: "seize", meaning: "vt.抓住;夺取;控制", example: "The police seized the stolen goods. 警方查获了赃物。" },
-    { word: "basin", meaning: "n.流域;盆地;盆", example: "The Amazon basin is rich in biodiversity. 亚马逊流域生物多样性丰富。" },
-    { word: "penguin", meaning: "n.企鹅", example: "Penguins live in the Antarctic. 企鹅生活在南极。" },
-    { word: "reform", meaning: "v.改革;改正 n.改革;变革", example: "The government implemented education reforms. 政府实施了教育改革。" },
-    { word: "undergo", meaning: "v.经历;经受(变化/不快等)", example: "The patient will undergo surgery tomorrow. 病人明天将接受手术。" },
-    { word: "implement", meaning: "vt.使生效;贯彻;执行", example: "The new rules will be implemented next month. 新规则将于下月实施。" },
-    { word: "harmonious", meaning: "a.和谐的", example: "They live in a harmonious community. 他们生活在一个和谐的社区。" },
-    { word: "moderate", meaning: "a.适度的;中等的 v.缓和", example: "He has a moderate income. 他有中等收入。" },
-    { word: "submit", meaning: "vt.&vi.提交;呈递;屈服", example: "Please submit your report by Friday. 请在周五前提交报告。" },
-    { word: "annual", meaning: "a.每年的;一年的 n.年刊", example: "The company holds an annual meeting in December. 公司每年十二月召开年会。" },
-    { word: "tropical", meaning: "a.热带的;来自热带的", example: "Bananas grow in tropical climates. 香蕉生长在热带气候中。" },
-    { word: "chaos", meaning: "n.混乱;杂乱;紊乱", example: "The storm caused chaos in the city. 暴风雨在城市中造成了混乱。" },
-    { word: "on behalf of", meaning: "代表(代替)某人", example: "I'm speaking on behalf of the team. 我代表团队发言。" },
-    { word: "nuclear", meaning: "a.原子能的;核能的", example: "Nuclear energy is a controversial topic. 核能是一个有争议的话题。" },
-    { word: "sensitive", meaning: "a.敏感的;善解人意的", example: "She is very sensitive to others' feelings. 她对别人的感受非常敏感。" },
-    { word: "jungle", meaning: "n.(热带)丛林;密林", example: "The jungle is full of wild animals. 丛林里有很多野生动物。" },
-    { word: "smog", meaning: "n.烟雾(烟与雾混合污染物)", example: "The city was covered in thick smog. 城市被厚厚的烟雾笼罩。" },
-    { word: "originate", meaning: "vi.&vt.起源;发源;创立", example: "This tradition originated in ancient times. 这一传统起源于古代。" },
-    { word: "volume", meaning: "n.量;体积;(成套书中)一卷", example: "The library has a large volume of books. 图书馆有大量藏书。" },
-    { word: "garbage", meaning: "n.垃圾;废物", example: "Please take out the garbage. 请把垃圾拿出去。" },
-    { word: "enterprise", meaning: "n.公司;企业;事业", example: "He started his own enterprise last year. 他去年创办了自己的企业。" },
-    { word: "restore", meaning: "vt.恢复;使复原;修复", example: "They restored the old castle. 他们修复了古堡。" },
-    { word: "conservation", meaning: "n.对(环境/文物)保护;保持", example: "Wildlife conservation is important. 野生动物保护很重要。" },
-    { word: "dozen", meaning: "n.(一)打;十二个", example: "I bought a dozen eggs. 我买了一打鸡蛋。" },
-    { word: "dozens of", meaning: "许多;很多", example: "Dozens of people attended the meeting. 许多人参加了会议。" },
-    { word: "regulation", meaning: "n.章程;规章制度", example: "Safety regulations must be followed. 必须遵守安全规章。" },
-    { word: "disposal", meaning: "n.去掉;清除;处理", example: "Waste disposal is an environmental issue. 废物处理是一个环境问题。" },
-    { word: "inspection", meaning: "n.检查;查看;视察", example: "The car passed the inspection. 汽车通过了检查。" },
-    { word: "fine", meaning: "vt.对…处以罚款", example: "He was fined for speeding. 他因超速被罚款。" },
-    { word: "campaign", meaning: "n.运动;战役 v.参加运动", example: "The election campaign was intense. 选举运动很激烈。" },
-    { word: "waterway", meaning: "n.水道;航道", example: "The canal is an important waterway. 这条运河是重要的航道。" },
-    { word: "tolerate", meaning: "vt.忍受;包容;容许", example: "I can't tolerate his rudeness. 我无法忍受他的无礼。" },
-    { word: "agenda", meaning: "n.议程表;议事日程", example: "The first item on the agenda is the budget. 议程上的第一项是预算。" },
-    { word: "adversity", meaning: "n.困境;逆境", example: "He remained strong in the face of adversity. 面对逆境，他依然坚强。" },
-    { word: "wage", meaning: "n.工资", example: "The workers demanded higher wages. 工人们要求加薪。" },
-    { word: "bitter", meaning: "a.严寒的;激烈而不愉快的", example: "The bitter cold made everyone shiver. 严寒让每个人都发抖。" },
-    { word: "expedition", meaning: "n.探险;远征;探险队", example: "They went on an expedition to the Arctic. 他们去北极探险。" },
-    { word: "endurance", meaning: "n.忍耐力;耐久力", example: "Marathon runners need great endurance. 马拉松运动员需要很强的耐力。" },
-    { word: "vigour", meaning: "n.精力;力量;活动", example: "He works with great vigour. 他工作精力充沛。" },
-    { word: "turn sb. down", meaning: "拒绝(某人)", example: "She turned down his invitation. 她拒绝了他的邀请。" },
-    { word: "qualified", meaning: "a.符合资格;具…知识/技能", example: "She is highly qualified for the job. 她完全有资格胜任这份工作。" },
-    { word: "enthusiastic", meaning: "a.热情的;热心的", example: "The students were enthusiastic about the project. 学生们对这个项目很热情。" },
-    { word: "aboard", meaning: "ad.&prep.上(船/飞机等)", example: "All passengers must be aboard by 8 PM. 所有乘客必须在晚上8点前登机。" },
-    { word: "cupboard", meaning: "n.橱柜;壁橱;衣柜", example: "The plates are in the cupboard. 盘子在橱柜里。" },
-    { word: "assign", meaning: "vt.分派;布置;分配", example: "The teacher assigned homework. 老师布置了家庭作业。" },
-    { word: "steward", meaning: "n.(轮船/飞机/火车)乘务员", example: "The steward served drinks to the passengers. 乘务员为乘客提供饮料。" },
-    { word: "envy", meaning: "n.&vt.羡慕;妒忌", example: "I envy your ability to stay calm. 我羡慕你能保持冷静。" },
-    { word: "crush", meaning: "vt.毁坏;压坏 n.拥挤的人群", example: "Don't crush the flowers. 不要压坏花朵。" },
-    { word: "sink", meaning: "vi.沉没;下沉 vt.使下沉", example: "The ship sank during the storm. 船在暴风雨中沉没了。" },
-    { word: "abandon", meaning: "vt.舍弃;抛弃;放弃", example: "They had to abandon the sinking ship. 他们不得不弃船。" },
-    { word: "stove", meaning: "n.炉具;厨房灶具", example: "She cooked soup on the stove. 她在炉子上煮汤。" },
-    { word: "blanket", meaning: "n.毯子", example: "He wrapped himself in a warm blanket. 他裹着一条温暖的毯子。" },
-    { word: "belongings", meaning: "n.[pl.]财物;动产", example: "Please take care of your belongings. 请保管好你的财物。" },
-    { word: "banjo", meaning: "n.班卓琴(乐器)", example: "He played the banjo at the concert. 他在音乐会上演奏了班卓琴。" },
-    { word: "miserable", meaning: "a.痛苦的;令人难受的", example: "The cold weather made everyone miserable. 寒冷的天气让每个人都难受。" },
-    { word: "voyage", meaning: "n.&vi.航海;航行", example: "The voyage across the ocean took two months. 横渡大洋的航行花了两个月。" },
-    { word: "navy", meaning: "n.海军;海军部队", example: "He served in the navy for ten years. 他在海军服役了十年。" },
-    { word: "decent", meaning: "a.相当不错的;正派的", example: "He found a decent job after graduation. 毕业后他找到了一份不错的工作。" },
-    { word: "cosy", meaning: "a.温馨的;舒适的", example: "The room was small but cosy. 房间虽小但很舒适。" },
-    { word: "selfish", meaning: "a.自私的", example: "It's selfish to only think about yourself. 只考虑自己是自私的。" },
-    { word: "good-tempered", meaning: "a.脾气好的", example: "She is always good-tempered. 她总是脾气很好。" },
-    { word: "bad-tempered", meaning: "a.脾气坏的", example: "The boss is often bad-tempered. 老板经常脾气不好。" },
-    { word: "genuine", meaning: "a.真正的;真诚的;可信赖的", example: "She showed genuine concern. 她表现出真诚的关心。" },
-    { word: "perseverance", meaning: "n.毅力;韧性;不屈不挠精神", example: "Success requires perseverance. 成功需要毅力。" },
-    { word: "persevere", meaning: "vi.坚持;孜孜以求", example: "Despite difficulties, he persevered. 尽管困难重重，他仍坚持。" },
-    { word: "resolve", meaning: "v.决定;决心 n.决心", example: "She resolved to study harder. 她决心更加努力学习。" },
-    { word: "resolution", meaning: "n.决议;解决;坚定", example: "The UN passed a new resolution. 联合国通过了一项新决议。" },
-    { word: "crew", meaning: "n.(轮船/飞机)全体工作人员", example: "The crew prepared for takeoff. 机组人员准备起飞。" },
-    { word: "cruel", meaning: "a.残酷的;残忍的;冷酷的", example: "It's cruel to treat animals badly. 虐待动物是残忍的。" },
-    { word: "thorough", meaning: "a.深入的;彻底的;细致的", example: "The doctor gave me a thorough examination. 医生给我做了彻底检查。" },
-    { word: "furniture", meaning: "n.家具", example: "We bought new furniture for the living room. 我们为客厅买了新家具。" },
-    { word: "unfortunately", meaning: "ad.不幸地;遗憾地", example: "Unfortunately, the concert was canceled. 不幸的是，音乐会被取消了。" },
-    { word: "fortunately", meaning: "ad.幸运地", example: "Fortunately, no one was hurt. 幸运的是，没有人受伤。" },
-    { word: "bark", meaning: "vi.&n.(狗)吠叫;吠叫声", example: "The dog barked at the stranger. 狗对陌生人吠叫。" },
-    { word: "rugby", meaning: "n.橄榄球运动", example: "He plays rugby for the school team. 他为校队打橄榄球。" },
-    { word: "bat", meaning: "n.球拍;蝙蝠 v.用球板击球", example: "He hit the ball with the bat. 他用球拍击球。" },
-    { word: "damp", meaning: "a.潮湿的;湿气重的", example: "The clothes felt damp after the rain. 雨后衣服感觉潮湿。" },
-    { word: "recreation", meaning: "n.娱乐;消遣;游戏", example: "Reading is my favorite recreation. 阅读是我最喜欢的消遣。" },
-    { word: "guidance", meaning: "n.指导;引导;导航", example: "Teachers provide guidance to students. 老师为学生提供指导。" },
-    { word: "nephew", meaning: "n.侄子;外甥", example: "My nephew is five years old. 我侄子五岁了。" },
-    { word: "advertising", meaning: "n.广告活动;广告业", example: "She works in advertising. 她在广告业工作。" },
-    { word: "advertise", meaning: "vt.&vi.公布;宣传;做广告", example: "The company advertised its new product. 公司为新产品做广告。" },
-    { word: "corporate", meaning: "a.公司的;法人的;社团的", example: "He works in corporate finance. 他在公司财务部门工作。" },
-    { word: "rough", meaning: "a.汹涌的;粗糙的;粗略的", example: "The sea was rough during the storm. 暴风雨期间海面汹涌。" },
-    { word: "navigator", meaning: "n.领航员;(飞机/船)航行者", example: "The navigator plotted the course. 领航员规划了航线。" },
-    { word: "loyal", meaning: "a.忠诚的;忠实的", example: "Dogs are loyal to their owners. 狗对主人忠诚。" },
-    { word: "motor", meaning: "n.发动机;马达 a.有引擎的", example: "The motor stopped working. 马达停止工作了。" },
-    { word: "candidate", meaning: "n.候选人;应试者", example: "There are three candidates for the position. 这个职位有三名候选人。" },
-    { word: "make fire", meaning: "生火", example: "They made fire to keep warm. 他们生火取暖。" },
-    { word: "give off", meaning: "放出(热/光/气味/气体)", example: "The flowers give off a sweet fragrance. 花朵散发出甜美的香气。" },
-    { word: "episode", meaning: "n.(人生)一段经历;小说片段", example: "This is the final episode of the series. 这是该系列的最后一集。" },
-    { word: "commitment", meaning: "n.承诺;保证;奉献", example: "She has a strong commitment to her work. 她对工作有强烈的奉献精神。" },
-    { word: "motive", meaning: "n.动机;原因;目的", example: "The police are investigating the motive. 警方正在调查动机。" },
-    { word: "Confucianism", meaning: "n.孔子学说;儒家(学说)", example: "Confucianism has influenced Chinese culture deeply. 儒家学说深深影响了中国文化。" },
-    { word: "drama", meaning: "n.戏;剧;戏剧艺术", example: "She studies drama at university. 她在大学学习戏剧。" },
-    { word: "sorrow", meaning: "n.悲伤;悲痛 vi.感到悲伤", example: "He felt deep sorrow at the loss. 他对失去感到深深的悲伤。" },
-    { word: "imagery", meaning: "n.形象的描述;意象;像", example: "The poem is rich in imagery. 这首诗意象丰富。" },
-    { word: "literary", meaning: "a.文学的;爱好文学的", example: "He has a literary style of writing. 他的写作具有文学风格。" },
-    { word: "rhyme", meaning: "n.押韵词;押韵诗 v.使押韵", example: "The poem doesn't rhyme. 这首诗不押韵。" },
-    { word: "rhythm", meaning: "n.节奏;韵律;规律", example: "The music has a strong rhythm. 音乐有强烈的节奏。" },
-    { word: "nursery", meaning: "a.幼儿教育的 n.托儿所", example: "The child goes to nursery every morning. 孩子每天早上上托儿所。" },
-    { word: "nursery rhyme", meaning: "童谣;儿歌", example: "Children love singing nursery rhymes. 孩子们喜欢唱童谣。" },
-    { word: "folk", meaning: "a.民间的;民俗的", example: "She enjoys folk music. 她喜欢民间音乐。" },
-    { word: "diamond", meaning: "n.钻石;金刚石;菱形", example: "She wore a diamond ring. 她戴着一枚钻石戒指。" },
-    { word: "brass", meaning: "n.黄铜;黄铜制品;铜管乐器", example: "The doorknob is made of brass. 门把手是黄铜制的。" },
-    { word: "billy goat", meaning: "n.公山羊", example: "The billy goat butted the fence. 公山羊用角顶篱笆。" },
-    { word: "bull", meaning: "n.公牛", example: "The bull charged at the matador. 公牛冲向斗牛士。" },
-    { word: "recite", meaning: "vt.背诵;吟诵;列举", example: "She recited a poem at the assembly. 她在集会上背诵了一首诗。" },
-    { word: "bee", meaning: "n.蜜蜂", example: "Bees collect nectar from flowers. 蜜蜂从花朵中采集花蜜。" },
-    { word: "dewdrop", meaning: "n.露珠;水珠", example: "Dewdrops glistened on the grass. 露珠在草地上闪闪发光。" },
-    { word: "dawn", meaning: "n.黎明;开端;萌芽", example: "We got up at dawn. 我们黎明时分起床。" },
-    { word: "clover", meaning: "n.三叶草", example: "A four-leaf clover is considered lucky. 四叶草被认为是幸运的。" },
-    { word: "butterfly", meaning: "n.蝴蝶", example: "A butterfly landed on the flower. 一只蝴蝶落在花上。" },
-    { word: "lawn", meaning: "n.草坪,草地", example: "He mowed the lawn yesterday. 他昨天修剪了草坪。" },
-    { word: "amateur", meaning: "n.业余爱好者 a.业余的", example: "He is an amateur photographer. 他是业余摄影师。" },
-    { word: "cinquain", meaning: "n.五行诗", example: "She wrote a cinquain for class. 她为课堂写了一首五行诗。" },
-    { word: "be made up of ...", meaning: "组成(构成)", example: "The committee is made up of experts. 委员会由专家组成。" },
-    { word: "mood", meaning: "n.情绪;心情;语气", example: "He's in a bad mood today. 他今天心情不好。" },
-    { word: "tease", meaning: "v.取笑(某人);揶揄;逗弄", example: "Don't tease your little brother. 不要取笑你弟弟。" },
-    { word: "haiku", meaning: "n.俳句", example: "He composed a haiku about autumn. 他写了一首关于秋天的俳句。" },
-    { word: "syllable", meaning: "n.音节", example: "The word 'water' has two syllables. “water”这个词有两个音节。" },
-    { word: "format", meaning: "n.格式;总体安排 vt.格式化", example: "The document has a standard format. 文件有标准格式。" },
-    { word: "respectively", meaning: "ad.分别;各自;依次为", example: "Tom and Jerry are 10 and 8 years old, respectively. 汤姆和杰瑞分别是10岁和8岁。" },
-    { word: "respective", meaning: "a.分别的;各自的", example: "They went to their respective rooms. 他们去了各自的房间。" },
-    { word: "blossom", meaning: "n.花朵;花簇", example: "Cherry trees are in blossom. 樱花树开花了。" },
-    { word: "delicate", meaning: "a.精美的;精致的;脆弱的", example: "Handle the vase with care—it's very delicate. 小心拿花瓶，它很精致。" },
-    { word: "await", meaning: "vt.等候;期待;将发生在", example: "We await your reply. 我们等待您的回复。" },
-    { word: "revolve", meaning: "vi.旋转;环绕;转动", example: "The Earth revolves around the Sun. 地球绕太阳旋转。" },
-    { word: "utter", meaning: "vt.出声;说;讲 a.完全的", example: "He didn't utter a word. 他一句话也没说。" },
-    { word: "comprehension", meaning: "n.理解力;领悟力;理解练习", example: "The test measures reading comprehension. 测试测量阅读理解能力。" },
-    { word: "shelf", meaning: "n.架子;搁板", example: "Put the book back on the shelf. 把书放回架子上。" },
-    { word: "core", meaning: "n.核心;精髓;(水果的)核儿", example: "The core of the problem is lack of communication. 问题的核心是缺乏沟通。" },
-    { word: "cherry", meaning: "n.樱桃;樱桃树 a.樱桃色的", example: "She loves cherry pie. 她喜欢樱桃派。" },
-    { word: "cherry blossom", meaning: "樱花", example: "We went to see the cherry blossoms. 我们去看樱花了。" },
-    { word: "blank", meaning: "a.空白的;无图画 n.空白", example: "Please fill in the blank spaces. 请填写空白处。" },
-    { word: "verse", meaning: "n.诗;韵文;诗节", example: "He quoted a verse from the Bible. 他引用了《圣经》中的一节。" },
-    { word: "civilian", meaning: "n.平民;老百姓", example: "The attack killed many civilians. 袭击造成许多平民死亡。" },
-    { word: "prose", meaning: "n.散文", example: "She writes both poetry and prose. 她既写诗也写散文。" },
-    { word: "sympathetic", meaning: "a.同情的;有同情心的", example: "She was sympathetic to his troubles. 她对他的困境表示同情。" },
-    { word: "sympathy", meaning: "n.同情;赞同", example: "I have no sympathy for lazy people. 我对懒人没有同情。" },
-    { word: "version", meaning: "n.版本;(不同角度的)说法", example: "The latest version of the software includes many new features. 该软件的最新版本包含许多新功能。" },
-    { word: "innocence", meaning: "n.天真;单纯;无罪", example: "The child's innocence was evident in her curious questions. 孩子的好奇问题显示出她的天真无邪。" },
-    { word: "innocent", meaning: "a.天真无邪的;无辜的", example: "He was proven innocent after the trial. 审判后他被证明是无辜的。" },
-    { word: "era", meaning: "n.时代;年代;纪元", example: "The invention marked the beginning of a new era. 这项发明标志着一个新时代的开始。" },
-    { word: "correspondence", meaning: "n.来往信件;通信联系", example: "She kept all her correspondence in a special folder. 她将所有来往信件保存在一个专门的文件夹中。" },
-    { word: "correspond", meaning: "vi.相一致;符合;相当于", example: "His actions do not correspond with his words. 他的言行不一致。" },
-    { word: "sow", meaning: "vt.&vi.播种;种", example: "Farmers sow seeds in the spring. 农民们在春天播种。" },
-    { word: "seed", meaning: "n.种子;起源;萌芽", example: "The seed grew into a beautiful flower. 种子长成了一朵美丽的花。" },
-    { word: "dominant", meaning: "a.首要的;占支配地位的", example: "The dominant team won the match easily. 占优势的球队轻松赢得了比赛。" },
-    { word: "sonnet", meaning: "n.十四行诗", example: "Shakespeare wrote many famous sonnets. 莎士比亚写了许多著名的十四行诗。" },
-    { word: "deadline", meaning: "n.最后期限;截止日期", example: "We must finish the project before the deadline. 我们必须在截止日期前完成项目。" },
-    { word: "contest", meaning: "n.比赛;竞赛 vt.争取赢得", example: "She won first prize in the singing contest. 她在歌唱比赛中获得了一等奖。" },
-    { word: "polish", meaning: "vt.修改;润色 n.上光剂", example: "He spent hours polishing his speech. 他花了几个小时润色他的演讲。" },
-    { word: "string", meaning: "n.细绳;线 vt.悬挂;系", example: "She tied the package with a piece of string. 她用一根细绳把包裹系好。" },
-    { word: "wherever", meaning: "conj.在任何地方 ad.在哪里", example: "Wherever you go, I will follow. 无论你去哪里，我都会跟随。" },
-    { word: "barren", meaning: "a.贫瘠的;不结果实的", example: "The barren land could not support crops. 贫瘠的土地无法种植庄稼。" },
-    { word: "grief", meaning: "n.悲伤;悲痛;伤心事", example: "She felt deep grief after her loss. 失去后她感到深深的悲伤。" },
-    { word: "complicated", meaning: "a.复杂的;难懂的", example: "The instructions were too complicated to follow. 说明书太复杂，难以理解。" },
-    { word: "variation", meaning: "n.变化;变体;变奏曲", example: "There are many variations of this recipe. 这个食谱有许多变体。" },
-    { word: "racial", meaning: "a.种族的;人种的", example: "Racial equality is an important goal for society. 种族平等是社会的重要目标。" },
-    { word: "prejudice", meaning: "n.偏见;成见 vt.使怀有偏见", example: "We should avoid making decisions based on prejudice. 我们应该避免基于偏见做决定。" },
-    { word: "fiction", meaning: "n.小说;虚构的事", example: "He enjoys reading science fiction in his free time. 他喜欢在空闲时间读科幻小说。" },
-    { word: "science fiction", meaning: "[abbr.SF]科幻小说/影片等", example: "Science fiction often explores futuristic technologies. 科幻小说常常探索未来科技。" },
-    { word: "test out", meaning: "检验;测试", example: "We need to test out the new equipment before using it. 我们需要在使用前测试新设备。" },
-    { word: "bonus", meaning: "n.意外收获;奖金;红利", example: "Employees received a year-end bonus for their hard work. 员工们因努力工作获得了年终奖金。" },
-    { word: "more like", meaning: "更像是;更接近", example: "The weather is more like spring than winter today. 今天的天气更像是春天而不是冬天。" },
-    { word: "ridiculous", meaning: "a.愚蠢的;荒谬的;荒唐的", example: "His idea was so ridiculous that no one took it seriously. 他的想法太荒谬了，没人当真。" },
-    { word: "integrity", meaning: "n.诚实正直;完整;完好", example: "She is known for her integrity and strong moral principles. 她以诚实正直和强烈的道德原则闻名。" },
-    { word: "dignity", meaning: "n.庄重;庄严;尊严", example: "He faced the challenge with great dignity. 他以极大的尊严面对挑战。" },
-    { word: "salary", meaning: "n.薪水;薪金", example: "Her salary increased after the promotion. 升职后她的薪水增加了。" },
-    { word: "absurd", meaning: "a.荒谬的;荒唐的", example: "The idea that the earth is flat is completely absurd. 地球是平的这一想法完全荒谬。" },
-    { word: "appointment", meaning: "n.预约;约会;委任", example: "I have an appointment with the dentist at 3 PM. 我下午3点约了牙医。" },
-    { word: "nail", meaning: "n.指甲;趾甲 vt.(用钉)钉牢", example: "She painted her nails bright red. 她把指甲涂成了亮红色。" },
-    { word: "saleswoman", meaning: "n.女售货员;女推销员", example: "The saleswoman helped me find the perfect dress. 女售货员帮我找到了完美的裙子。" },
-    { word: "guilty", meaning: "a.内疚的;有罪的;有过失的", example: "He felt guilty for forgetting his friend's birthday. 他因为忘记朋友的生日而感到内疚。" },
-    { word: "suspend", meaning: "vt.悬;挂;暂停;暂缓", example: "The school decided to suspend the student for breaking the rules. 学校决定暂停违反规定的学生的学籍。" },
-    { word: "ladder", meaning: "n.梯子;阶梯", example: "He climbed the ladder to fix the roof. 他爬上梯子去修理屋顶。" },
-    { word: "dismiss", meaning: "vt.让(某人)离开;解散;解雇", example: "The manager had to dismiss the employee for repeated tardiness. 经理因员工多次迟到而解雇了他。" },
-    { word: "declare", meaning: "vt.表明;宣称;公布", example: "The president declared a state of emergency. 总统宣布进入紧急状态。" },
-    { word: "whereas", meaning: "conj.然而;但是;尽管", example: "She loves spicy food, whereas her brother prefers mild flavors. 她喜欢辛辣食物，而她弟弟更喜欢清淡口味。" },
-    { word: "rumour", meaning: "n.谣言;传闻", example: "The rumour about their breakup spread quickly. 关于他们分手的谣言迅速传开。" },
-    { word: "presume", meaning: "vt.&vi.假设;假定", example: "We can presume that he will attend the meeting. 我们可以假设他会参加会议。" },
-    { word: "fare", meaning: "n.车费;船费;飞机票价", example: "The bus fare has increased this year. 今年的公交车费上涨了。" },
-    { word: "weekly", meaning: "a.每周的 n.周刊", example: "She reads the weekly magazine every Sunday. 她每周日都会读这本周刊。" },
-    { word: "on a ... basis", meaning: "根据;以…的方式(基准)", example: "Employees are paid on a monthly basis. 员工按月领取工资。" },
-    { word: "calculate", meaning: "vt.计算;核算;预测", example: "Scientists can calculate the distance between planets. 科学家可以计算行星之间的距离。" },
-    { word: "chairwoman", meaning: "n.女主席;女董事长;女委员长", example: "The chairwoman led the meeting with great efficiency. 女主席高效地主持了会议。" },
-    { word: "gramme", meaning: "n.克(重量单位)", example: "The recipe requires 200 grammes of flour. 这个食谱需要200克面粉。" },
-    { word: "flour", meaning: "n.面粉;(谷物磨成的)粉", example: "She sifted the flour before adding it to the mixture. 她在加入混合物前筛了面粉。" },
-    { word: "venue", meaning: "n.活动场地(音乐厅/会场等)", example: "The concert venue was packed with excited fans. 音乐会场地挤满了兴奋的粉丝。" },
-    { word: "salesman", meaning: "n.售货员;推销员", example: "The salesman demonstrated how the product works. 推销员演示了产品的使用方法。" },
-    { word: "alien", meaning: "n.外星人;外国人 a. 陌生的", example: "The movie is about an alien visiting Earth. 这部电影讲述了一个外星人访问地球的故事。" },
-    { word: "pros and cons", meaning: "事物的利与弊;支持与反对", example: "We discussed the pros and cons of the new policy. 我们讨论了新政策的利弊。" },
-    { word: "blurred", meaning: "a.模糊不清的;难以区分的", example: "The photo was blurred because the camera moved. 照片因为相机移动而模糊了。" },
-    { word: "superior", meaning: "a.更好的;占优势的;更高的", example: "This product is superior in quality to the others. 这个产品的质量优于其他产品。" },
-    { word: "superior to", meaning: "比…更好;更胜一筹", example: "Her skills are superior to those of her peers. 她的技能比同龄人更胜一筹。" },
-    { word: "take over", meaning: "占上风;取而代之;接管;接手", example: "The new manager will take over next week. 新经理将于下周接手。" },
-    { word: "inaction", meaning: "n.无行动;不采取措施", example: "The government's inaction led to further problems. 政府的不作为导致了更多问题。" },
-    { word: "conflict with", meaning: "与…冲突或抵触", example: "His schedule conflicts with the meeting time. 他的日程与会议时间冲突。" },
-    { word: "labour", meaning: "n.劳动者;体力劳动 vi.奋斗", example: "The workers went on strike for better labour conditions. 工人们为争取更好的劳动条件而罢工。" },
-    { word: "leather", meaning: "n.皮革;[pl.]皮衣;皮外套", example: "He bought a new leather jacket. 他买了一件新的皮夹克。" },
-    { word: "lever", meaning: "n.操纵杆;杠杆", example: "Pull the lever to start the machine. 拉动操纵杆启动机器。" },
-    { word: "panel", meaning: "n.控制板;仪表盘;专家咨询组", example: "The control panel is located on the wall. 控制板位于墙上。" },
-    { word: "inch", meaning: "n.英寸(等于2.54厘米)", example: "The screen measures 15 inches diagonally. 屏幕对角线长度为15英寸。" },
-    { word: "backwards", meaning: "ad.向后;倒着;往回", example: "He took a step backwards to avoid the puddle. 他向后退了一步以避开水坑。" },
-    { word: "grip", meaning: "vt.&vi.紧握;抓紧", example: "She gripped the railing tightly as she climbed the stairs. 她爬楼梯时紧紧抓住栏杆。" },
-    { word: "hazy", meaning: "a.模糊的;朦胧的;困惑的", example: "The distant mountains were hazy in the morning fog. 远处的山在晨雾中显得朦胧。" },
-    { word: "niece", meaning: "n.侄女;外甥女", example: "My niece loves to play with dolls. 我的侄女喜欢玩娃娃。" },
-    { word: "fetch", meaning: "vt.(去)拿来;(去)请来", example: "The dog fetched the ball and brought it back. 狗把球叼了回来。" },
-    { word: "handkerchief", meaning: "n.手帕;纸巾", example: "He offered her a handkerchief to dry her tears. 他递给她一块手帕擦眼泪。" },
-    { word: "lamp", meaning: "n.灯;台灯", example: "She turned on the lamp to read her book. 她打开台灯看书。" },
-    { word: "turn out", meaning: "关掉;熄灭;在场;使朝外", example: "Please turn out the lights before leaving. 离开前请关灯。" },
-    { word: "pace", meaning: "n.速度;步伐 v.确定速度", example: "She walked at a slow pace to enjoy the scenery. 她放慢脚步欣赏风景。" },
-    { word: "fall away", meaning: "(逐渐)减少;消失", example: "Support for the idea began to fall away. 对这个想法的支持开始减少。" },
-    { word: "division", meaning: "n.分开;分隔;差异;除(法)", example: "The division of labor improved efficiency. 分工提高了效率。" },
-    { word: "puff", meaning: "n.(烟/气等)一缕;少量;喘息", example: "A puff of smoke rose from the chimney. 一缕烟从烟囱升起。" },
-    { word: "urge", meaning: "n.强烈的欲望;冲动 vt.催促", example: "He felt an urge to travel and explore new places. 他有一种去旅行和探索新地方的冲动。" },
-    { word: "have an urge to", meaning: "有强烈的欲望做某事", example: "She had an urge to call her old friend. 她有一种给老朋友打电话的冲动。" },
-    { word: "random", meaning: "a.随机的;不可思议的", example: "The computer generated a random number. 计算机生成了一个随机数。" },
-    { word: "maximum", meaning: "a.最大极限的 n.最大量", example: "The maximum capacity of the room is 50 people. 房间的最大容量是50人。" },
-    { word: "explode", meaning: "vi.&vt.爆炸;爆破", example: "The fireworks exploded in the night sky. 烟花在夜空中爆炸。" },
-    { word: "jolt", meaning: "n.震动;摇晃;颠簸 v.使震动", example: "The bus came to a sudden stop with a jolt. 公交车突然颠簸着停了下来。" },
-    { word: "flip", meaning: "v.(使)快速翻转;(手指)轻抛", example: "He flipped the coin to make a decision. 他抛硬币做决定。" },
-    { word: "stun", meaning: "vt.使震惊，使昏迷", example: "The news stunned everyone in the room. 这个消息震惊了房间里的所有人。" },
-    { word: "mud", meaning: "n.泥;泥浆", example: "After the rain, the path was covered in mud. 雨后，小路上满是泥浆。" },
-    { word: "overstatement", meaning: "n.夸大;夸张", example: "Saying it's the best movie ever is an overstatement. 说这是有史以来最好的电影有些夸张。" },
-    { word: "iconic", meaning: "a.符号的;图标的", example: "The Eiffel Tower is an iconic symbol of Paris. 埃菲尔铁塔是巴黎的标志性象征。" },
-    { word: "foundation", meaning: "n.创建;基础;地基", example: "The foundation of the building was laid last year. 这座建筑的地基是去年打下的。" },
-    { word: "political", meaning: "a.政治的", example: "The debate focused on political issues. 辩论集中在政治问题上。" },
-    { word: "located", meaning: "a.位于", example: "The hotel is located near the beach. 酒店位于海滩附近。" },
-    { word: "equator", meaning: "n.赤道", example: "The equator divides the Earth into northern and southern hemispheres. 赤道将地球分为北半球和南半球。" },
-    { word: "koala", meaning: "n.考拉;树袋熊", example: "Koalas spend most of their time sleeping in trees. 考拉大部分时间都在树上睡觉。" },
-    { word: "barbecue", meaning: "n.(abbr.BBQ)户外烧烤;烤架", example: "We had a barbecue in the backyard last weekend. 上周末我们在后院烧烤。" },
-    { word: "bakery", meaning: "n.面包(糕饼)店;面包厂", example: "The bakery sells fresh bread every morning. 面包店每天早上都卖新鲜面包。" },
-    { word: "joint", meaning: "n.公共场所;关节 a.联合的", example: "They opened a joint bank account. 他们开了一个联合银行账户。" },
-    { word: "butcher", meaning: "n.肉贩;屠夫;刽子手", example: "The butcher prepared the meat for the customer. 肉贩为顾客准备了肉。" },
-    { word: "premier", meaning: "a.最著名的;第一的 n.总理", example: "The premier addressed the nation on television. 总理在电视上向全国发表讲话。" },
-    { word: "herb", meaning: "n.药草;香草;草本", example: "She grows herbs in her kitchen garden. 她在菜园里种植香草。" },
-    { word: "dim sim", meaning: "(特指澳大利亚的)点心", example: "Dim sim is a popular snack in Australia. 点心在澳大利亚是一种受欢迎的小吃。" },
-    { word: "hollow", meaning: "a.中空的;空心的", example: "The tree trunk was hollow inside. 树干内部是空心的。" },
-    { word: "vibrate", meaning: "vt.&vi.(使)振动", example: "The phone vibrated on the table. 手机在桌子上振动。" },
-    { word: "horn", meaning: "n.(乐器)号", example: "He played the horn in the school band. 他在学校乐队中演奏号。" },
-    { word: "pitch", meaning: "n.音高", example: "She has a perfect pitch and can identify any note. 她有绝对音感，能识别任何音符。" },
-    { word: "straightforward", meaning: "a.坦率的;简单的", example: "The instructions were straightforward and easy to follow. 说明书简单易懂。" },
-    { word: "slogan", meaning: "n.标语;口号", example: "The company's slogan is 'Quality First'. 公司的口号是'质量第一'。" },
-    { word: "minister", meaning: "n.部长;大臣;外交使节", example: "The minister announced new policies to support education. 部长宣布了支持教育的新政策。" },
-    { word: "prime minister", meaning: "首相;总理", example: "The prime minister met with foreign leaders. 首相会见了外国领导人。" },
-    { word: "frog", meaning: "n.蛙;青蛙", example: "The frog jumped into the pond. 青蛙跳进了池塘。" },
-    { word: "arrow", meaning: "n.箭;箭头", example: "Follow the arrows to find the exit. 跟随箭头找到出口。" },
-    { word: "entitle", meaning: "vt.给…命名;使享有权利", example: "This ticket entitles you to a free drink. 这张票让你可以免费喝一杯。" },
-    { word: "getaway", meaning: "n.适合度假的地方", example: "The island is a perfect getaway for relaxation. 这个岛屿是放松的理想度假地。" },
-    { word: "dive", meaning: "vi.&n.潜水;跳水;俯冲", example: "She loves to dive into the ocean and explore coral reefs. 她喜欢潜入海洋探索珊瑚礁。" },
-    { word: "peak season", meaning: "高峰季节", example: "Hotels are more expensive during peak season. 高峰季节酒店更贵。" },
-    { word: "freedom", meaning: "n.自由;不受…影响的状态", example: "Freedom of speech is a fundamental right. 言论自由是一项基本权利。" },
-    { word: "domain", meaning: "n.领域;领土;范围", example: "This topic falls within the domain of science. 这个主题属于科学领域。" },
-    { word: "sponsor", meaning: "vt.倡议;赞助 n.法案倡议者", example: "The event was sponsored by a local company. 活动由一家当地公司赞助。" },
-    { word: "liberty", meaning: "n.自由", example: "The statue symbolizes liberty and justice. 这座雕像象征自由和正义。" },
-    { word: "golf", meaning: "n.高尔夫球运动", example: "He plays golf every weekend. 他每周末打高尔夫球。" },
-    { word: "strait", meaning: "n.海峡", example: "The ship sailed through the narrow strait. 船驶过狭窄的海峡。" },
-    { word: "sample", meaning: "n.样本;样品", example: "The doctor took a blood sample for testing. 医生取了血样进行检测。" },
-    { word: "monument", meaning: "n.纪念碑/馆/堂等;历史遗迹", example: "The monument was built to honor the heroes. 这座纪念碑是为纪念英雄而建的。" },
-    { word: "a flock of", meaning: "—群(羊或鸟)", example: "A flock of birds flew across the sky. 一群鸟飞过天空。" },
-    { word: "distribution", meaning: "n.分布;分配;分发", example: "The distribution of resources was fair. 资源分配是公平的。" },
-    { word: "pouch", meaning: "n.育儿袋;小袋子;荷包", example: "The kangaroo carries its baby in a pouch. 袋鼠用育儿袋携带幼崽。" },
-    { word: "temporary", meaning: "a.暂时的;短暂的", example: "He found a temporary job while searching for a permanent one. 他在找长期工作时找到了一份临时工作。" },
-    { word: "phase", meaning: "n.阶段;时期", example: "The project is in its final phase. 项目处于最后阶段。" },
-    { word: "trunk", meaning: "n.树干", example: "The elephant used its trunk to pick up food. 大象用鼻子捡食物。" },
-    { word: "licensed", meaning: "a.得到正式许可的", example: "Only licensed drivers can operate the vehicle. 只有有驾照的司机才能驾驶这辆车。" },
-    { word: "license", meaning: "vt.批准;许可 n.许可证", example: "You need a license to fish in this lake. 你需要许可证才能在这个湖里钓鱼。" },
-    { word: "session", meaning: "n.—场;一段时间;会议", example: "The training session lasted two hours. 培训持续了两个小时。" },
-    { word: "frequency", meaning: "n.发生率;重复率;频率", example: "The frequency of earthquakes has increased. 地震的频率增加了。" },
-    { word: "violent", meaning: "a.暴力的;猛烈的", example: "The movie contains violent scenes. 电影包含暴力场景。" },
-    { word: "violence", meaning: "n.暴力;暴行", example: "The community is working to reduce violence. 社区正在努力减少暴力。" },
-    { word: "nest", meaning: "n.巢穴;鸟窝;秘密窝点", example: "The bird built a nest in the tree. 鸟在树上筑巢。" },
-    { word: "mammal", meaning: "n.哺乳动物", example: "Whales are the largest mammals in the ocean. 鲸鱼是海洋中最大的哺乳动物。" },
-    { word: "biology", meaning: "n.生理;生物学", example: "She is studying biology at university. 她在大学学习生物学。" },
-    { word: "hatch", meaning: "vi.孵出 vt.使孵出;策划", example: "The eggs will hatch in about two weeks. 蛋大约两周后会孵化。" },
-    { word: "capacity", meaning: "n.能力;容量", example: "The stadium has a capacity of 50,000 people. 体育场可容纳5万人。" },
-    { word: "a handful of", meaning: "少数人(或物);一把(的量)", example: "Only a handful of people attended the meeting. 只有少数人参加了会议。" },
-    { word: "fence", meaning: "n.栅栏;围栏", example: "They built a fence around the garden. 他们在花园周围建了栅栏。" },
-    { word: "prison", meaning: "n.监狱;监禁", example: "He was sentenced to five years in prison. 他被判处五年监禁。" },
-    { word: "grand", meaning: "a.大;宏大的", example: "The grand hall was decorated for the ceremony. 大厅为仪式装饰得宏伟壮观。" },
-    { word: "tale", meaning: "n.故事;叙述", example: "She told a tale of adventure and bravery. 她讲了一个关于冒险和勇敢的故事。" },
-    { word: "merchant", meaning: "n.商人;批发商 a.海上货运的", example: "The merchant sold goods from distant lands. 商人出售来自遥远国度的商品。" },
-    { word: "set sail", meaning: "起航;开航", example: "The ship set sail at dawn. 船在黎明时起航。" },
-    { word: "extend", meaning: "vt.扩展;使伸长;延长", example: "They decided to extend their vacation by a week. 他们决定将假期延长一周。" },
-    { word: "negotiate", meaning: "vt.商定;达成协议 vi.谈判", example: "The two countries negotiated a peace treaty. 两国谈判达成了和平条约。" },
-    { word: "fleet", meaning: "n.舰队;机群;车队", example: "The company owns a fleet of delivery trucks. 公司拥有一支送货卡车车队。" },
-    { word: "behold", meaning: "vt.看;看见", example: "Behold the beauty of the sunset! 看那日落的美丽！" },
-    { word: "league", meaning: "n.等级;水平;联合会;联赛", example: "The team plays in the national league. 球队参加全国联赛。" },
-    { word: "in a league of one's own", meaning: "独领风骚", example: "Her talent puts her in a league of her own. 她的才华让她独领风骚。" },
-    { word: "royal", meaning: "a.皇家的;王室的;高贵的", example: "The royal family attended the ceremony. 王室成员出席了仪式。" },
-    { word: "spice", meaning: "n.(调味)香料", example: "She added some spice to the soup for flavor. 她在汤里加了一些香料调味。" },
-    { word: "withdraw", meaning: "vi.＆vt.(使)撤回;撤离", example: "He decided to withdraw from the competition. 他决定退出比赛。" },
-    { word: "withdraw from", meaning: "退出;撤回", example: "The army withdrew from the area. 军队从该地区撤出。" },
-    { word: "channel", meaning: "n.航道;海峡;频道", example: "She changed the channel to watch the news. 她换频道看新闻。" },
-    { word: "maritime", meaning: "a.海的;海运的;海事的", example: "The country has a strong maritime tradition. 这个国家有强大的海运传统。" },
-    { word: "bond", meaning: "n.纽带;关系 v.增强信任关系", example: "The bond between the two friends was unbreakable. 两位朋友之间的纽带牢不可破。" },
-    { word: "in hand", meaning: "在手头;可供使用", example: "We have enough resources in hand to complete the project. 我们手头有足够的资源完成项目。" },
-    { word: "politics", meaning: "n.政治;政治观点", example: "He has strong opinions about politics. 他对政治有强烈的看法。" },
-    { word: "profession", meaning: "n.职业;行业", example: "Teaching is a noble profession. 教学是一个崇高的职业。" },
-    { word: "tournament", meaning: "n.锦标赛;联赛", example: "The tennis tournament attracted top players. 网球锦标赛吸引了顶尖选手。" },
-    { word: "mixture", meaning: "n.混合;结合体;混合物", example: "The cake batter is a mixture of flour, eggs, and sugar. 蛋糕面糊是面粉、鸡蛋和糖的混合物。" },
-    { word: "laptop", meaning: "n.笔记本电脑;便携式电脑", example: "He uses his laptop for work and entertainment. 他用笔记本电脑工作和娱乐。" },
-    { word: "coverage", meaning: "n.新闻报道;覆盖范围", example: "The event received extensive media coverage. 活动得到了媒体的广泛报道。" },
-    { word: "press conference", meaning: "记者招待会;新闻发布会", example: "The mayor held a press conference to address the issue. 市长召开新闻发布会讨论这个问题。" },
-    { word: "applaud", meaning: "vt.＆vi.鼓掌 vt.称赞;赞赏", example: "The audience applauded after the performance. 观众在表演结束后鼓掌。" },
-    { word: "tax", meaning: "vt.对…征税 n.税;税款", example: "The government taxes income and property. 政府对收入和财产征税。" },
-    { word: "manned", meaning: "a.有人控制的;需人操纵的", example: "The first manned mission to the moon was in 1969. 第一次载人登月任务是在1969年。" },
-    { word: "submersible", meaning: "n.潜水器;可潜船", example: "The submersible explored the ocean depths. 潜水器探索了海洋深处。" },
-    { word: "underwater", meaning: "ad.在水下 a.水下的", example: "The divers explored the underwater cave. 潜水员探索了水下洞穴。" },
-    { word: "coral", meaning: "n.珊瑚", example: "The coral reef is home to many marine species. 珊瑚礁是许多海洋生物的家园。" },
-    { word: "migration", meaning: "n.迁移;迁徙;移居", example: "Bird migration happens twice a year. 鸟类迁徙每年发生两次。" },
-    { word: "directory", meaning: "n.名录;电话号码簿", example: "She looked up his number in the directory. 她在电话簿中查找他的号码。" },
-    { word: "meanwhile", meaning: "ad.与此同时;两方面对比之下", example: "She was cooking dinner; meanwhile, he set the table. 她在做晚餐，与此同时，他摆好了餐具。" },
-    { word: "exploit", meaning: "vt.开发;利用;剥削", example: "The company was accused of exploiting workers. 公司被指控剥削工人。" },
-    { word: "gallon", meaning: "n.加仑(容积单位)", example: "The car's fuel tank holds 12 gallons. 汽车的油箱可装12加仑油。" },
-    { word: "murder", meaning: "vt.谋杀;凶杀 n.谋杀;凶杀", example: "The detective solved the murder case. 侦探侦破了谋杀案。" },
-    { word: "mercy", meaning: "n.仁慈;宽恕;恩惠", example: "The judge showed mercy to the first-time offender. 法官对初犯者表现出仁慈。" },
-    { word: "possession", meaning: "n.[pl.]个人财产;拥有;控制", example: "He lost all his possessions in the fire. 他在火灾中失去了所有财产。" },
-    { word: "opponent", meaning: "n.反对者;对手;竞争者", example: "She defeated her opponent in the debate. 她在辩论中击败了对手。" },
-    { word: "log", meaning: "vt.把…载入记录 n.正式记录", example: "The captain logged the ship's position daily. 船长每天记录船的位置。" },
-    { word: "marine", meaning: "a.海的;海产的;海生的", example: "Marine life is diverse and fascinating. 海洋生物多样且迷人。" },
-    { word: "arrest", meaning: "n.逮捕;拘留 vt.逮捕;拘留", example: "The police made an arrest in the case. 警方在案件中逮捕了一人。" }
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "exchange",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "交换；交流"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "交换；交流；交易；兑换"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "lecture",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "讲座；讲课；教训"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "（开）讲座；讲课"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "训斥"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "registration",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "登记；注册；挂号"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "register",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "登记；注册"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "sex",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "性别"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "female",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "女（性）的，雌的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "雌性动（植）物；女子"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "male",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "男（性）的；雄的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "雄性动（植）物；男子"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "nationality",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "国籍；民族"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "nation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "国家；民族；国民"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "designer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "设计者"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "design",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "设计；设计方案"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "设计；筹划"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "campus",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "校园；校区"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "formal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "正式的；正规的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "anxious",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "焦虑的；不安的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "annoyed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "恼怒的；生气的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "annoy",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使恼怒；打扰"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "frightened",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "惊吓的；害怕的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "senior",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "级别（或地位）高的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "较年长的人"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "senior high school",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "（美国）高中"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "at last",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "终于；最终"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "outgoing",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "爱交际的；外向的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "impression",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "印象；感想"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "impress",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使钦佩；给……留下深刻的印象"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "留下印象；引人注目"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "make an impression",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "留下好印象"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "what if",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "要是……会怎么样呢？"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "guy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "小伙子；男子；家伙"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "concentrate",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "集中（注意力）；聚精会神"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "concentrate on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "集中精力于"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "experiment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "实验；实验"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "leave...alone",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "不打扰；不惊动"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "awkward",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "令人尴尬的；难对付的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "junior",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "地位（或职位、级别）低下的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "职位较低者；（体育运动中）青少年"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "junior high school",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(美国）初级中学"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "explore",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "探索；勘探"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "confident",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "自信的；有把握的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "confidence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "信心；信任"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "forward",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "（also forwards）向前；前进"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "向前的；前进的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "look forward to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "盼望；期待"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "take notes",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "记笔记"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "flash",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "光；信号"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "闪耀；闪光；发出信号"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使闪耀；发出（信号）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "flash card",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "数学卡片；识字卡"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "organise",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "组织；筹备；安排；组建"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "组建；成立"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "organisation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "组织；团体；机构"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "goal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "目标；球门；射门"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "strategy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "策略；策划"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "partner",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "同伴；配偶；合伙人"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "curious",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "好奇的；求知欲强的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "company",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公司；商行；陪伴"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "personality",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "性格；个性"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "style",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "方式；作风"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Welcome Unit",
+        "english": "revise",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "修改；修订；复习"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "teenage",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "十几岁的（指13至19岁）；青少年的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "teenager",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(13至19之间的）青少年"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "ballet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "芭蕾舞"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "volunteer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "志愿者"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "debate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "辩论；争论"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "辩论；争论"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "prefer",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "较喜欢"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "prefer...to...",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "喜欢……多于……"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "content",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "内容；[pl.]目录；"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "（书、讲话、节目等的）主题"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "movement",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "动作；运动；活动"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "greenhouse",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "温室；暖房"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "clean up",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "打扫（或清除）干净"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "suitable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "合适的；适用的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "suitable for",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "对……适合的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "actually",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "事实上；的确"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "challenge",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "挑战；艰巨任务"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "怀疑；向……挑战"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "title",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(书、诗歌等的）名称；标题；职称；头衔"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "topic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "话题；标题"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "freshman",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（中学）九年级学生；（大学）一年级新生"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "confusing",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "难以理解的；不清楚的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "confuse",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使糊涂；使迷惑"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "confused",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "糊涂的；迷惑的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "fluent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "（尤指外语）流利的；熟练的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "graduate",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "毕业；获得学位n. 毕业生"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "recommend",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "建议；推荐；介绍"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "sign up（for sth.）",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "报名（参加课程）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "advanced",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "高级的；高等的；先进的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "advance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "前进；发展"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "前进；发展"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "发展；促进"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "literature",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "文学；文学作品"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "extra-curricular",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "课外的；课程以外的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "extra",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "额外的；附加的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "obviously",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "显然；明显地"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "quit (quit,quit)",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "停止；戒掉；离开（工作职位、学校等）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "improve",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "改进；改善"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "responsible",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "负责的；有责任的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "responsibility",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "责任；义务"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "be responsible for",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "对……负责"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "solution",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "解决办法；答案"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "schedule",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "工作计划；日程安排"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "安排；预定"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "editor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "主编；编辑；编者"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "plate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "盘子；碟子"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "adventure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "冒险；奇遇"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "expert",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "专家；行家"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "熟练的；内行的；专家的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "youth",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "青年时期；青春"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "behaviour",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "行为；举止"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "generation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "一代（人）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "attract",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "吸引；引起…… 的注意（或兴趣）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "be attracted to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "喜爱"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "focus",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "集中（精力、注意力等）；（使）调节焦距"
+            },
+            {
+                "pos": "n.",
+                "chinese": "中心；重点；焦点"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "focus on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "集中；特别关注"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "addicted",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有瘾的；上瘾的；入迷的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "addict",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "对……入迷的人；吸毒成瘾的人"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "addicted to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "对……很入迷"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "adult",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "成年人"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "成年的；成熟的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "Chicago",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "芝加哥（美国城市）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 1",
+        "english": "Seoul",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "首尔（韩国首都）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "castle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "城堡；堡垒"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "apply",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "申请；请求"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "应用；涂（油漆、乳剂）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "apply for",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "申请"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "visa",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "签证"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "rent",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "租用；出租"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "租用；租金为"
+            },
+            {
+                "pos": "n.",
+                "chinese": "租金"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "pack",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "收拾（行李）"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "包装"
+            },
+            {
+                "pos": "n.",
+                "chinese": "（商品的）纸包；纸袋；大包"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "amazing",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "令人惊奇的；令人惊喜的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "amazed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "惊奇的；惊喜的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "arrangement",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "安排；筹备"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "extremely",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "极其；非常"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "source",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "来源；出处"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "narrow",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "狭窄的"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（使）变窄"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "flat",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "平坦的；扁平的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "公寓；单元房"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "powerful",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "强有力的；有权势的；有影响力的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "empire",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "帝国"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "emperor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "皇帝"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "site",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地点；位置；现场"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "take control of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "控制；接管"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "official",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "官方的；正式的；公务的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "官员；要员"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "recognise",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "辨别出；承认；认可"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "type",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "类型；种类"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "打字"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "flight",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "空中航行；航班；航程"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "accommodation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "住处；停留处；膳宿"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "unique",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "唯一的；独特的；特有的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "path",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "小路；路线；道路"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "destination",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "目的地；终点"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "other than",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "除……以外"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "admire",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "钦佩；赞赏"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "architecture",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "建筑设计；建筑学"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "architect",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "建筑设计师"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "brochure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "资料（或广告）手册"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "package",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "包裹；包装盒"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "将……包装好"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "package tour",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "包价旅游"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "contact",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "联络；联系"
+            },
+            {
+                "pos": "n.",
+                "chinese": "联系；接触"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "transport",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "交通运输系统"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "运输；运送"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "hike",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "徒步旅行"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "去……远足"
+            },
+            {
+                "pos": "n.",
+                "chinese": "远足；徒步旅行"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "make up",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "构成；形成"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "soldier",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "士兵；军人"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "economy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "经济；节约"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "economic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "经济（上）的；经济学的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "credit",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "借款；信用；称赞；学分"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "credit card",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "信用卡"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "detail",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "细节；详情；细微之处"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "check in",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "（在旅馆、机场等）登记"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "check out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "结账离开（旅馆等）登记"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "request",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（正式或礼貌的）要求；请求"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "（正式或礼貌地）要求；请求"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "view",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "视野；景色；看法"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "sight",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "景象；视野；视力"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "statue",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "雕塑；雕像"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "BC",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "公元前"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "tomb",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "坟墓"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "unearth",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "挖掘；发掘"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 2",
+        "english": "comment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "议论；评论"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "发表意见；评论"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "fitness",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "健康；健壮；适合"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "soccer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "足球"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "stadium (pl. stadiums or stadia)",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "体育场；运动场"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "boxing",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "拳击（运动）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "badminton",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "羽毛球运动"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "marathon",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "马拉松赛跑"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "event",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "比赛项目；大事；公开活动"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "come along",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "跟随；到达；进步；赶快"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "ski",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "滑雪的"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "滑雪"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "host",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "主办；主持"
+            },
+            {
+                "pos": "n.",
+                "chinese": "主人；东道主；节目主持人"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "track",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "跑道；足迹；铁路轨道"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "追踪；跟踪"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "track and field",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "田径"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "gym",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "健身房；体育馆"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "gymnastics",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "体操（训练）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "work out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "锻炼；计算出；解决"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "sweat",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使出汗；出汗弄湿"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "出汗；流汗"
+            },
+            {
+                "pos": "n.",
+                "chinese": "汗水；出汗"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "make it",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "获得成功；准时到达"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "legend",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "传奇故事（或人物）；传说"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "athlete",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "运动员；运动健儿"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "master",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "高手；主人"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "精通；掌握"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "set an example",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "树立榜样"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "honour",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "荣誉；尊敬；荣幸"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "glory",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "荣誉；光荣；赞美"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "medal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "奖章；勋章"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "championship",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "锦标赛；冠军赛；冠军称号"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "champion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "冠军；优胜者"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "determination",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "决心；决定"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "fall apart",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "破裂；破碎；崩溃"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "injure",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使受伤；损害"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "injured",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "受伤的，有伤的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "injury",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "伤害；损伤"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "captain",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（运动队）队长；船长；机长"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "lose heart",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "丧失信心；泄气"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "graceful",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "优美的；优雅的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "strength",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "力量；体力"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "failure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "失败；失败的人（或事物）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "give up",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "放弃；投降"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "compete",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "竞争；对抗"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "make sense",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "有道理；合乎情理；表述清楚"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "pretend",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "假装；装扮"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "pretend to do sth.",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "假装做某事"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "even if/though",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "即使；虽然"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "million",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "一百万"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "cheat",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "作弊；舞弊"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "欺骗；蒙骗"
+            },
+            {
+                "pos": "n.",
+                "chinese": "欺骗手段；骗子"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "audience",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "观众；听众"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "positive",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "积极的；正面的；乐观的；肯定的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "slim",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "苗条的；单薄的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "diet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "规定饮食；日常饮食"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "节食"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "make a difference",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "有作用或影响"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "rather",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "相当；有点儿"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "rather than",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "而不是"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "push-up",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "俯卧撑"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "cut...out",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "停止做（或使用、食用）；剪下"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "now and then",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "有时，偶尔"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "compare...with/to...",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "与……比较"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "jog",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "慢跑"
+            },
+            {
+                "pos": "n.",
+                "chinese": "慢跑"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "stress",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "压力；紧张；重音"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "强调；重读；使焦虑不安"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "焦虑不安"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 3",
+        "english": "error",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "错误；差错"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "disaster",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "灾难；灾害"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "tornado",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "龙卷风；旋风"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "drought",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "旱灾；久旱"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "landslide",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(landfall）(山地或悬崖的）崩塌；滑坡"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "slide",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（使）滑行；滑动"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "tsunami",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "海啸"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "flood",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "洪水；大量"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "淹没；大量涌入"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使灌满水；淹没"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "volcanic eruption",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "火山喷发"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "magnitude",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（地）震级；重大"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "rescue",
+        "meanings": [
+            {
+                "pos": "n. & vt.",
+                "chinese": "营救；救援"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "damage",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "损害；破坏"
+            },
+            {
+                "pos": "n.",
+                "chinese": "损坏；损失"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "survivor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "幸存者；生还者"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "survive",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "生存；存活"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "幸存；艰难度过"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "destroy",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "摧毁；毁灭"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "evacuate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "疏散；撤出"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "撤离"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "helicopter",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "直升机"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "death",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "死；死亡"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "affect",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "影响；（疾病）侵袭；深深打动"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "shelter",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "避难所；居所；庇护"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "保护；掩蔽"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "躲避（风雨或危险）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "crack",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "裂纹；裂缝"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（使）破裂"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "as if",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "似乎；好像；仿佛"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "ruin",
+        "meanings": [
+            {
+                "pos": "n. & vt.",
+                "chinese": "破坏；毁坏"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "in ruins",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "严重受损；破败不堪"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "percent",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "百分之……"
+            },
+            {
+                "pos": "adj. & adv.",
+                "chinese": "每一百中"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "brick",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "砖；砖块"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "metal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "金属"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "shock",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "震惊；令人震惊的事；休克"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "（使）震惊"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "in shock",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "震惊；吃惊"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "electricity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "电；电能"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "trap",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使落入险境；使陷入圈套"
+            },
+            {
+                "pos": "n.",
+                "chinese": "险境；陷阱"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "bury",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "埋葬；安葬"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "breathe",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "呼吸"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "revive",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "复活；（使）苏醒"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "revival",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "振兴；复苏"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "effort",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "努力；艰难的尝试；尽力"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "unify",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "统一；（使）成一体"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "wisdom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "智慧；才智"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "context",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "上下文；语境；背景"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "suffer",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "遭受；蒙受"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "（因疾病、痛苦、悲伤等）受苦"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "volcano",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "火山"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "erupt",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（火山）爆发；（岩浆、烟等）喷出"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "supply",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "[pl.] 补给品；供应（量）；补给"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "供应；供给"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "typhoon",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "台风"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "in the open air",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "露天；在户外"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "hurricane",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（尤指西大西洋的）飓风"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "power",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "电力供应；能量；力量；控制力"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "tap",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "轻叩；轻敲；轻拍"
+            },
+            {
+                "pos": "n.",
+                "chinese": "水龙头；轻叩；轻敲"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "pipe",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "管子；管道"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "whistle",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "吹口哨；发出笛声"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "吹口哨"
+            },
+            {
+                "pos": "n.",
+                "chinese": "哨子（声）；呼啸声"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "emergency",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "突发事件；紧急情况"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "calm",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "镇静的；沉着的"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使平静；使镇静"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "aid",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "援助；帮助；救援物资"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（formal）帮助；援助"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "kit",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "成套工具；成套设备"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "first aid kit",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "急救箱"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "on hand",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "现有（尤指帮助）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "crash",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "碰撞；撞击"
+            },
+            {
+                "pos": "n.",
+                "chinese": "撞车；碰撞"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "sweep (swept,swept)",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "打扫；清扫"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "sweep away",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "消灭；彻底消除"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "wave",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "海浪；波浪"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "挥手；招手"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "strike",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（struck, struck/stricken）侵袭；突击；击打"
+            },
+            {
+                "pos": "n.",
+                "chinese": "罢工；罢课；袭击"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "deliver",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "递送；传达"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "发表"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "summary",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "总结；概括；概要"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "effect",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "影响；结果；效果"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 4",
+        "english": "length",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "长；长度"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "billion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "十亿"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "native",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "出生地的；本地的；土著的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "本地人"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "attitude",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "态度；看法"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "refer",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "提到；参考；查阅"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "查询；叫……求助于"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "refer to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "指的是；描述；提到；查阅"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "system",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "体系；制度；系统"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "civilisation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "文明；文明世界"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "despite",
+        "meanings": [
+            {
+                "pos": "prep.",
+                "chinese": "即使；尽管"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "ups and downs",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "浮沉；兴衰；荣辱"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "factor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "因素；要素"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "based",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "以（某事）为基础的；以……为重要部分（或特征）的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "base",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "以……为据点；以……为基础"
+            },
+            {
+                "pos": "n.",
+                "chinese": "底部；根据"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "date back (to...)",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "追溯到"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "bone",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "骨头；骨（质）"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "shell",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "壳；壳状物"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "symbol",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "符号；象征"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "carve",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "雕刻"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "dynasty",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "王朝；朝代"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "variety",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(植物、语言等的）变体；异体；多样性"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "major",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "主要的；重要的；大的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "主修课程；主修学生"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "主修；专门研究"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "no matter where,who, what, etc.",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "不论……；不管……"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "dialect",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地方话；方言"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "means",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "方式；方法；途径"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "classic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "传统的；最优秀的；典型的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "经典作品；名著"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "regard",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "尊重；关注"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "把……视为；看待"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "character",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "文字；符号；角色；品质；特点"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "calligraphy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "书法；书法艺术"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "global",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "全球的；全世界的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "affair",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公共事务；事件；关系"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "appreciate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "欣赏；重视；感激；领会"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "增值"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "specific",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "特定的；明确的；具体的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "struggle",
+        "meanings": [
+            {
+                "pos": "n. & vi.",
+                "chinese": "斗争；奋斗；搏斗"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "tongue",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "舌头；语言"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "point of view",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "观点；看法"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "semester",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "学期"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "gas",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "汽油；气体；燃气"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "petrol",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "汽油"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "subway",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地铁"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "apartment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公寓套房"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "pants",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "内裤；短裤；裤子"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "equal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "同等的人；相等物"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "相同的；同样的"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "gap",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "间隔；开口；差距"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "demand",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "要求；需求"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "强烈要求；需要"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "查问"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "vocabulary",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "词汇"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "description",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "描写（文字）；形容"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "relate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "联系；讲述"
+            }
+        ]
+    },
+    {
+        "book": "必修第一册",
+        "unit": "Unit 5",
+        "english": "relate to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "与……相关；涉及；谈到"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "heritage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "遗产（指国家或社会长期形成的历史、传统和特色）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "creatively",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "创造性地；有创造力地"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "creative",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "创造性的；有创造力的；有创意的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "temple",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "庙；寺"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "relic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "遗物；遗迹"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "mount",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "山峰"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "爬上；骑上"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "爬；登上"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "former",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "以前的；(两者中)前者的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "clue",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "线索；提示"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "preserve",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "保存；保护；维持"
+            },
+            {
+                "pos": "n.",
+                "chinese": "保护区"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "promote",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "促进；提升；推销；晋级"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "cypress",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "柏树"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "app",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "应用程序；引用软件（application的缩略形式）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "application",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "申请（表）；用途；运用；应用（程序）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "take part in",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "参与（某事）；参加（某活动）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "give way to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "让步；屈服"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "balance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "平衡；均匀"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使平衡"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "keep balance",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "保持平衡"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "lead to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "导致"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "dam",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "水坝；拦河坝"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "proposal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "提议；建议"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "make a proposal",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "提出建议"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "protest",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "抗议"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(公开)反对；抗议"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "likely",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "可能的"
+            },
+            {
+                "pos": "adv.",
+                "chinese": "可能地"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "turn to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "向……求助"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "committee",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "委员会"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "establish",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "建立；创立"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "limit",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "限度；限制"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "限制；限定"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "prevent",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "阻止；阻碍；阻挠"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "prevent...from..",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "阻止；不准"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "loss",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "丧失；损失"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "contribution",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "捐献；贡献；捐赠"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "contribute",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "捐献；捐助"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "department",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "部；司；科"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "fund",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "基金；专款"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "within",
+        "meanings": [
+            {
+                "pos": "prep. & adv.",
+                "chinese": "在（某段时间、距离或范围）之内"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "investigate",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "调查；研究"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "issue",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "重要议题；争论的问题"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "宣布；公布"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "conduct",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "行为；举止；管理方法"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "组织；安排；带领"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "document",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "文件；公文；（计算机）文档"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "记录；记载（详情）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "donate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "(尤指向慈善机构)捐赠；赠送；献（血）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "donate...to...",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "向……捐赠……"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "disappear",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "消失；灭绝；消亡"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "attempt",
+        "meanings": [
+            {
+                "pos": "n. & vt.",
+                "chinese": "企图；试图；尝试"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "make sure",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "确保；设法保证"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "worthwhile",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "值得做的；值得花时间的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "download",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "下载"
+            },
+            {
+                "pos": "n.",
+                "chinese": "下载；已下载的数据资料"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "republic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "共和国"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "professional",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "专业的；职业的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "专业人员；职业选手"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "archaeologist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "考古学家"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "entrance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "入口；进口"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "pyramid",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（古埃及的）金字塔；棱锥体"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "process",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "过程；进程；步骤"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "处理；加工"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "overseas",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "海外的"
+            },
+            {
+                "pos": "adv.",
+                "chinese": "在海外"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "exit",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "出口；通道"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "出去；离去"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "sheet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "一张(纸)；床单；被单"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "parade",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "游行；检阅"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "游行庆祝；游行示威"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "mirror",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "镜子"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "roof",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "顶部；屋顶"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "chiwen",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "鸱吻"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "dragon",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "龙"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "forgive",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "原谅；宽恕"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "对不起；请原谅"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "digital",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "数码的；数字显示的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "image",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "形象；印象"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "cave",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "山洞；洞穴"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "throughout",
+        "meanings": [
+            {
+                "pos": "prep.",
+                "chinese": "各处；遍及；自始至终"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "quality",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "质量；品质；素质；特征"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "优质的；高质量的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "all over the world",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "在世界各地"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "tradition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "传统；传统的信仰或风俗"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "further",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "更远；进一步"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "historic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "历史上著名（或重要）的；有史时期的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "opinion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "意见；想法；看法"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "quote",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "引用"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "paraphrase",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "/vi.&vt.（用更容易理解的文字）解释"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "comparison",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "比较；相比"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "contrast",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "对比；对照"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "对比；对照"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "identify",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "确认；认出；找到"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "forever",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "永远；长久地"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "Aswan Dam",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "阿斯旺大坝"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "the Nile",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "尼罗河"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "Egypt",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "埃及"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "Egyptian",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "埃及的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "UNESCO",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "联合国教科文组织"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "Cairo",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "开罗"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "Tanzania",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "坦桑尼亚"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "the Kremlin",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "克里姆林（宫）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "Moscow",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "莫斯科"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "Saint Basil’s Cathedral",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "圣瓦希里大教堂"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "the Forbidden City",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "紫禁城"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 1",
+        "english": "Los Angeles",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "洛杉矶"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "poster",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "海报"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "illegal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "不合法的；非法的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "illegally",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "不合法地；非法的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "hunt",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "打猎；搜索；追捕"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "hunter",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "猎人"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "immediately",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "立刻"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "species",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "物种"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "shark",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "鲨鱼"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "fin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（鱼的）鳍"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "on earth",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "究竟；到底"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "die out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "灭亡；逐渐消失"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "alarming",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "惊人的；使人惊恐的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "alarm",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使惊恐；使害怕；使担心"
+            },
+            {
+                "pos": "n.",
+                "chinese": "恐慌；警报；警报器"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "rate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "速度；（比）率"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "划分等级"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "rating",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "等级；级别"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "extinct",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "已灭绝的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "extinction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "灭绝"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "mass",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "大量的；广泛的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "大量；堆；群"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "habitat",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（动植物的）生活环境；栖息地"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "aware",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "知道；发觉；有……意识"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "aware of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "意识到；知道"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "endanger",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使遭受危险；危害"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "average",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "平均数；平均水平"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "平均的；正常的；普通的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "on average",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "平均"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "prince",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "王子；王孙；亲王"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "make progress",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "取得进步"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "concern",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "涉及；让……担忧"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "concerned",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "担心的；关切的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "concerned about",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "对……关切的；为……担忧的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "living",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "居住的；活的；在用的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "生活；生计"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "adapt",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "适应"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使适应；使适合"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "adapt to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "适应"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "measure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "措施；方法"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "测量；度量；估量"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "authority",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "官方；当权；权威"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "pressure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "压力；要求"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "under pressure",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "在压力下；承受压力"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "whale",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "鲸"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "antelope",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "羚；羚类动物"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "Tibetan antelope",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "藏羚羊"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "reserve",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "（动植物）保护区；储藏（量） vt. 预订；预留；保留"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "plain",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "平原"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "简单明了的；直率的；平凡的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "make out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "看清；听清；分清"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "herd",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "牧群；兽群"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "observe",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "观察（到）；注视；遵守"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "beauty",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "美；美人；美好的东西"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "remind",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "提醒；使想起"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "remind sb. of sb./sth.",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "使某人想起（类似的人或物）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "fur",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "毛（皮）；毛皮衣服"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "sacred",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "神圣的；受尊敬的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "shoot",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "射杀；射伤；发射"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "profit",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "利润；利益"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "watch over",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "保护；照管；监督"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "day and night",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "日日夜夜；夜以继日"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "attack",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "vi.&vt. 打算；计划；想要"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "effective",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有效的；生效的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "recover",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "恢复；康复"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "找回；寻回"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "remove",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "去除；移开；脱去"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "intend",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "打算；计划；想要"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "threat",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "威胁"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "threaten",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "威胁；危及"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "exist",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "存在；生存"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "harmony",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "和谐；融洽"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "goods",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "商品；货物"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "creature",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "生物；动物"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "deer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "鹿"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "kangaroo",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "袋鼠"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "reduce",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "减少"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "due",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "由于；因为"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "due to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "由于；因为"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "insect",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "昆虫"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "net",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "=Internet；网"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "净得的；纯的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "neighbourhood",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "临近的地方；街区"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "binoculars",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "双筒望远镜"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "bird field guide",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "鸟类图鉴"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "search for",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "搜索；查找"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "dolphin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "海豚"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "Yangtze River dolphin",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "白鳍豚"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "koala",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "树袋熊；考拉"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "stir",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "激发；搅动"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "stir up",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "激起"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "emotion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "感情；情感；情绪"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "skin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "皮；皮肤"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "unusual",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "特别的；不寻常的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "Tibetan",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "西藏的；藏语的；藏族（人）的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "西藏人；藏族人；藏语"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 2",
+        "english": "Tibet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "西藏"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "blog",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "博客"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "写博客"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "blog post",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "博文；博客帖子"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "blogger",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "博客作者；博主"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "engine",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "引擎；发动机；火车头"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "search engine",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(互联网上的)搜说引擎"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "chat",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "聊天；闲聊"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "stream",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "流播（不用下载直接在互联网上播放音视频）；流出"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "流动"
+            },
+            {
+                "pos": "n.",
+                "chinese": "小河；溪流"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "identity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "身份；个性"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "identity card",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "身份证"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "convenient",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "方便的；近便的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "cash",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "现金；金钱"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "update",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "更新；向……提供最新信息"
+            },
+            {
+                "pos": "n.",
+                "chinese": "更新；最新消息"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "database",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "数据库"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "software",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "软件"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "network",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（互联）网络；网状系统；人际网"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "将……连接成网络；联播"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "建立工作关系"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "stuck",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "卡住；陷（入）； 困（于）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "keep sb company",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "陪伴某人"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "surf",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "浏览；冲浪"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "benefit",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "益处"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使受益"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "得益于"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "distance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "距离"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "inspire",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "鼓舞；激励；启发思考"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "now that",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "既然；由于"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "access",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "通道；（使用、查阅、接近或见面的）机会"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "进入；使用；获取"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "charity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "慈善；慈善机构(或组织)"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "go through",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "经历；度过；通读"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "tough",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "艰难的；严厉的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "province",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "省"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "conference",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "会议；研讨会；正式会谈"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "resident",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "居民；（美国的）住院医生"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "（在某地）居住的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "plus",
+        "meanings": [
+            {
+                "pos": "conj.",
+                "chinese": "而且；此外"
+            },
+            {
+                "pos": "n.",
+                "chinese": "加号；优势"
+            },
+            {
+                "pos": "prep.",
+                "chinese": "加；另加"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "function",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "功能；作用；机能"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "起作用；正常工作；运转"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "battery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "电池"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "confirm",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "确认；使确信"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "Wi-Fi",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "无线保真（用无线电波而非网线在计算机网络传输数据的系统）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "press",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "按，压；敦促"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "button",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "按钮；纽扣"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "file",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "文件；文件夹；档案"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "in shape",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "状况良好"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "keep track of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "掌握……的最新消息"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "了解……的动态"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "discount",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "折扣"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "打折"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "account",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "账户；描述"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "click",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "点击"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "privacy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "隐私；私密"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "theft",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "偷（窃）；盗窃罪"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "rude",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "粗鲁的；无礼的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "target",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "目标；对象；靶子"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "把……作为攻击目标"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "troll",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "发挑衅帖子的人；恶意挑衅的帖子"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "cyberbully",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "网霸；"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "/vt.网络欺凌"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "false",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "假的；错误的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "particular",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "特定的；特别的；讲究的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "embarrassing",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "让人难堪（尴尬；害羞）的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "make fun of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "取笑；戏弄"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "upset",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "心烦的；苦恼的；沮丧的"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使烦恼；使生气；搅乱"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "guideline",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "准则；指导原则"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "author",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "作者；作家"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "tip",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "忠告；诀窍；实用的提示"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "familiar",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "熟悉；熟知"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "keep（……）in mind",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "牢记"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "define",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "给……下定义；界定；解释"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "case",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "盒；箱；情况；案件"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 3",
+        "english": "the World Wide Web",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "万维网；环球信息网"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "Confucius",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "孔子"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "mansion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公馆；宅地"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "cemetery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "墓地；公墓"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "philosophy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "哲学"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "descendant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "后裔；后代；子孙"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "individual",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "单独的；个别的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "个人"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "heel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "足跟；（脚、袜子、鞋等的）后跟"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "Achilles’ heel",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "（喻）（希腊神话）阿克琉斯的脚跟，致命的弱点"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "kingdom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "王国；领域"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "chief",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "最重要的；最高级别的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "(公司或机构的)首领； 酋长"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "puzzle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "谜；智力游戏；疑问"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "迷惑；使困惑"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "nearby",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "附近的；临近的"
+            },
+            {
+                "pos": "adv.",
+                "chinese": "在附近"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "join...to...",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "把……和……连接或联结起来"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "break away (from sb/sth)",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "脱离；背叛； 逃脱"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "belong",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "应在（某处）；适应"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "belong to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "属于"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "as well as",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "同（一样也）；和；还"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "currency",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "通货；货币"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "military",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "军事的；军用的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "defence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "防御；保卫"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "legal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "法律的；合法的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "surround",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "围绕；包围"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "evidence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "证据；证明"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "achievement",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "成就；成绩；达到"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "location",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地方；地点；位置"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "conquer",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "占领；征服；控制"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "battle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "战役；搏斗"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "搏斗；奋斗"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "port",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "港口（城市）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "fascinating",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "极有吸引力的； 迷人的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "keep your eyes open (for)",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "留心；留意"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "charge",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "收费；指控； 主管"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "收费；控告；充电"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "announce",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "宣布；通知；声称"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "amount",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "金额；数量"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "gallery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（艺术作品的）展览馆；画廊"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "approach",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "方法；途径；接近"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "接近；接洽；着手处理"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "靠近"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "ensure",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "保证；确保；担保"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "landscape",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（陆上，尤指乡村的）风景"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "generous",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "慷慨的；大方的；丰富的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "butter",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "黄油；奶油"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "涂黄油于"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "honey",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蜂蜜"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "ancestor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "祖宗；祖先"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "position",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "位置；姿态； 职位"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "courtyard",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "庭院；院子"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "snack",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "点心；小吃"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "eager",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "热切的；渴望的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "poet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "诗人"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "county",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（英国、爱尔兰的）郡；（美国的）县"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "feast",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "盛宴；宴会；节日"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "roll",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（使）翻滚；（使）滚动"
+            },
+            {
+                "pos": "n.",
+                "chinese": "卷（轴）； 翻滚"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "dot",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "点；小（圆）点"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "加点；遍布"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "cattle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "牛"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "roar",
+        "meanings": [
+            {
+                "pos": "vi. & n.",
+                "chinese": "吼叫；咆哮"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "ocean",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "大海；海洋"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "scent",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "气味；气息"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "greet",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "问候；迎接"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "pub",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "酒吧；酒馆"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "wine",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "葡萄酒；果酒"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "beer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（一杯）啤酒"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "stew",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "炖菜（有肉和蔬菜）"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "炖；煨"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "custom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "习俗；风俗；习惯"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "sensory",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "感觉的；感官的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "striking",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "引人注目的；显著的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "transition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "过渡；转变；变迁"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 4",
+        "english": "crowd",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "人群；一群人；民众"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "挤满；使……拥挤"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "classical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "古典的；经典的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "hip-hop",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "嘻哈音乐；嘻哈文化"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "techno",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "泰克诺音乐（一种节奏快、通常无歌声相伴的音乐）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "energy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "能源；能量；精力"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "soul",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "灵魂；心灵"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "bagpipes (pl.)",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "风笛"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "stringed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有弦的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "stringed instrument",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "弦乐器"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "virtual",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "很接近的；事实上的；虚拟的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "virtual choir",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "虚拟合唱团"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "composition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "成分；（音乐、艺术、诗歌的）作品"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "opportunity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "机会，时机"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "perform",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "表演；履行；执行"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "performance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "表演；演技；表现"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "performer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "表演者；演员"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "onto",
+        "meanings": [
+            {
+                "pos": "prep.",
+                "chinese": "（朝）向"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "studio",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "演播室；（音乐的）录音棚；工作室"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "ordinary",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "普通的；平凡的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "enable",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "使能够；使可能"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "prove",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "证明；展现"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "award",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "授予"
+            },
+            {
+                "pos": "n.",
+                "chinese": "奖品"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "composer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "作曲者；作曲家"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "conductor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（乐队、合唱团等的）指挥；（公共汽车的）售票员"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "fall in love with",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "爱上"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "original",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "原来的；独创的；原作的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "原件；原作"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "phenomenon",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "现象"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "stage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（发展或进展的）时期；阶段"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "（多指剧场中的）舞台"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "altogether",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "（用以强调）全部；总共"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "thus",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "如此；因此"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "band",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "乐队；带子"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "rap",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "快速敲击；说唱音乐"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "敲击；（说唱歌中的）念白"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "nowadays",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "现在；目前"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "gradual",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "逐渐的；渐进的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "capable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有能力的；有才能的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "relief",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（焦虑、痛苦的）减轻或消除"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "（不快过后的）宽慰、轻松活解脱"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "cure",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "治愈；治好（疾病）；解决（问题）"
+            },
+            {
+                "pos": "n.",
+                "chinese": "药物；治疗；（解决问题、改善糟糕情况的）措施"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "absorbed in sth/sb",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "被......吸引住；专心致志"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "previous",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "先前的；以往的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "unemployed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "失业的；待业的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "romantic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "浪漫的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "浪漫的人"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "album",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "相册；集邮簿；音乐专辑"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "impact",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "巨大影响；强大作用；冲击力"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "aim",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "目的；目标"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "/vt.力求达到；力争做到；瞄准"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "目的是；旨在"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "set sth up",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "安装好（设备或机器）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "equipment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "设备；装备"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "try out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "参加......选拔（或试演）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "talent",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "天才；天资；天赋"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "piano",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "钢琴"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "assume",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "以为；假设"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "addition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "添加；加法；增加物"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "in addition （to sb/sth）",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "除......以外（还）"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "disease",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（疾）病"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "ache",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "/n.疼痛"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "treatment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "治疗；对待；处理"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "from （then） on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "从（那）时起"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "lean",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "依靠；倾斜"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "get through",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "（设法）处理；完成"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "moreover",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "而且；此外"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "satisfaction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "满足；满意；欣慰"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "being",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "身心；存在；生物"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "various",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "各种不同的；各种各样的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "somehow",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "以某种方式（或方法）；不知怎么地"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "rhetorical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "修辞的"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "metaphor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "暗喻；隐喻"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "personification",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "拟人；人格化；化身"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "repetition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "重复；重做"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "simile",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "明喻"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "outline",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "/vt.概述；概要"
+            }
+        ]
+    },
+    {
+        "book": "必修第二册",
+        "unit": "Unit 5",
+        "english": "reaction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "反应;回应"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "lantern",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "灯笼；提灯"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "carnival",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "狂欢节；嘉年华"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "costume",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（某地或某历史时期的）服装；戏装"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "dress（sb）up",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "穿上盛装；装扮"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "march",
+        "meanings": [
+            {
+                "pos": "vi. & n.",
+                "chinese": "行进；前进；示威游行"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "congratulation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "祝贺；恭喜"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "congratulate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "向（某人）道贺；（因某事）为自己感到自豪"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "riddle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "谜语；神秘事件"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "ceremony",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "典礼；仪式"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "samba",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "桑巴舞；桑巴舞曲"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "make-up",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "化妆品；性格；构成方式"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "after all",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "毕竟；别忘了"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "range",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "一系列；范围；界限vi.包括；（在一定范围内）变化"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "range from…to…",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "包括从…….到……之间"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "origin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "起源；起因；出身"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "religion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "宗教；宗教信仰"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "religious",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "宗教的；笃信宗教的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "figure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "任务；数字；身材vt.认为；认定"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "charm",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "魅力；迷人的特征；咒语"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "joy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "高兴；喜悦"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "joyful",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "高兴的；快乐的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "gratitude",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "感激之情；感谢"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "harvest",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "收获季节；收获；收成"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "收割（庄稼）；捕猎（动物、鱼）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "agriculture",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "农业；农业"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "crop",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "庄稼；作物；一季的收成"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "gather",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "聚集；集合vt.聚集；搜集；收割"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "grateful",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "感激的；表示感谢的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "feature",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "以……为特色n.特色；特征；特点"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "decorate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "装饰；装潢"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "church",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（基督教的）教堂；礼拜堂"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "significant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有重大意义的；显著的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "fade",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "逐渐消失；（使）褪色；（身体）变得虚弱"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "fade away",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "逐渐消失；（身体）变得虚弱"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "typical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "典型的；有代表性的；平常的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "firecracker",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "鞭炮；爆竹"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "evil",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "邪恶的；有害的；罪恶的n.邪恶；罪恶；恶行"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "in spite of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "不管；尽管"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "commercial",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "商业（化）的；以获利为目的的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "commercialise",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使商业化；利用……牟利"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "commercialisation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "商业化"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "take advantage of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "利用；欺骗；占……的便宜"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "medium",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（pl. media）媒介；手段；方法adj.中等的；中号的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "the media",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "大众传播媒介"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "reflect",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "显示；反映；反射"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "belief",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "信仰；信心；信任"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "faith",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "宗教信仰；信仰；相信"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "occasion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "特别的事情（或仪式、庆典）；（适当的）机会"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "have sth in common",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "（兴趣、想法等方面）相同；有相同的特征"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "atmosphere",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "气氛；氛围；（地球的）大气（层）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "lunar",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "阴历的；月球的；月亮的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "eve",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "前夕；前一天"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "envelope",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "信封；塑料封套"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Christmas carol",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "圣诞颂歌"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "merry",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "愉快的；高兴的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Merry Christmas",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "圣诞快乐"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "pumpkin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "南瓜"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "pudding",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "布丁；（餐末的）甜食"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "mashed potatoes",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "土豆泥"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "roast",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "烤的；焙的vi&"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "烘烤；焙"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "turkey",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "火鸡；火鸡肉"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "roast turkey",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "烤火鸡肉"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "pleased",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "高兴的；满意的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "firework",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "烟火；烟花；pl.烟花表演"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "frank",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "坦率的；直率的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "to be frank",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "坦白说；坦率的说"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "go off",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "爆炸；走火；离开"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "except for",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "除……之外"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "inner",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "内部的；里面的；内心的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "autonomous",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "自治的；有自治权的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "region",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地区；区域；地带"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "represent",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "象征；代表；相当于"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "wrestle",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "摔跤运动"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "wrestler",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "摔跤运动员"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "archery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "射箭术；射箭运动"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "set off",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "出发；动身；启程"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "fancy",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "花哨的；精致的；昂贵的vt.想要；倾慕；自认为是"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "robe",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "袍服；礼袍"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "eagle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "雕"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "grace",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "优美；优雅；高雅"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "absolutely",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "绝对的；完全的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "moment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "片刻；瞬间"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "tent",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "帐篷"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "pot",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "罐；壶；锅"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "brief",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "简洁的；简单的；短暂的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "branch",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "树枝；分支；支流"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "wedding",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "婚礼；结婚庆典"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "clap",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "鼓掌；拍手；击掌n.鼓掌；拍手；掌声"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "respect",
+        "meanings": [
+            {
+                "pos": "n. & vt.",
+                "chinese": "尊敬；尊重"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "horrible",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "令人震惊的；恐怖的；极坏的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Coming-of-Age Day",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "成人节"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Rio",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "（全称Rio de Janeiro）里约热内卢（巴西首都）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Carla",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "卡拉"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Halloween",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "万圣节前夕"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Thanksgiving（day）",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "感恩节"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "La Tomatina",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "番茄大战"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Bunol",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "布尼奥尔（西班牙小镇）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "the Naadam Festival “",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "那达慕”大会"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Inner Mongolia Autonomous Region",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "内蒙古自治区"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 1",
+        "english": "Mongolian",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "蒙古人的；蒙古的；蒙古语的n.蒙古语；蒙古人"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "moral",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "道德的；道义上的；"
+            },
+            {
+                "pos": "n.",
+                "chinese": "品行；道德；寓意"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "virtue",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "高尚的道德；没的；优秀品质"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "dilemma",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "进退两难的境地；困境"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "moral dilemma",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "道德困境"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "faint",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "混到；晕厥adj.不清楚的；微弱的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "illustrate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "（举例）说明；阐明；给（书或文章）加插图"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "precious",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "珍稀的；宝贵的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "entrust",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "委托；交付"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "carry sb through sth",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "帮助某人渡过难关"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "marriage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "结婚；婚姻"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "majority",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "大部分；大多数"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "complain",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "抱怨；发牢骚"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "tuition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（小组）教学；讲课"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "fee",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "专业服务费；报酬"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "tuition fees",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "学费"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "respond",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "回答；回复vi.做出反应；回应"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "response",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "反应；回答；回复"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "union",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "协会；联合会；工会"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "scholarship",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "奖学金"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "hire",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "聘任；雇用；租用n.租借；租用"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "physician",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "医师；（尤指）内科医生"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "resident physician",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "住院医师"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "colleague",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "同事；同僚"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "reject",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "拒绝接受；不录用"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "rejection",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "拒绝接受；否决"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "appoint",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "任命；委派"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "clinic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "诊所；门诊部"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "faraway",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "遥远的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "elect",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "选举；推选"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "election",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "选举；推选；当选"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "decade",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "十年；十年期"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "elsewhere",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "在别处；去别处"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "tend",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "照顾；照料vi.倾向；趋于"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "tend to to sth",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "易于做某事；往往会发生某事"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "publish",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "发表（作品）；出版"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "staff",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "员工；全体职员"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "retire",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "退休；退职；退出"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "saving",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "节省物；节省；节约； pl.朱旭金；存款"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "kindergarten",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "学前班；幼儿园"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "principle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "道德原则；法则；原则"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "passive",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "被动的；顺从的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "scared",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "害怕的；对……都感到惊慌或恐惧的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "scare",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "惊吓；使害怕vi.受惊吓"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "sharp",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "（增长、下跌等）急剧的；锋利的；明显的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "insurance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "保险；保险业"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "energetic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "精力充沛的；充满活力的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "replace",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "接替；取代；更换"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "accident",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "事故；车祸；失事"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "operation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "手术；企业；经营"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "whisper",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "悄声说；耳语；低语n.耳语（声）；低语（声）；传言；谣传"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "midnight",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "子夜；午夜"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "import",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "进口；进口商品；"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "进口；输入；引进"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "export",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "出口；出口商品；"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "出口；输出；传播"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "pole",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（行星的）极；地极"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "lap",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（坐着时的）大腿部；（跑道等的）一圈"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "bite",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "咬；叮；蛰n.咬；（咬下的）一口；咬伤"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "lip",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "嘴唇"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "assist",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "帮助；原著"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "first aid",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "急救"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "pass away",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "去世"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "chairman",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "主席；主持人；董事长"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "memory",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "记忆力；会议"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "in memory of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "作为对……的纪念"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "chain",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "一连串（人或事）；链条；链条"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "café",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "咖啡馆；小餐馆"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "waitress",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（餐馆的）女服务员：女侍者"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "pregnant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "怀孕的；妊娠的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "disguise",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "装扮；假扮；掩盖；"
+            },
+            {
+                "pos": "n.",
+                "chinese": "伪装；化妆用具"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "maple",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "枫树；槭树"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "cart",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "手推车；运货马车"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "spill",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（使）洒出；（使）溢出"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "trip over",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "被……绊倒"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "limp",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "跛行；一瘸一拐地走"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "tear",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "眼泪；泪水"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "in tears",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "流着泪；含着泪"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "harm",
+        "meanings": [
+            {
+                "pos": "n. & vt.",
+                "chinese": "伤害；损害"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "despair",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "绝望vi.绝望，感到无望"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "in despair",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "处于绝望中"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "might",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "力量；威力"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "a great deal（of）",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "大量"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "fable",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "寓言；寓言故事"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "court",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（网球等的）球场；法院；法庭"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "flexible",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "灵活的；可变通的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "income",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "收入；收益"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "per",
+        "meanings": [
+            {
+                "pos": "prep.",
+                "chinese": "每；每一"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "therefore",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "因此；所以"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "tension",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "紧张关系；紧张；焦虑"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "Peking Union Medical College",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "北京协和医学院"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "the Wenhai Scholarship “",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "文海”奖学金"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "the OB-GYN department",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "（全称Department of Obstetrics and Gynecology）妇产科"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "the People's Republic of China",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "中华人民共和国"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "the National People's Congress",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "全国人民代表大会"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "the North/South Pole",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "北极/南极"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 2",
+        "english": "Henry Norman Bethune",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "亨利·诺曼·白求恩"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "diverse",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "不同的；多种多样的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "diversity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "差异（性）；不同（点）；多样性"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "fortune",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "机会；运气"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "fortune cookie",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "幸运曲奇"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "gumbo",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "秋葵汤（用秋葵做的浓鸡汤或海鲜汤）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "nachos",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "墨西哥玉米片"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "chip",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（英）炸土豆条；（美）炸薯片；芯片；碎片"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "cheese",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "干酪；奶酪"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "spicy",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "加有香料的；辛辣的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "ethnic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "具有民族特色的；异国风味的；民族的；种族的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "admit",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "成人；"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "准许进入（或加入）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "definitely",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "肯定；确实"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "occur",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "发生；出现"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "downtown",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "在市中心；往市中心"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "mission",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "传教（区）；重要任务；使命"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "district",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地区；区域"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "graffiti",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "涂鸦；乱写乱画"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "comic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "连环画杂志；漫南杂志；喜剧演员"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "滑稽的；使人发笑的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "afterwards",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "以后；后来"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "head to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "（朝……）前进;（向……）去"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "historical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "(有关)历史的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "seek",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "寻找；寻求；争取；(向人)请求"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "seek one‘s fortune",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "寻找成功致富之路；闯世界"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "earn",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "换得；赚得；赢得；博得"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "earn a living",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "谋生"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "immigrant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(外来)移民；外侨"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "select",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "选择；挑选；选拔"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "china",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "瓷；瓷器"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "jazz",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "爵士乐"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "bar",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "酒吧；小吃店；小馆子"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "diagram",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "简图；图解；图表；示意图"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "journal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "日志；日记；报纸；刊物"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "claim",
+        "meanings": [
+            {
+                "pos": "vt. & n.",
+                "chinese": "夺取(生命)；宣称，断言"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "series",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "一系列；连续；接连"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "series of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "一系列或一连串（事件）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "apart from",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "除了……外（还）；此外"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "minority",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "少数民族；少数派；少数人"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "escape",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "逃走；逃脱；避开n.逃跑；逃脱；解脱"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "bring about",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "导致；引起"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Atlantic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "大西洋的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "financial",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "财政的；财务的；金融的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "poetry",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "诗集；诗歌；诗作"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "jeans",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "牛仔裤"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "boot",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "靴子"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "mushroom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蘑菇；蕈"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "poisonous",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "引起中毒的；有毒的；分泌毒素的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "poison",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "毒物；毒药；毒素vt. 毒死；毒害"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "fold",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "包；裹；折叠"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "(可)折小；（可）叠平"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "super",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "特别；格外adj. 顶好的；超级的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "collection",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "作品集；收集物；收藏品"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "accessory",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "配饰；附件；配件"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "souvenir",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "纪念物；纪念品"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "percentage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "百分率；百分比"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "climate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "气候"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "mild",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "温和的；和善的；轻微的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "settle",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "定居；结束(争论)；解决(纠纷)"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "construction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "建筑；建造；建造物；(句子、短语等的)结构"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "material",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "材料；布料；素材"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "物质的；实际的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "to name but a few",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "仅举几例"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "tai chi",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "太极拳"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "clothing",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "衣服；服装"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "herbal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "药草的；香草的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "suit",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "适合；满足……需要；相配；合身n.西服；套装"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "（at）first hand",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "第一手；亲自"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "item",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "项目；一件商品(或物品)；一条(新闻)"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "contain",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "包含；含有；容纳"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "neat",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "极好的；整洁的；整齐的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "San Francisco",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "圣弗兰西斯科（旧金山）（美国城市）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Napa Valley",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "纳帕谷（美国）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "the Golden Gate Bridge",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "金门桥"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "the Mission District",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "教会区（旧金山）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Mexico",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "墨西哥（北美洲国家）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "California",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "加利福尼亚（美国州名）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Cantonese",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "广东的；粤语的；"
+            },
+            {
+                "pos": "n.",
+                "chinese": "粤语；广东人"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "the Richmond District",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "列治文区（旧金山）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Huangguoshu Waterfall",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "黄果树瀑布"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Journey to the West",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《西游记》"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Tin How Temple",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "天后古庙"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Bank of Canton",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "广东银行"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Portsmouth Square",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "花园角广场（旧金山）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 3",
+        "english": "Robert Louis Stevenson",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "罗伯特 路易 斯蒂文森（英国作家）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "astronaut",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": ".宇航员；太空人"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "procedure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "程序；步骤；手续"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "mental",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "精神的；思想的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "cm abbr.（centimetre or centimeter）",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "厘米"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "intelligent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有智慧的；聪明的；有智力的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "rocket",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "火箭；火箭弹"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "gravity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "重礼；阴历"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "frontier",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "边境；国界；边远地区"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "vehicle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "交通工具；车辆"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "universe",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "宇宙；天地万物"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "determined",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有决心的；意志坚定地"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "determine",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "查明；确定；决定"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "satellite",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "人造卫星；卫星"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "launch",
+        "meanings": [
+            {
+                "pos": "vt. & n.",
+                "chinese": "发射；发起；上市"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "orbit",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（环绕地球、太阳等运行的）轨道；势力范围vt&"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "沿轨道运行；环绕……运行"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "giant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "巨大的；伟大的n.巨人；巨兽；伟人"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "leap",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "跳跃；剧增；剧变vi&"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "跳过；跃过"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "mankind",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "人类"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "agency",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（政府的）专门机构；服务机构；代理处"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "transmit",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "传输；发送"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "data",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "资料；数据"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "disappointed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "失望的；沮丧的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "desire",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "渴望；欲望vt.渴望；期望"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "carry on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "继续做；坚持干"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "ongoing",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "持续存在的；仍在进行的；不断发展的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "on board",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "在宇宙飞船上；在船上；在飞机上"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "independently",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "独立的；自主的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "independent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "独立的；自理的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "spacecraft",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "航天器；宇宙飞船"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "spacewalk",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "太空行走；太空行走的时间"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "jade",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "玉；翡翠；玉器"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "dock",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（两架航天器）对接；（使）……进港；"
+            },
+            {
+                "pos": "n.",
+                "chinese": "码头；船坞"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "signal",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "标志着；标明；发信号n.信号；标志"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "in the hope of doing sth",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "抱着……的希望"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "so as to（do sth）",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "为了；以使"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "recycle",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "回收利用；再利用"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "muscle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "肌肉；实力；影响力"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "lack",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "缺乏；短缺vt.没有；缺乏"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "float",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "浮动；漂流；漂浮vt.使浮动；使漂流"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "otherwise",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "否则；要不然"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "beyond",
+        "meanings": [
+            {
+                "pos": "prep.",
+                "chinese": "在更远处；超出"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "solar",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "太阳的；太阳能的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "solar system",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "太阳系；类太阳系"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "current",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "当前的；现在的n.水流；电流；思潮"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "figure out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "弄懂；弄清楚；弄明白"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "sufficient",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "足够的；充足的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "soap",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "肥皂"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "towel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "毛巾；抹布"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "microwave",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "微波炉"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "tissue",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "纸巾；（人、动植物细胞的）组织"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "facility",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "设施；设备"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "keen",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "热衷的；渴望的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "globe",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地球；世界；地球仪"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "argue",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "论证；争辩；争论"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "argument",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "争论；争吵；论点"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "fatal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "致命的；灾难性的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "shallow",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "肤浅的；浅的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "result in",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "导致；造成"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "pattern",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "模式；图案；模范"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "analysis",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（对事物的）分析；分析结果"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "as a result",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "所以；结果（是）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "high-end",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "高端的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "monitor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "监视器；检测仪vt.监视；监测；监控"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "regularly",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "经常；定期地"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "regular",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "定期的；经常的；正常的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "foam",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "泡沫橡胶；泡沫"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "pillow",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "枕头"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "smartphone",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "智能手机"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "resource",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "资源；财力；物力"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "limited",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有限的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "provide for sb",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "提供生活所需"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "closing",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "结尾的；结束的n.停业；关闭；倒闭"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "in closing",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "最后"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "mystery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "神秘事物；谜"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "run out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "用完；耗尽"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "attach",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "系；绑；贴"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "oxygen",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "氧；氧气"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Sputnik “",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "旅伴一号”（苏联发射的人类第一颗人造卫星）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "the USSR abbr. the Union of Soviet Socialist Republics",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "苏联"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Yuri Gagarin",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "尤里 加加林（苏联宇航员）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Neil Armstrong",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "尼尔 阿姆斯特朗（美国宇航员）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "NASA abbr. National Aeronautics and Space Administration",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "（美国）国家航空与航天局"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Voyager 1 “",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "旅行者一号”"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Soyuz 11 “",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "联盟11号”"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Challenger “",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "挑战者”号航天飞机"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "the International Space Station",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "国际空间站"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Jade Rabbit “",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "玉兔”月球车"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Mars",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "火星"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Jupiter",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "木星"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "Typhoon Goni",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "台风天鹅"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 4",
+        "english": "GPS abbr. global positioning system",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "全球（卫星）定位系统"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "basis",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "基础；根据；基点"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "on the basis of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "在某时的基础上；根据某事"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "loan",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "贷款；借款"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "take out a loan",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "取得贷款"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "plastic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "塑料adj.塑料制的；塑料的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "apologise",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "道歉；谢罪"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "ignore",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "忽视；对……不予理会"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "in return",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "作为回报；作为回应"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "judge",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "评价；评判；判断；"
+            },
+            {
+                "pos": "n.",
+                "chinese": "法官；审判员；裁判员"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "scene",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（戏剧或歌剧的）场；现场；场面"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "narrator",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（书、戏剧或电影中的）叙述者；讲述着；（电视节目中的）幕后解说员"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "narration",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "叙述；讲述；解说"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "bet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "打赌；堵住vi&"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "下赌注；用……打赌"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "敢说"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "make a bet",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "打个赌"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "servant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "仆人；用人"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "as a matter of fact",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "事实上；其实；说真的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "by accident",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "偶然的；以外的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "sail",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（船）航行；（人）乘船航行"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "spot",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "看见；注意到；发现n.地点；处所；斑点；污迹"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "consulate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "领事馆"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "dare",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "&modal v.胆敢；敢于"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "sort",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "种类；类别"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "mining",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "采矿；采矿业"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "patience",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "耐心；忍耐力；毅力"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "to be honest",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "说实话；坦率的说"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "ought to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "应该；应当"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "be about to do sth",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "即将或正要（做某事）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "indicate",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "表明；显示vt.象征；暗示"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "beneath",
+        "meanings": [
+            {
+                "pos": "adv. & prep.",
+                "chinese": "在（或往）……下面；在……的表面之下"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "postpone",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "延迟；延期；延缓"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "odd",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "奇怪的；怪异的；反常的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "obligation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "义务；职责；责任"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "intention",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "打算；计划；意图；目的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "nowhere",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "无处；哪里都不"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "in case",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "以防；以防万一"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "extent",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "程度；限度；大小；范围"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "to…extent",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "到……程度；在……程度上"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "musical",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "音乐剧adj.音乐的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "dinosaur",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "恐龙"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "hug",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "拥抱；抱紧"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "pursue",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "追求；致力于"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "duty",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "责任；义务；职责；值班"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "on duty",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "值班；执勤"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "hesitate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "犹豫；迟疑；顾虑"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "sequence",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "按顺序排列n.顺序；一系列"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "eventually",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "最后；终于"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "tailor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（男装）裁缝vt.专门制作；定做"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "clerk",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "职员；文书；店员"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "manner",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "举止；行为方式；方法； pl.礼貌；礼仪"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "in a…manner",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "以一种……的方式；带着一副……的样子"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "downstairs",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "顺楼梯而下；在楼下；往楼下"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "stair",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "楼梯；梯级"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "aside",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "到旁边；在旁边；留；存"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "frown",
+        "meanings": [
+            {
+                "pos": "n. & vi.",
+                "chinese": "皱眉"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "in that case",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "既然那样；假使那样的话"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "option",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "可选择的事物；选择；选择权"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "broad",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "宽阔的；广阔的；广泛的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "indeed",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "其实；实际上；当然；确实"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "normal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "典型的；正常的；一般的；精神正常的n常态；通常标准；一般水平"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "willing",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "愿意；乐意"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "be willing to do sth",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "愿意或乐意做莫事"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "element",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "要素；基本部分"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "plot",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "故事情节；布局；阴谋"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "ambassador",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "大使；使节；代表"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "upper-class",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "上流社会的；上等阶层的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "upper",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "上流的；上层的；靠上部的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "the upper class",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "上流社会；上等阶层"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "maintain",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "维持；保持；维修；保养"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "permission",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "准许；续课；批准；许可证"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "permit",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "允许；准许；使有可能"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "saying",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "谚语；格言；警句"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "external",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "外部的；外面的；外来的"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "Roderick",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "罗德里克"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "Oliver",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "奥利弗"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "Henry Adams",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "亨利 亚当斯"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "The Phantom of the Opera",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《歌剧魅影》（音乐剧）"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "Reid",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "里德"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "Todd",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "托德"
+            }
+        ]
+    },
+    {
+        "book": "必修第三册",
+        "unit": "Unit 5",
+        "english": "Portia Langham",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "波西亚 兰厄姆"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "physiology",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "生理学:生理机能"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "artemisinin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "[药]青蒿素"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "crucial",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "至关重要的:关键性的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "malaria",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "疟疾"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "vital",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "必不可少的;极其重要的;充满生机的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "committed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "尽心尽力的;坚定的;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "坚信的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "commit",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "承诺;保证(某个人、机构等)"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "忠于;全心全意投入(工作、活动等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "commit oneself to do",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "承诺;保证(做某事、遵守协议或安排等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "academy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(艺术、文学、科学等的)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "研究院;学会;专科院校"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "academic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "学业的;学术的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "objective",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "目标;目的"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "客观的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "botanical adi.",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "植物学的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "evaluate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "评价;评估"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "property",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "性质;特征;财产"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "distinct",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "清晰的;清楚的;有区别的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "extract",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "提取物;摘录"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "提取;提炼;摘录; (用力)拔出"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "wormwood",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蒿;洋艾"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "boil",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "(使)沸腾;煮开;烧开"
+            },
+            {
+                "pos": "n.",
+                "chinese": "沸腾;沸点"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "liquid",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "液体"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "液体的;液态的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "obtain",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "(尤指经努力)获得;贏得"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "(规章、习俗等)存在;流行"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "acknowledge",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "承认(属实、权威等);"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "(公开)感谢"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "defeat",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "失败;挫败"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "击败;战胜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "analyse (NAmE -ze]",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "分析"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "apparently",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "显而易见;看来;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "显然"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "substance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "物质;物品:事实根据"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "insist",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "坚持;坚决要求"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "insist on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "坚决要求"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "scientific",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "科学(上)的;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "关于科学的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "mostly",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "主要地;一般地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "wear and tear",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(正常使用造成的)磨损;损耗"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "conclusion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "结论;推论"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "penicillin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "青霉素;盘尼西林"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "flee ( fled, fled )",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "迅速离开;逃跑"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "circumstance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "[ usually pl. ]条件;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "环境;状况"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "novelist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "小说家"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "novel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(长篇)小说"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "flow /",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "流;流动;流畅;供应"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "流;流动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "chart",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "图表"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "记录;制订计划"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "flow chart",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "流程图"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "found",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "创建;建立;把...建立在"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "infer",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "推断;推定"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "politician",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "从政者;政治家;政客"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "numerous",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "众多的;许多的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "theory",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "理论;学说"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "relativity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "相对论:相对性"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "formula",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公式;方程式;配方"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "genius ( pl. geniuses)",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "天才;天资;天赋"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "gentle",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "温柔的;文静的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "patent",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "专利;专利证书;获得专利"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "有专利的;受专利保护的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "passion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "酷爱;澈情"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "doctorate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "博士学位"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "extraordinary",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "不一般的;非凡的;意想不到的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "gradually",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "逐渐地;逐步地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "photoelectric",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "光电的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "come to power",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(开始)掌权;上台"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "institution",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "社会公共机构;制度;习俗"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "institute",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(教育、专业等)机构;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "机构建筑"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "consequence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "结果;后果"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "take up a position",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "担任;任职"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "moustache [especially US mustache]",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "上唇的胡子;髭"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "peculiarity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "个性;特点;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "怪异的性质"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "encounter",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "偶然碰到;遇到"
+            },
+            {
+                "pos": "n.",
+                "chinese": "邂逅;遭遇"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "professor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "教授"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "mourn",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "&. vi.哀悼;忧伤"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "remarkable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "非凡的;显著的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "device",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "方法;技巧;装置;仪器"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "sum",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "总结;概括"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "sum up",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "总结;概括"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "draft",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "草稿;草案"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "vr.",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "起草;草拟"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Nobel Prize",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "诺贝尔奖"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Alexander Fleming",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "亚历山大.弗莱明"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Albert Einstein",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "阿尔伯特.爱因斯坦"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Hitler",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "希特勒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Elon Musk",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "埃隆.马斯克"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Florence Nightingale",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "弗洛伦斯.南丁格尔"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "SARS   abbr.",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "严重急性呼吸综合征"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Switzerland",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "瑞士( 国家名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Swiss",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "瑞士的n. (pl. Swiss)瑞士人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Isaac Newton",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "艾萨克.牛顿"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Jewish",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "犹太人的:犹太教的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 1",
+        "english": "Princeton",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "普林斯顿(美国城市)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "phrase",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "短语;词组"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "persuade",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "劝说;说服"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "switch",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "转换;交换"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(使)改变;转变"
+            },
+            {
+                "pos": "n.",
+                "chinese": "开关;转换器;改变"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "switch off/on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "关/开(电灯、机器等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "distant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "遥远的:远处的;疏远的;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "心不在焉的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "secure",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "安全的;安心的;可靠的;牢固的"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "获得;拴牢;保护"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "knob",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "旋钮;球形把手"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "appliance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "电器;器具"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "remote",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "远程的;偏远的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "remote control",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "遥控器;遥控"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "air conditioner",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "空调机;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "空调设备"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "automatic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "自动的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "integrated",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "各部分密切协调的;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "综合的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "integrate",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(使)合并;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "成为一体"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "sensor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "传感器;敏感元件"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "efficient",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "效率高的;有功效的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "mode",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "模式;方式;风格"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "routine",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "常规:正常顺序"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "常规的;日常的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "daily routine",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "日常生活"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "preference",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "爱好;偏爱"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "instant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "瞬间;片刻"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "立即的;速食的;速溶的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "command",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "指令;命令;控制"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "命令;控制"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "obey",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "服从;遵守"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "warning",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "警告;警示;先兆"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "constant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "不断的;重复的;不变的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "常数;常量"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "early on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "在初期;早先"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "abnormal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "不正常的;反常的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "critical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "严重的:关键的;批判性的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "cancer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "癌;癌症;毒瘤"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "potentially",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "潜在地;可能地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "potential",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "可能的;潜在的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "潜力;可能性"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "leak",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "漏;渗漏;透露"
+            },
+            {
+                "pos": "n.",
+                "chinese": "漏洞;裂缝;透露"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "electrical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "电的;用电的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "wiring",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "电线线路;线路系统"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "wire",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "电线;金属丝(或线)"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "接通电源; ....连接到"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "detect",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "发现;查明"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "relevant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有关的;有意义的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "catch fire",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "着火"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "fantasy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "幻想;想象"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "innovation /",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "创新;创造"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "available",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "可获得的;可购得的;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "(人)有空的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "in this sense (in ... sense)",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "从这种(某种)意义上来讲"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "nevertheless",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "尽管如此;不过;然而"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "structure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "结构;体系"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "系统安排;精心组织"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "security",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "保护措施;安全工作"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "crime",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "犯罪活动;不法行为"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "combine",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "(使)结合:混合"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "nanobot",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "纳米机器人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "artificial",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "人工的;人造的:假的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "artificial intelligence [AI]",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "人工智能"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "clone",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "克隆;以无性繁殖技术复制"
+            },
+            {
+                "pos": "n.",
+                "chinese": "克隆动物(或植物)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "predict",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "预测;预言;预料"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "prediction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "预测;预言"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "forecast",
+        "meanings": [
+            {
+                "pos": "vt. & n.",
+                "chinese": "预测;预报"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "occupation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "职业;占领"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "oppose",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "反对;抵制;阻挠"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "hence",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "因此;由此"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "cease",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(使)停止;终止"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "deceased",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "已死的;亡故的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "absence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "不存在;缺乏;缺席"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "rural",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "乡村的;农村的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "advocate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "提倡:支持;拥护"
+            },
+            {
+                "pos": "n.",
+                "chinese": "提倡者;支持者;拥护者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "emphasis",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "强调;重视;重要性"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "luxury",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "奢华"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "keep in touch (with...) ( .....",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "保持联系;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "了解(某课题或领域的情况)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "career",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "职业;事业"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "prospect",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "可能性;前景"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "resist",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "抵制;反抗;抵挡"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "resistance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "抵制;反对;抗拒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "paragraph",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "段;段落"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "signpost",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "路标"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "essay",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "文章"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "accurate",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "精确的;准确的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "librarian   nI.",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "图书管理员;图书馆馆长"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "Melbourne",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "墨尔本(澳大利亚城市)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "Christian",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "基督教徒"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "基督教的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 2",
+        "english": "the Amish",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "阿曼门诺派"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "buffet",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "连续猛击;打来打去"
+            },
+            {
+                "pos": "n.",
+                "chinese": "自助餐"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "cloth",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(一块)布;织物;布料"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "edge",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "边;边缘;边线;刀刃"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "(使)徐徐移动; ...加边"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "valley",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "谷;山谷:溪谷"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "vast",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "辽阔的:巨大的;庞大的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "glacier",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "冰川"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "reindeer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "驯鹿"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "territory",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "领土;版图;领域;地盘"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "ban",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "明令禁止;取缔"
+            },
+            {
+                "pos": "n.",
+                "chinese": "禁令"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "boundary",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "边界;界限;分界线"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "cottage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "小屋; (尤指)村舍;小别墅"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "visible",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "看得见的;可见的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "on the move",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "在行进中;在移动中"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "accompany",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "陪同;陪伴;伴随;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "(尤指用钢琴)为...伴凑"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "adopt",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "采用;采取;采纳"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "领养"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "sour",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "酸的;有酸味的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "set out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "出发;启程; (怀着目标)开始工作"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "bless",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "祝福"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "tive off",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "依...生活:以...为生"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "prohibition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "禁止;阻止;禁令"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "prohibit",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "(尤指以法令)禁止;阻止"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "journalist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "新闻记者;新闻工作者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "sneeze",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "打喷嚏"
+            },
+            {
+                "pos": "n.",
+                "chinese": "喷嚏;喷嚏声"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "teapot",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "茶壶"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "label",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "用标签标明;贴标签"
+            },
+            {
+                "pos": "n.",
+                "chinese": "标签;标记"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "cream",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "奶油;乳脂;护肤霜"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "奶油色的;淡黃色的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "leopard",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "豹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "stretch",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "延伸;延续"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "伸展;舒展"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "rewarding",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "值得做的: 有益的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "bush",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "灌木"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "lung",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "肺"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "cycle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "自行车;摩托车;循环"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "骑自行车"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "corridor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "狭长地带;走廊;过道;通道"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "pedal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "自行车等的)脚蹬子;踏板"
+            },
+            {
+                "pos": "vi. & vi.",
+                "chinese": "骑自行车;踩踏板"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "fountain",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "喷泉;人工喷泉:喷水池"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "route",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "路线;路途;途径"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "ahead",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "向前;在前面;提前"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "theme",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有特定主题的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "主题;主题思想"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "theme park",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "主题公园;主题乐园"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "roller coaster",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "过山车"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "incredible",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "极好的;极大的;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "难以置信的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "appeal",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "有吸引力:呼吁:恳求;上诉"
+            },
+            {
+                "pos": "n.",
+                "chinese": "吸引力;呼吁;上诉;请求"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "appeal to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "有吸引力;有感染力;呼吁;上诉;打动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "pirate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "海盗;盗版者"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "盗印;窃用"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "adorable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "可爱的;讨人喜爱的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "wander",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "游荡;闲逛;流浪"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "闲逛;漫游"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "走失;离散;走神"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "amusement",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "娱乐( 活动);愉悦"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "amuse",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "(提供)消遺; (使)娱乐"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "enormous",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "巨大的;极大的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "swing ( swung, swung)",
+        "meanings": [
+            {
+                "pos": "vi. & vi.",
+                "chinese": "(使)摆动;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "摇摆;转弯;(使)突然转向"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "iron",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "铁;铁器;铸铁;熨斗"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "(用熨斗)熨;烫平"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "fashion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "时尚;时兴;流行款式"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "rare",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "稀少的:珍贵的: (肉)半熟的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "steam",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蒸汽;水蒸气;蒸汽动力"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "蒸发;散发蒸汽;冒水汽"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "superb",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "极佳的;卓越的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "aquarium ( pl. aquariums or aquaria /-ria/ )",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "水族馆;水族玻璃槽;养鱼缸"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "up to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "达到(某数量、程度等);直到;不多于:"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "(体力或智力上)能胜任"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "polar",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "(近)极地的;南极(或北极)的:"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "磁极的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "upside down",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "顛倒;倒转;翻转"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "splendid",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "壮丽的;雄伟的;极佳的:"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "非常好的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "display",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "展览;陈列;展览品"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "显示;陈列"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "appetite",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "食欲;胃口;强烈欲望"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "entertainment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "娱乐;招待:"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "娱乐活动:文娱节目"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "column",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(书、报纸印刷页上的)栏;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "专栏;柱(形物)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "Sami",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "萨米人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "(居住在斯堪的纳维亚北部的拉普人)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "Sarek National Park",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "萨利克国家公园"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "Sweden",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "瑞典(国家名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "the Arctic /'a:ktrk/ Circle",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "北极圈"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "Rapa  River",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "拉帕河"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "Siberian",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "西伯利亚(人)的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "西伯利亚人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 3",
+        "english": "Dollywood",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "多莉山主题公园"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "interaction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "交流;相互影响"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "vary",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "(根据情况)变化;改变"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "appropriate",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "合适的;恰当的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "by contrast",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "相比之下"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "approve",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "赞成;同意"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "批准;通过"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "demonstrate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "表现;表达;说明;证明"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "gesture",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "手势;姿势;姿态"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "witness",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "当场看到;目击;见证"
+            },
+            {
+                "pos": "n.",
+                "chinese": "目击者;证人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "employ",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使用:应用;雇用"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "identical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "相同的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "interpret",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "把...理解(解释)为"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "口译"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "differ",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "相异;不同于"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "by comparison",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(与......).相比较"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "cheek",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "面颊;脸颊"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "favour",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "较喜欢;选择;有利于"
+            },
+            {
+                "pos": "n.",
+                "chinese": "帮助;恩惠;赞同"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "bow",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "鞠躬;点头"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "waist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "腰；腰部"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "make inferences",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "推理;推断"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "break down",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "消除;分解;打破"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "barrier",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "隔阂;障碍"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "fake",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "假装的;假的:冒充的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "anger",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "愤怒;怒气"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "使生气:激怒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "reliable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "可靠的;可信赖的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "incident",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "发生的事情;严重事件;冲突"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "trial",
+        "meanings": [
+            {
+                "pos": "n. & v.",
+                "chinese": "审讯:审判:试验:试用"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "slight",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "轻微的;略微的:细小的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "slightly",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "略微:稍微"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "twin",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "双胞胎之一的;孪生之一的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "孪生之一;双胞胎之一"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "nonverbal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "不涉及言语的;非言语的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "assessment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "评价;评定"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "assess",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "评估;评价"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "internal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "内部的;里面的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "straighten up",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "直起来;整理;收拾整齐"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "slump",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "垂头弯腰地走(或坐等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "pose",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "故作姿态; (为画像、拍照等摆的)姿势"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "摆好姿势"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "造成(威胁、问题等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "bend /bend/ ( bent, bent)",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "(使)弯曲;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "倾斜;偏向"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "reveal",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "揭示;显示;露出"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "clarify",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使更清晰易懂;阐明;澄清"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "in other words",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "换句话说;也就是说"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "educator",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "教师:教育工作者;教育家"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "tick",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "给(试卷、问题等)打钩号"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "(钟表)发出嘀嗒声"
+            },
+            {
+                "pos": "n.",
+                "chinese": "钩号"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "tendency",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "趋势;倾向"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "iower",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "把....低:降低;减少"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "下面的;下方的;较小的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "imply",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "意味着;暗示"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "barely",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "几乎不;勉强才能;刚刚"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "chin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "下巴"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "occupy",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "占据;占用"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "stare",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "盯着看;凝视"
+            },
+            {
+                "pos": "n.",
+                "chinese": "凝视"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "ceiling",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "天花板;上限"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "distract",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "分散(注意力);使分心"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "perceive",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "察觉;看待;理解"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "distinguish",
+        "meanings": [
+            {
+                "pos": "vi. & vi.",
+                "chinese": "区分;辨别"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "anxiety",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "焦虑;担心;害怕"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "chest",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "胸部;胸膛"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "embarrassed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "难堪的:尴尬的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "ashamed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "羞愧;惭愧"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "merely",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "只是:仅仅;只不过"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "call on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(短暂地)访问;要求(某人讲话等);"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "正式邀请"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "bother",
+        "meanings": [
+            {
+                "pos": "vi. & vi.",
+                "chinese": "费心:麻烦; ...心"
+            },
+            {
+                "pos": "n.",
+                "chinese": "麻烦;不便"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "weep",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "哭泣;流泪"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "at work",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "有某种影响:在T作"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "conflict",
+        "meanings": [
+            {
+                "pos": "n. & vi.",
+                "chinese": "矛盾;冲突"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "inquire   (= enquire)",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "询问;打听"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "ultimately",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "最终;最后"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "adjust",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "调整;调节"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "适应;(使)习惯"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "intervene",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "干预;介入"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "react",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "(对.....起反应;回应;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "(对食物等) 有不良反应"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "component",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "组成部分;零件"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "tone",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "语气;腔调;口吻"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "Brazil",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "巴西(国家名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "Bulgaria",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "保加利亚( 国家名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 4",
+        "english": "Albania",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "阿尔巴尼亚( 国家名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "hybrid",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "杂交植(动)物;合成物;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "混合动力车"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "devote",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "把..-.献(给);把....专用于;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "专心于"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "devote ... to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "把....用于;:献身;致力;专心"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "shortage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "不足;缺少;短缺"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "tackle",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "解决(难题);应付(局面);处理"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "crisis ( pl. crises   )",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "危机;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "危急关头"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "boost",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使增长;使兴旺"
+            },
+            {
+                "pos": "n.",
+                "chinese": "增长;提高;激励"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "yield",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "产量;产出"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "出产(作物);产生(收益、效益等)"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "屈服;让步"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "convince",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使相信;使确信;说服"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "characteristic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "特征;特点;品质"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "典型的;独特的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "attain",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "(通常经过努力)获得;得到"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "conventional",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "传统的:习惯的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "pollinate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "授粉;传粉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "assumption",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "假定;设定; ( 责任的)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "承担; (权利的)获得"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "intense",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "热切的;十分强烈的;激烈的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "overcome ( overcame, overcome)",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "克服;解决;战胜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "expand",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "扩大;增加"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "扩展;发展(业务)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "output",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "产量;输出;输出量"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "输出"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "estimate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "估计;估价;估算"
+            },
+            {
+                "pos": "n.",
+                "chinese": "估计;估算"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "domestic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "本国的;国内的;家用的;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "家庭的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "consumption",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "消耗;消耗量;消费"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "comprise",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "包括;包含; ...组成"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "be comprised of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "包括;包含;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "由...组成(或构成)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "generate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "产生;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "引起"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "strain",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(动、植物的)系;品种;拉伤;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "压力"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "leisure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "闲暇;休闲;空闲"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "deep down",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "在内心深处;本质上;实际上"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "soil",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "泥土;土壤;国土;领土"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "celebrity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "名望;名誉;名人;名流"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "envision",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "展望;想象"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "sorghum",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "高粱;高粱米"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "broom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "扫把;扫帚;金雀花"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "grain",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "谷物;谷粒;颗粒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "vision",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "想象;视力;视野;影像"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "reality",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "现实;实际情况;事实"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "salty",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "含盐的;咸的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "urban  /",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "城市的;都市的;城镇的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "bomb",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "炸弹"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "轰炸; .对...投炸弹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "tunnel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地下通道;地道;隧道"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "extension",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "扩建部分;扩大;电话分机"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "chemical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "与化学有关的;化学的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "化学制品;化学品"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "wheat",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "小麦:小麦籽"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "flavour",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "味道;特点:特色"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "fertiliser ( NAmE -izer )",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "肥料"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "nutritional",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "营养(物)的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "nutritious",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有营养的;营养丰富的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "nutrition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "营养;滋养"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "alleviate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "减轻;缓解"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "poverty",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "贫穷;贫困"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "organic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有机的;不使用化肥的;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "有机物的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "pesticide",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "杀虫剂:除害药物"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "widespread",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "分布广的;普遍的;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "广泛的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "bacterium ( pl. -ria/-ria/)",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "细菌"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "in turn",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "相应地;转而;依次;轮流"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "digest",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "消化"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "领会;领悟"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "essential",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "完全必要的;极其重要的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "mineral",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "矿物;矿物质"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "alternative",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "可供选择的事物"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "可供替代的;非传统的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "grocery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "食品杂货店: [pl]食品杂货"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "instance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "例子;实例;事例"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "for instance",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "例如;比如"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "depth",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "向下(或向里)的距离;深(度)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "root",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "根;根茎;根部;根源"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "entirely",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "全部地;完整地;完全地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "aspect",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "方面;层面"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "Vietnam",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "越南(国家名]"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "LED abbr( light- emitting diode )",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "发光二极管"
+            }
+        ]
+    },
+    {
+        "book": "选必修第一册",
+        "unit": "Unit 5",
+        "english": "DDT",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "滴滴涕(旧时尤用作农业杀虫剂)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "cholera",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "霍乱"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "severe",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "极为恶劣的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "diarrhoea",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "腹泻"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "dehydration",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "脱水"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "frustrated",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "懊悔的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "once and for all",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "最终地；彻底地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "contradictory",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "相互矛盾的；对立的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "infection",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "感染"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "infect",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使感染"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "germ",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "微生物"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "subscribe",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "订阅"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "subscribe to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "赞同"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "proof",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "证据"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "multiple",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "数量多的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "pump",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "泵"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "water pump",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "水泵"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "household",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "一家人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "suspect",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "怀疑"
+            },
+            {
+                "pos": "n.",
+                "chinese": "犯罪嫌疑人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "blame",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "把......归咎于"
+            },
+            {
+                "pos": "n.",
+                "chinese": "职责责备"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "handle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "把守；拉手"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "处理"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "intervention",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "介入；出面"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "link",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "联系"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "相关联"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "raw",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "未熟的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "pure",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "干净的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "substantial",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "大量的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "decrease",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "减少"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "降低"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "thanks to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "由于"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "statistic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "统计数字"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "transform",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使改观"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "改变"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "epidemiology",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "流行病学"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "microscope",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "显微镜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "thinking",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "思想"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "protein",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蛋白质"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "cell",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "细胞"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "virus",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "病毒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "finding",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "发现；调查"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "initial",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "最初的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "vaccine",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "疫苗"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "framework",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "框架；结构"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "theoretical framework",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "理论框架"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "solid",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "可靠的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "固体"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "cast",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "投射"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "shadow",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "阴影"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "rainbow",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "彩虹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "pour",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "倒出"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "concrete",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "混凝土"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "混凝土制的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "plasma",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "血浆"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "aerospace",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "航空航天业"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "patriotic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "爱国的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "mechanical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "机械的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "mechanic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "机械师"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "break out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "突然开始"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "aviation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "航空制造业"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "defend",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "保卫"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "jet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "喷气式飞机"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "assistant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "助理"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "in charge of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "主管"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "missile",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "导弹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "leadership",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "领导"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "trace",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "追溯"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "outstanding",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "优秀的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "gifted",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有天赋的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "come down",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "患（病）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "abstract",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "抽象的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "steady",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "稳定的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "concept",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "概念"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "astronomer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "天文学家"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "astronomy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "天文学"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "telescope",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "望远镜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "besides",
+        "meanings": [
+            {
+                "pos": "prep.",
+                "chinese": "除......之外"
+            },
+            {
+                "pos": "adv.",
+                "chinese": "而且"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "brilliant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "新颖的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "furthermore",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "此外"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "above all",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "最重要的是"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "fault",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "弱点"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "shift",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "改变"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "转移"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "vivid",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "生动的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 1",
+        "english": "the big bang theory",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "大爆炸宇宙论"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "complex",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "复杂的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "recall",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "记起"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "qualification",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "资历"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "qualify",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(使)具备资格"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "ambition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "追求的目标"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "ambitious",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有野心的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "adaptation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "适应"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "comfort",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "安慰"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "安慰"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "tutor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "助教"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "cite",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "引用"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "participate",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "参加"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "participate in",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "参加"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "presentation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "报告"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "speak up",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "大声点说"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "feel at home",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "舒服自在"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "engage",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "参加"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "吸引"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "engage in",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(使)从事"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "involve",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "包含"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "get involved in",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "参与"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "messenger",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "送信人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "edition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(报纸、杂志)一份"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "culture shock",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "文化冲击"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "zone",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地区"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "comfort zone",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "舒适区"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "overwhelming",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "无法抗拒的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "homesickness",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "思乡病"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "motivated",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "积极的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "motivation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "动力"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "advisor",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "顾问"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "reasonable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有道理的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "expectation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "期望"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "applicant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "申请人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "firm",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公司"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "结实的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "exposure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "接触"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "expose",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "使接触"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "insight",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "洞察力"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "departure",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "离开"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "setting",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "环境"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "grasp",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "理解"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "dramatic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "巨大的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "expense",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "费用"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "cost an arm and a leg",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(使)花一大笔钱"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "tremendous",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "巨大的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "behave",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "表现"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "表现得体"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "surrounding",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "周围的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "mature",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "成熟的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "depressed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "沮丧的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "depress",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使沮丧"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "boom",
+        "meanings": [
+            {
+                "pos": "vi. & n.",
+                "chinese": "迅速发展；繁荣"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "strengthen",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "巩固"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "deny",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "否认"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "optimistic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "乐观的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "gain",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "获得"
+            },
+            {
+                "pos": "n.",
+                "chinese": "好处"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "perspective",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "角度"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "competence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "能力"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "competent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有能力的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "envoy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "使节"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "cooperate",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "合作"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "angle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "角"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "outlook",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "前景"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "belt",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "腰带"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "initiative",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "倡议"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "sincerely",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "真诚地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "budget",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "预算"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "side with",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "支持"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "logical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "合乎逻辑的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "as far as i know",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "据我所知"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "as far as i am concerned",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "就我而言"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "in summary",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "总之"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "generally speaking",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "一般来说"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 2",
+        "english": "outcome",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "结果"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "cuisine",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "菜肴"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "prior",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "先前的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "prior to",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "在......之前"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "consist",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "consist of 由......组成"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "pepper",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "甜椒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "recipe",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "烹饪法"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "bold",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "大胆自信的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "chef",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "厨师"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "peppercorn",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "胡椒粒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "vinegar",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "醋"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "stuff",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "填满"
+            },
+            {
+                "pos": "n.",
+                "chinese": "东西"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "slice",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "薄片"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "slice...off",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "切下"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "onion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "洋葱"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "lamb",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "羔羊"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "lamb kebab",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "烤羊肉串"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "elegant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "精美的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "dim sum",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "点心"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "exceptional",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "特别的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "minimum",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "最小的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "最小值"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "consume",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "吃；喝"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "temper",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "脾气"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "vegetarian",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "素食主义者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "junk",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "无用的东西"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "junk food=junk",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "垃圾食品"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "garlic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蒜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "bacon",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "熏猪肉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "ham",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "火腿"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "sausage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "香肠；腊肠"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "cabbage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "卷心菜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "bean curd=tofu",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "豆腐"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "brand",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "品牌"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "olive",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "橄榄树"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "fig",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "无花果"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "ingredient",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "成分"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "dessert",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "甜点"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "dough",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "生面团"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "stable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "稳定的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "haggis",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "羊杂碎肚"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "canteen",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "食堂"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "cafeteria",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "自助餐厅"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "bun",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "圆面包"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "chilli=chili",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "辣椒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "pork",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "猪肉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "red braised pork",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "红烧肉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "pearl",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "珍珠"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "somewhat",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "有点"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "madam",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "女士"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "calorie",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "卡路里"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "association",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "协会"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "regardless of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "不顾"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "category",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "类别"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "vitamin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "维生素"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "fibre",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "纤维"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "quantity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "数量"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "dairy",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "奶制的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "乳制品"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "moderation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "适度"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "ideal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "完美的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "理想"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "fundamental",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "根本的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "基本规律"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "chew",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "咀嚼n.咀嚼"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "consistent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "一致的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "modest",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "些许的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "trick",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "诀窍"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 3",
+        "english": "overall",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "总体上；大致上adj全面的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "airline",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "航空公司"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "bay",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "湾"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "craft",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "手艺"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "antique",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "古董"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "古老的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "pleasant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "令人愉快的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "arise",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "起身"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "massive",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "巨大的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "literally",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "字面上"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "breath",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "呼吸的空气"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "take one’s breath away",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "令人惊叹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "bound",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "准备前往（某地）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "scenery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "风景；景色"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "awesome",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "令人惊叹的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "spectacular",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "壮观的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "壮丽的场面"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "peak",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "顶峰"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "highlight",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "最好或最精彩的部分vt.突出"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "goat",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "山羊"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "grizzly bear",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "灰熊"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "drill",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "钻（空）"
+            },
+            {
+                "pos": "n.",
+                "chinese": "钻（头）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "freezing",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "极冷的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "freeze",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "结冰"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "mall",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "购物商场"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "prairie",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "北美草原"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "anticipate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "预料"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "bunch",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "一束"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "thunder",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "打雷n.雷声"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "frost",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "霜"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使蒙上霜vi.结霜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "curtain",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "窗帘"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "border",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "国界"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "duration",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "持续时间"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "harbour",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "港"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "enrol",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "注册"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "quarry",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "采石场"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "idiom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "习语"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "contrary",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "相反的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "相反的的事实"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "contrary to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "相反的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "anyhow",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "不过"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "alongside",
+        "meanings": [
+            {
+                "pos": "prep.",
+                "chinese": "在......旁边；与......一起"
+            },
+            {
+                "pos": "adv.",
+                "chinese": "在旁边"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "proceed",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "行进"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "shore",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "岸"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "astonish",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使十分惊讶"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "misty",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "多雾的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "mist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "薄雾"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "steel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "钢"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "dusk",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "黄昏"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "advertisement",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "广告"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "accent",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "口音"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "photographer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "摄影师"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "owe",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "欠"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "owe sth to sb",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "欠（某人情）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "toast",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "烤面包片"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "为......干杯"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "烤（尤指面包）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "cobblestone",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "铺满鹅卵石的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 4",
+        "english": "coherent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有条理的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "technique",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "技能，技术，技艺"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "leaflet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "散页印刷品"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "organ",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "（人或动植物的）器官"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "toxin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "毒素"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "ray",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "光线；光束"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "sense of touch",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "触觉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "radiation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "辐射；放射线"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "acid",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "酸adj.酸的，酸性的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "millimetre",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "毫米；千分之一米"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "minor",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "较小的，次要的，轻微的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "layer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "层；表层"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "electric",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "电的，用电的，电动的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "electric shock victim",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "受害者，患者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "swollen",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "肿的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "swell",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "膨胀"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "blister",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "气泡、水泡；水疱"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "underneath",
+        "meanings": [
+            {
+                "pos": "prep. & adv.",
+                "chinese": "在……底下，隐藏在下面"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "nerve",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "神经"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "fabric",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "织物；布料"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "loose",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "宽松的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "urgent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "紧急的，急迫的，急切的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "ease",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "减轻，缓解vi&"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使容易，使顺利n.容易，舒适，自在"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "paramedic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "急救医生，护理人员"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "swallow",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "吞下"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "wrap",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "包、裹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "bathtub",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "浴缸"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "bath",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "洗澡"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "给......洗澡"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "slip",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "滑倒，滑落，溜走n.滑倒，小错误，纸条"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "mosquito",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蚊子"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "elderly",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "年老的，渐老的（委婉）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "carpet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地毯"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "operator",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "操作员"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "ambulance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "救护车"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "delay",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "推迟，延期（做某事）"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "耽误，耽搁n.延误，耽搁（的时间），推迟"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "needle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "针"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "IV needle",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "静脉注射针"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "vital sign",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "生命体征"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "ward",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "病房"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "drown",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "（使）淹死，溺死，浸泡，淹没"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "sprain",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "扭伤（关节）"
+            },
+            {
+                "pos": "n.",
+                "chinese": "扭伤"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "ankle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "踝，踝关节"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "bleed",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "流血，失血"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "bleeding",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "流血，失血"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "panic",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（使）恐慌n.惊恐，恐慌"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "interrupt",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "打断，打扰vt.使暂停，使中断"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "scream",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（因愤怒或恐惧）高声喊，大声叫n.尖叫，尖锐刺耳的声音"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "fellow",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "同类的，同事的，同伴的，同情况的n.男人，家伙，同事，同辈，同类"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "dinner",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "就餐者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "choke",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "（使）窒息"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "steak",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "牛排"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "throat",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "咽喉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "desperate",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "绝望的，孤注一掷的，非常需要的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "slap",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "n.打、拍"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "help sb to one‘s feet",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "帮助某人站起身来"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "face up/down",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "面朝上（朝下）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "sleep in",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "迟起"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "out of shape",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "健康状况不好"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "practical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "切实可行的，实际的，实践的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "obstruction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "阻碍"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "fist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "拳头"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "grab",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "抓住n.抓取"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "tight",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "牢固的adv.紧紧地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "tightly",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "紧紧地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "motion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "运动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "justify",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "证明......的道理"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "welfare",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "幸福"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "collapse",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "（突然）倒塌，（因病等）昏倒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "manual",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "使用手册"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "用手的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "foggy",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有雾的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "membership",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "会员身份"
+            }
+        ]
+    },
+    {
+        "book": "选必修第二册",
+        "unit": "Unit 5",
+        "english": "suburb",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "郊区"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "precise",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "准确的:精确的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "precisely",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "准确地;精确地;的确如此"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Christianity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "基督教"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "realistic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "现实的:通真的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "realism",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "逼真;现实主义;务实作"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "realist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "现实主义画家(或作家等];现实主义者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "primitive",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "发展水平低的:原始的:远古的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "文艺复兴前的艺术家(或作品);原始派画家(或作品"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "two-dimensional",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "二维的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "dimension",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "维;规模;范團"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "in particular",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "尤其:特别"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "set apart from",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "使与众不同;使突出;使优于..."
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "humanistic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "人文主义的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "humanity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "人性;人道; (统称)人类"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "breakthrough",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "重大进展;突破"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "influential",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有很大影响力的;有支配力的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "reputation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "名誉:名声"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "noble",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "贵族成员:出身高贵的人"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "崇高的:宏伟的:高贵的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "rank",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "地位;级别;行列"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "把--分等级:使排成行"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "purchase",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "购买:采购"
+            },
+            {
+                "pos": "n.",
+                "chinese": "购买:购买的东西"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "mythology",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "神话:虚幻的想法"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "client",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "委托人:当事人:客户"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "photography",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "照相术:摄影"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "emerge",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "出现:浮现:暴露"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "sunrise",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "日出"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "convey",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "表达;传递(思想、感情等);传送"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "subjective",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "主观的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "outer",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "外表的;外边的;外围的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "subsequent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "随后的:后来的:之后的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "fond",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "喜爱"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "be fond of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "喜爱;喜欢"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "fine art (also fine arts)",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "美术(尤其绘画和雕塑)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "sculpture",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "雕像;雕刻品;雕刻术"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "sculptor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "雕刻家;雕塑家"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "visual",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "视觉的;视力的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "water lily m.",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "睡莲"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "pond",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "池塘;水池"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "arched",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "拱形的;弓形的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "arch",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "呈弧形横跨; (使)成弓形"
+            },
+            {
+                "pos": "n.",
+                "chinese": "拱;拱形结构:拱门"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "investment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "投资额;投资; (时间、精力的)投入"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "bride",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "新娘"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "permanent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "永久的;永恒的:长久的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "memorial",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "纪念碑(或像等);纪念物;纪念品"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "纪念的;悼念的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "humble",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "谦逊的;虚心的;卑微的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "criticise",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "批评;指责;评价"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "criticism",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "批评;指责;评论"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "representative",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "典型的;有代表性的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "代表"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "ink",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "墨水;墨汁;油墨"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "animation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(电脑、录像)动画制作;动画片"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "frame",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "画面;框架"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "..-.镶框"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "symphony",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "交响乐;交响曲"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "decline",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(数量、价格、质量等的)减少;下降;衰落"
+            },
+            {
+                "pos": "vi.",
+                "chinese": ",&vt.减少;下降;衰落;谢绝"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "exhibition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "展览; (技能、感情或行为的)表演"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "bronze",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "青铜;深红褐色"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "青铜色的;深红褐色的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "ceramic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "陶瓷制品;制陶艺术"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "vase",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "花瓶;装饰瓶"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "artistic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "艺术的:艺术家的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "entry",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "加入;进入;参与"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "civil",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "国民的;民用的:民事的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "recognition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "承认;认出;赞誉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Buddhist",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "佛教的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "佛教徒"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Buddhism",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "佛教"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "expansion",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "扩张;扩展;扩大"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "bring .. to life",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "赋...生命: ....鲜活起来"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "guarantee",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "保证;确保; .肯定...必然发生"
+            },
+            {
+                "pos": "n.",
+                "chinese": "保证;保修单;担保物"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "contemporary",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "当代的;现代的;属同时期的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "同代人;同辈人，"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "worthy",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "值..的:有价值的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "be worthy of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "值得"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "The Middle Ages",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "中世纪"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Giotto di Bondone",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "乔托·迪.邦多纳(意大利画家、雕刻家、建筑师)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "the Renaissance",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "文艺复兴(时期)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Masaccio",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "马萨乔(意大利现实主义画家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Leonardo da Vinci",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "莱昂纳多.达.芬奇(意大利艺术家、学者、发明家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Michelangelo",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "米开朗基罗( 意大利雕塑家、画家、建筑师、诗人)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Raphael",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "拉斐尔(意大利画家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Rembrandt",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "伦勃朗(荷兰画家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Impressionism",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "印象主义;印象派(绘画风格)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Claude Monet",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "克劳德·莫奈(法国印象派画家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Renoir",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "雷诺阿(法国印象派画家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Picasso",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "毕加索(西班牙画家、雕塑家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Cubism",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "立体主义;立体派"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Giverny",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "吉维尼(法国小镇)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Tadpoles  Searching for Mother",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《小蝌蚪找妈妈》"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "The Cowboy's Flute",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《牧笛》"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Feeling from Mountain and Water",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《山水情》"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 1",
+        "english": "Clearing After Snow on a Mountain Pass",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《函关雪霁图》(明代画家唐突画作)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "tobacco",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "烟草;烟叶"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "alcohol",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "酒;酒精"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "abuse",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "滥用;虐待;辱骂"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "滥用;虐待;辱骂"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "physical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "身体的:客观存在的;物理学的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "dominate",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "支配;控制;占有优势"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "repeatedly",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "重复地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "psychology",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "心理学;心理;心理影响"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "cue",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "提示;暗示;信号"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "给(某人)暗示(或提示)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "in response to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "回答;答复"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "reward",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "回报;奖励:报酬"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "奖励;奖赏;给以报酬"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "rely",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "依赖;依靠;信赖"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "rely on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "依赖;依靠;信赖"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "facilitate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "促进:促使;使便利"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "examine",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "(仔细)检查;审查;測验"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "negative",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "消极的;有害的;否定的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "escalator",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "自动扶梯;滚梯"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "straight away",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "立即:马上"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "pessimistic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "悲观的;悲观主义的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "discipline",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "自制力:纪律;学科"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "自我控制;管教;处罚"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "pill",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "药丸:药片"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "decide on",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "决定:选定"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "make up one's mind",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "下定决心"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "compose",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "组成;作曲;撰写"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "be composed of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "由...组成(或构成)的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "surgeon",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "外科医生"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "surgery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "外科手术;外科学"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "liberation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "解放;摆脱"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "shave",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": ", vt.&n.剃(须发);刮脸"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "shave off",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "剃掉;刮去"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "beard",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "胡须;络腮胡子"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "disturb",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "打扰;搅乱:使烦恼"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "cigarette",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "香烟;卷烟"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "specialist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "专科医生:专家"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "consultant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "顾问;高级顾问医师"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "drug",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "毒品;药物"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "skip",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "跳过;不参加;悄悄溜走"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "蹦蹦跳跳地走:跳绳"
+            },
+            {
+                "pos": "n.",
+                "chinese": "蹦跳"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "dizzy",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "头晕目眩的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "flu",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "流感"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "stimulate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "激发;促进:刺激"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "dentist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "牙科医生"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "sugary",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "含糖的;甜的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "nut",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "坚果"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "skateboard",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "滑板"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "滑滑板"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "dynamic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "充满活力的;精力充沛的;动态的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "virus",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "病毒;病毒性疾病"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "stress out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "焦虑不安;疲惫不堪"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "worn out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "筋疲力尽的;疲惫的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "bowling",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "保龄球运动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "comedy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "喜剧;喜剧片;滑稽节目"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "monthly",
+        "meanings": [
+            {
+                "pos": "adv. & adj.",
+                "chinese": "每月:每月- -次的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "月刊"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "enhance",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "提高;增强;增进"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "refresh",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "使恢复精力;使凉爽;刷新"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "absorb",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "吸引全部注意力;吸收"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "Aristotle",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "亚里土多德(古希腊哲学家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "People's Liberation Army (PLA]",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "中国人民解放军"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 2",
+        "english": "Lao Zi",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "老子(中国古代哲学家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "graph",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "图;图表;曲线图"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "emission",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "排放物;散发物;排放"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "melt",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(使)融化;熔化;软化"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "starve",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(使)挨饿;饿死"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "seal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "海豹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "ecology",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "生态;生态学"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "release",
+        "meanings": [
+            {
+                "pos": "vt. & n.",
+                "chinese": "排放;释放;发布"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "methane",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "甲烷;沼气"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "carbon",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "碳"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "dioxide",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "二氧化物"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "carbon dioxide",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "二氧化碳"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "habitable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "适合居住的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "sustain",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "维持;遺受;承受住"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "sustainable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "可持续的:合理利用的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "fossil",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "化石"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "fuel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "燃料;刺激性言行"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "fossil fuel",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "化石燃料(如煤或石油)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "comprehensive",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "全部的;所有的;详尽的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "worldwide",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "遍及全球地"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "世界各地的;影响全世界的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "trend",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "趋势;趋向;动向"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "frequently",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "频繁地;经常"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "broadcast",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "l broadcast, broadcast/broadcasted ) 播送;广播;传播"
+            },
+            {
+                "pos": "n.",
+                "chinese": "广播节目;电视节目"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "policy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "政策;方针;原则"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "footprint",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "足迹; (某物所占的)空间量;面积"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "restrict",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "限制;限定;束缚"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "restriction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "限制规定;限制法规;约束"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "seize",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "抓住;夺取;控制"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "basin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "流域;盆地;盆"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "penguin",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "企鹅"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "reform",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "吃&"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "改革; (使)改正;改造"
+            },
+            {
+                "pos": "n.",
+                "chinese": "改革;变革;改良"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "undergo ( underwent, undergone )",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "经历;经受(变化、不快等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "implement",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "使生效;贯彻;执行"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "harmonious",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "和谐的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "moderate",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "适度的;中等的;温和的"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "缓和;使适中"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "submit  L&",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "提交;呈递;屈服"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "annual",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "每年的; - -年的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "年刊;年鉴"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "tropical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "热带的;来自热带的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "chaos",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "混乱;杂乱;紊乱"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "on behalf of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "代表(代替)某人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "nuclear",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "原子能的;核能的;原子核的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "sensitive",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "敏感的;善解人意的;灵敏的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "jungle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(热带)丛林;密林"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "smog",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "烟雾(烟与雾混合的空气污染物)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "originate",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "起源;发源;创立"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "volume",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "量;体积; (成套书籍中的) -卷"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "garbage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "垃圾;废物"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "enterprise",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公司;企业;事业"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "restore",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "恢复;使复原;修复"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "conservation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "对(环境、文物等)保护;保持"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "dozen (-)",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "打;十二个"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "dozens of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "许多;很多"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "regulation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "章程;规章制度"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "disposal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "去掉;清除;处理"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "inspection",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "检查;查看;视察"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "fine",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": ".对....处以罚款"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "campaign",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "运动;战役"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "& vr.参加运动;领导运动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "waterway",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "水道;航道"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "tolerate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "忍受;包容;容许"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "agenda",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "议程表;议事日程"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "Norway",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "挪威(北欧国家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "Svalbard",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "斯瓦尔巴群岛(挪威)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 3",
+        "english": "Hurricane Katrina",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "飓风卡特里娜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "adversity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "困境;逆境"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "wage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "工资"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "bitter",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "严寒的;激烈而不愉快的;味苦的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "expedition",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "探险;远征;探险队、"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "endurance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "忍耐力;耐久力"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "vigour  (NAmE vigor)",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "精力;力量;活动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "turn sb down",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "拒绝(某人)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "qualified",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "明 adj.符合资格;具...的知识(或技能、学历等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "enthusiastic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "热情的;热心的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "aboard",
+        "meanings": [
+            {
+                "pos": "adv. & prep.",
+                "chinese": "上(船、飞机、公共汽车等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "cupboard",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "橱柜;壁橱;衣柜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "assign",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "以分派;布置;分配"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "steward",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(轮船、飞机或火车上的)乘务员;服务员"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "envy",
+        "meanings": [
+            {
+                "pos": "n. & vt.",
+                "chinese": "羡慕;妒忌"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "crush",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "毁坏;压坏;压碎"
+            },
+            {
+                "pos": "n.",
+                "chinese": "拥挤的人群"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "sink (sank  or sunk , sunk)",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "沉没;下沉;下降"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使下沉;使沉没"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "abandon",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "舍弃;抛弃;放弃"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "stove",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "炉具;厨房灶具"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "blanket",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "毯子"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "belongings",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "[pl.]财物;动产"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "banjo",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "班卓琴(乐器)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "miserable",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "痛苦的;令人难受的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "voyage",
+        "meanings": [
+            {
+                "pos": "n. & vi.",
+                "chinese": "航海;航行"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "navy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "海军;海军部队"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "decent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "相当不错的;正派的;得体的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "cosy",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "温馨的;舒适的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "selfish",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "自私的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "good/bad-tempered",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "脾气好的/坏的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "genuine",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "真正的;真诚的;可信赖的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "perseverance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "毅力;韧性;不屈不挠的精神"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "persevere",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "坚持;孜孜以求"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "resolve",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "决定;决心;解决(问题或困难)"
+            },
+            {
+                "pos": "n.",
+                "chinese": "决心;坚定的信念"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "resolution",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "决议;解决;坚定"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "crew",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(轮船、飞机等 上面的)全体工作人员; ."
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "专业团队;一群人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "cruel",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "残酷的;残忍的:冷酷的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "thorough",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "深入的;彻底的;细致的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "furniture",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "家具"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "unfortunately",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "不幸地;遗憾地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "fortunately",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "幸运地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "application",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "申请;请求;应用"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "bark",
+        "meanings": [
+            {
+                "pos": "vi. & n.",
+                "chinese": "(狗)吠叫;吠叫声"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "rugby",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "橄榄球运动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "bat",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "球拍;蝙蝠"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "用球板击球;挥打;拍打"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "damp",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "潮湿的;湿气重的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "recreation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "娱乐;消遣;游戏"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "guidance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "指导;引导;导航"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "nephew",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "侄子;外甥"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "advertising",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "广告活动;广告业"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "advertise",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "公布;宣传;做广告"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "corporate",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "公司的;法人的;社团的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "rough",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "汹涌的;粗糙的;粗略的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "navigator",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "领航员;(飞机、船舶等上的)航行者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "loyal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "忠诚的;忠实的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "motor",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "发动机;马达"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "有引擎的:机动车的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "candidate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "候选人:应试者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "make fire",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "生火"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "give off",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "放出(热、光、气味或气体)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "episode",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(人生的) -段经历; (小说的)片段;插曲"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "commitment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "承诺;保证;奉献"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "motive",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "动机;原因:目的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Confucianism",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "孔子学说;儒家(学说)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Ernest Shacklton",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "欧内斯特.沙克尔顿(英国探险家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Perce Blackborow",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "珀西·布莱克博罗(“坚忍”号服务员)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Antarctica",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "南极洲"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "the Antarctic",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "南极地区"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "the South Pole",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "南极"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "South Georgia  Island",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "南乔治亚岛(南极洲)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Frank Wild",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "弗兰克·怀尔德"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Thomas Orde-Lees",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "托马斯·奧德利斯"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Frank Worsley",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "弗兰克.沃斯利"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Tom Crean",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "汤姆.克林"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Hubert Hudson",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "休伯特·赫德森"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 4",
+        "english": "Lionel Greenstreet",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "莱昂内尔.格林斯特里特"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "drama",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "戏;剧;戏剧艺术"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "sorrow",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "悲伤;悲痛;伤心事"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "感到悲伤"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "imagery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "形象的; 意象;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "literary",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "文学的; 爱好文学的;有文学作品特征的; 虚拟的，虚构的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "rhyme",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "押韵词; 押韵的短诗"
+            },
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(使)押韵"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "rhythmic  有节奏的，有规律的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "rhythm",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "节奏;韵律;规律"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "folk",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "民间的;民俗的;普通百姓的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "mockingbird",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "嘲鸫(美洲鸣禽,能模仿别种鸟的鸣叫)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "diamond",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "钻石;金刚石;菱形"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "brass",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "黄铜;黄铜制品;铜管乐器"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "billy goat",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公山羊"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "bull",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公牛"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "recite",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "背诵;吟诵;列举"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "bee",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蜜蜂:"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "dewdrop",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "露珠;水珠"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "dawn",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "黎明;开端;萌芽"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "clover",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "三叶草"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "butterfly",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蝴蝶"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "lawn",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "草坪，草地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "amateur",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "业余爱好者"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "业余的;业余爱好的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "cinquain",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "五行诗"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "be made up of....",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "组成(构成)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "mood",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "情绪;心情;语气."
+            },
+            {
+                "pos": "adj.",
+                "chinese": "moody 情绪低落的，闷闷不乐地"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "tease",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "取笑(某人);揶揄;逗弄"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "haiku",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "俳句"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "syllable",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "音节"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "format",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "格式;总体安排; (出版物的)版式"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "格式化"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "respectively",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "分别;各自;依次为"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "respective",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "分别的;各自的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "respectable",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "值得尊敬的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "blossom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "花朵;花簇"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "delicate",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "精美的; 精致的;脆弱的; 纤细的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "await",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "等候;期待;将发生在"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "revolve",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "旋转;环绕;转动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "utter",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "出声;说;讲adj.完全的;十足的;彻底的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "comprehension",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "理解力;领悟力;理解练习"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "comprehensive 全面的，综合的"
+            },
+            {
+                "pos": "v.",
+                "chinese": "comprehend v. 理解"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "shelf ( pl. shelves  )",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "架子;搁板"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "core",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "核心;精髓; (水果的)核儿"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "cherry",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "樱桃;樱桃树;樱桃色 (cherries pl.)"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "樱桃色的;鲜红色的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "cherry blossom",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "樱花"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "blank",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "空白的;无图画(或韵律、装饰)的;没表情的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "空白;空格"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "verse",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "诗;韵文;诗节"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "civilian",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "平民;老百姓"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "prose",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "散文"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "sympathetic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "同情的;有同情心的;赞同的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "sympathetically",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "sympathy   n .同情;赞同."
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "version",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "版本; (从不同角度的)说法"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "innocence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "天真;单纯;无罪"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "innocent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "天真无邪的;无辜的;无恶意的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "era",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "时代;年代;纪元"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "correspondence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "来往信件;通信联系"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "correspond",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "相一致;符合;相当于;通信"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "sow ( sowed, sown sowed )",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "播种;种"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "seed",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "种子;起源;萌芽"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "dominant",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "首要的;占支配地位的;显著的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "domination",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "主导，支配"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "sonnet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "十四行诗"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "deadline",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "最后期限;截止日期"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "",
+        "meanings": [
+            {
+                "pos": "",
+                "chinese": "应用文： 通知，建议信"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "contest",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "比赛;竞赛;竞争"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "争取赢得(比赛、选举等);争辩"
+            },
+            {
+                "pos": "n.",
+                "chinese": "contestant  参赛者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "polish",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "修改;润色;抛光; 改善（= improve）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "string",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "细绳;线; -串"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "悬挂;系"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "弦乐器的:线织的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "wherever",
+        "meanings": [
+            {
+                "pos": "conj.",
+                "chinese": "在任何地方;在所有..的情况下"
+            },
+            {
+                "pos": "adv.",
+                "chinese": "(用于问句)究竟在(到)哪里"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "barren",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "贫瘠的;不结果实的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "grief",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "悲伤;悲痛;伤心事"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "complicated",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "复杂的;难懂的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "variation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "变化;变体;变奏曲;"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "racial",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "种族的;人种的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "race",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "种族；赛跑"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "prejudice",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "偏见;成见（against ）"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "使怀有(或形成)偏见"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "Shakespeare",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "莎士比亚(英国剧作家、诗人)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "The Crescent  Moon",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《新月集》"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "Tagore",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "泰戈尔(印度诗人、文学家)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "Elizabeth Barrett Browning",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "伊丽莎白·巴雷特.布朗宁(英国诗人)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "Robert Browning",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "罗伯特.布朗宁(英国诗人)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "the Victorian  era",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "维多利亚时代"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "Sonnets from the Portuguese",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《葡萄牙人的十四行诗集》"
+            }
+        ]
+    },
+    {
+        "book": "选必修第三册",
+        "unit": "Unit 5",
+        "english": "Langston Hughes",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "兰斯顿·休斯"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "fiction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "小说;虚构的事"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "science fiction (informal sci-fi]",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "科幻小说(或影片等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "test out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "检验;测试"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "bonus",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "意外收获:奖金;红利"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "more like",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "更像是;更接近"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "ridiculous",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "愚蠢的:荒谬的;荒唐的; （不具有娱乐性）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "integrity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "诚实正直;完整;完好= honesty"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "dignity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "庄重;庄严:尊严"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "salary",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "薪水;薪金（月薪）in a high / low salary family"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "absurd",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "荒谬的;荒唐的(= ridiculous )"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "appointment",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "预约;约会;委任"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "nail",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "指甲;趾甲;钉子"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "(用钉子)钉牢; 固定"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "saleswoman",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "女售货员;女推销员"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "guilty",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "内疚的;有罪的:有过失的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "guilt  内疚，有罪"
+            },
+            {
+                "pos": "adv.",
+                "chinese": "guiltily"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "suspend",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "悬;挂;暂停:暂缓"
+            },
+            {
+                "pos": "n.",
+                "chinese": "suspense  悬念; 焦虑不安(心理）"
+            },
+            {
+                "pos": "n.",
+                "chinese": "suspension 悬挂（物理层面，对应磁悬浮）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "ladder",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "梯子;阶梯"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "dismiss",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "让(某人)离开;解散;解雇;消除"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "declare",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "表明;宜称;公布；"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "whereas",
+        "meanings": [
+            {
+                "pos": "conj.",
+                "chinese": "然而;但是;尽管"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "rumour",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "谣言;传闻"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "presume",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "假设:假定"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "fare",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "车费;船费;飞机票价"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "weekly",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "每周的n.周刊"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "calculate",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "计算;核算;预测"
+            },
+            {
+                "pos": "n.",
+                "chinese": "calculation 计算，估计，预测"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "chairwoman",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "女主席;女董事长;女委员长"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "gramme",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "克(重量单位)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "flour",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "面粉; ( 谷物磨成的)粉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "venue",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "活动场地(如音乐厅、会场等)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "salesman",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "售货员;推销员"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "alien",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "外星人(生物);外国人"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "陌生的:外星的:外国的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "pros and cons",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "事物的利与弊;支持与反对"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "blurred",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "模糊不清的:难以区分的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "superior",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "更好的;占优势的; ( 在级别或重要性上)更高的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "take over",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "占上风;取而代之;接管:接手"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "inaction",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "无行动;不采取措施"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "conflict with ....",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "冲突或抵触"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "labour",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "劳动(者);体力劳动vi.奋斗;努力工作"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "leather",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "皮革; [pl] 皮衣;皮外"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "lever",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "操纵杆;杠杆"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "panel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "控制板;仪表盘;专家咨询组"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "inch",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "英寸(长度单位，等于2.54 厘米):"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "backwards (NAmE backward]",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "向后;倒着;往回"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "grip",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "紧握;抓紧 (gripped, gripped)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "hazy",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "模糊的;朦胧的;困惑的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "niece",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "侄女:外甥女"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "fetch",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "(去)拿过来; (去)请来"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "handkerchief",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "手帕;纸巾（-s/ -ves）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "lamp",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "灯;台灯"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "turn out",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "关掉;熄灭;在场:使朝外;结果是"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "pace",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "速度;步伐:节奏"
+            },
+            {
+                "pos": "vt. & vi.",
+                "chinese": "确定速度;调整节奏"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "fall away",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(逐渐)减少;消失"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "division",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "分开;分隔;差异:除(法)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "puff",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(烟、 气等的)一缕;少量;喘息"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "urge",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "强烈的欲望;冲动v.催促;力劝;大力推荐"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "have an urge to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "有强烈的欲望做某事 n. urgency紧迫，急迫"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "random",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "随机的;不可思议的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "maximum",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "最大极限的"
+            },
+            {
+                "pos": "n.",
+                "chinese": "最大量;最大限度"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "explode",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "爆炸;爆破"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "jolt",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "震动;摇晃;颠簸vt.&"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "(使)震动:摇晃"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "flip",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "(使)快速翻转; (用手指 )轻抛"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "stun",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使震惊，使昏迷  (stunned-stunned)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "mud",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "泥;泥浆  （muddy"
+            },
+            {
+                "pos": "adj.",
+                "chinese": "泥泞的）"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "overstatement",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "夸大:奇张"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "Isaac Asimov",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "艾萨克.阿西黄夫"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "Larry Delmont",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "拉尘.贝尔象特"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "Claire",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "克莱尔"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "Gladys Claffern",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "格拉迪丝.克拉芬."
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "Braille (also braille]",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "布拉耶盲文(凸点符号)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "The Three- Body Problem",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《三体》"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 1",
+        "english": "Hugo  Award",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "雨果奖"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "iconic",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "符号的;图标的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "foundation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "创建;基础;地基"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "political",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "政治的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "didgeridoo",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "迪吉里杜管"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "located",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "位于"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "equator",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "赤道"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "koala",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "考拉:树袋熊"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "barbecue",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "[abbr. BBQ]户外烧烤;烤架"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "bakery",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "面包(糕饼)店;面包厂"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "joint",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公共场所(尤指价格低廉的饮食和娱乐场所) ;关节adj.联合的;共同的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "butcher",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "肉贩;屠夫:刽子手"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "premier",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "最著名的:第一的:首要的n.总理;首相"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "herb",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "药草;香草;草本"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "dim sim",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "(特指澳大利亚的)点心"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "hollow",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "中空的;空心的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "vibrate",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "(使)振动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "horn",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(乐器)号"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "pitch",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "音高"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "straightforward",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "坦率的:简单的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "slogan",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "标语;口号"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "Minister",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "部长:大臣;外交使节"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "prime minister",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "首相;总理"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "frog",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "蛙;青蛙"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "arrow",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "箭;箭头"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "entitle",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "给--命名(或题名) ;使享有权利"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "getaway",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "适合度假的地方"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "dive ( dived/dove, dived )",
+        "meanings": [
+            {
+                "pos": "vi. & n.",
+                "chinese": "潜水;跳水;俯冲"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "kayaking",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "划皮艇"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "peak season",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "高峰季节"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "freedom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "白由；不受......影响的状态"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "domain",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "领域;领土;范围"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "sponsor",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "倡议;赞助;主办n. (法案等的)倡议者;赞助者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "liberty",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "自由"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "golf",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "高尔夫球运动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "strait",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "海峡"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "sample",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "样本;样品"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "monument",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "纪念碑(或馆、堂、像等);历史遗迹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "kiwi",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "几维( 新西兰鸟)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "geyser",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "间歇泉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "sulphuric pool",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "硫黄池"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "manuka honey",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "麦卢卡蜂蜜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "bungee  jumping",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "蹦极跳"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "a flock of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "一群(羊或鸟)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "geothermal park",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "地热公园"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "distribution",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "分布;分配;分发"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "pouch",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "商儿袋;小袋子;荷包"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "temporary",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "暂时的:短暂的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "phase",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "阶段;时期"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "trunk",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "树干"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "licensed",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "得到正式许可的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "license",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "批准;许可n.(= licence)许可证:执照"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "session",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "-场; - -段时间;会议"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "frequency",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "发生率;重复率;(声波或电磁波振动的)频率"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "violent",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "暴力的;猛烈的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "violence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "暴力;暴行"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "nest",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "巢穴;鸟窝;秘密窝点"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "mammal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "哺乳动物"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "biology",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "生理;生物学"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "hatch",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "孵出;破壳vt.使孵出;策划; (尤指) 密谋"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "capacity",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "能力;容量"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "a handful of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "少数人(或物); 一把(的量)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "fence",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "栅栏:围栏"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "prison",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "监狱;监禁"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "grand",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "大;宏大的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "Aborigine",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "澳大利亚土著"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "Sydney",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "悉尼(澳大利亚城市)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "Bondi  Beach",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "邦迪海滩"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "Chiang Mai",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "清迈l泰国城市)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "the Bay of Islands",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "岛屿湾"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "the haka",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "哈卡舞(传统毛利伴歌战舞)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "Edmonds",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "埃德蒙兹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "Felicity",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "费利西蒂"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "Tasmanian devil",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "塔斯马尼亚恶魔;袋獾"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "Tasmania",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "塔斯马尼亚(澳大利亚州名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 2",
+        "english": "duck-billed platypus",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "鸭嘴兽"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "tale",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "故事;叙述"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "merchant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "商人;批发商adj.海上货运的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "set sail",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "起航;开航"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "extend",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "扩展;使伸长;延长"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "negotiate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "商定;达成(协议)"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "谈判:磋商;协商"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "fleet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "舰队;机群;车队"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "behold ( beheld, beheld)",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "看;看见"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "league",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "等级;水平;联合会;联赛"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "in a league of one's own",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "独领风骚"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "royal",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "皇家的;王室的;高贵的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "spice",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(调味)香料"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "withdraw ( withdrew, withdrawn)",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(使)撤回;撤离"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "withdraw from",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "退出;撤回"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "channel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "航道;海峡;频道"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "maritime",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "海的:海运的;海事的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "bond",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "纽带;关系vt. &"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "增强信任关系:使牢固结合"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "in hand",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "在手头;可供使用"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "politics",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "政治;政治观点"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "profession",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "职业;行业"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "tournament",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "锦标赛;联赛"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "mixture",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "混合;结合体;混合物"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "laptop",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "笔记本电脑;便携式电脑"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "coverage /'kvard3/",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "新闻报道;覆盖范围"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "press conference",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "记者招待会;新闻发布会"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "applaud",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "鼓掌"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "称赞;赞赏"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "tax",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "-对---征税;使纳税n.税;税款"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "manned",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有人控制的;需人操纵的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "submersible",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "潜水器;可潜船"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "underwater",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "在水下adj.水下的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "coral",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "珊瑚"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "migration",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "迁移;迁徙;移居"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "directory",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "名录;电话号码簿;(计算机文件或程序的目录)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "meanwhile",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "与此同时; ( 比较两方面)对比之下"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "exploit",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "以.开发;利用;剥削"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "gallon",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "加仑(容积单位，1英制加仑约等于4.5升)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "murder",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "谋杀;凶杀;毁坏n.谋杀;凶杀"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "mercy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "仁慈;宽恕;恩惠"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "possession",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(usually pl]个人财产;拥有:控制"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "opponent",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "反对者;对手;竞争者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "log",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "...载入正式记录;记录n.正式记录;日志;原木"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "marine",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "海的;海产的;海生的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "arrest",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "逮捕;拘留;中止vt.逮捕;拘留;阻止"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "Marco Polo",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "马可●波罗"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "Columbus",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "哥伦布"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "Ceylon",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "锡兰(斯里兰卡的旧称)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "Churchill",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "丘吉尔"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "Ferdinand Magellan",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "费迪南德●麦哲伦"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "Zac Sunderland",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "扎克.桑德兰"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 3",
+        "english": "Robin Lee Graham",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "罗宾.李.格雷厄姆"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "parcel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "包裹vt.裹好:打包"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "jam",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "果酱:堵塞"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "mail",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "邮件;信件;邮政vt.邮寄:发电邮给"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "secondary",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "中学的;次要的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "clay",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "黏土;陶土"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "dust",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "沙土;灰尘vi. &"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "擦灰"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "dusty",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "布满灰尘的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "weed",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "杂草;野草vt. &"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "除杂草"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "chorus",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "合唱曲;合唱团vt.合唱;齐声说"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "a chorus of",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "齐声;异口同声"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "cotton",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "棉布;棉花"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "uniform",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "校服;制服adj.一致的:统- -的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "not to mention",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "更不用说;且不说"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "tablet",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "平板电脑:便笺本;药片"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "rubber",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "橡皮;黑板擦;橡胶"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "washroom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "洗手间;厕所"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "rigid /'rd3yd/",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "死板的:圖执的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "bubble",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "起泡;沸腾"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "tube",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "管子:管状物!"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "circus",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "马戏团"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "chemist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "化学家;药剂师;药房"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "shade",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "给......遮挡(光线);加灯罩;把--涂暗n.阴凉处;灯罩;阴影部分"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "jaw",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "頜;下巴"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "wrinkle",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "(使脸上)起皱纹;皱起n.皱纹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "forehead",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "额;前额"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "hut",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "简陋的小房子(或棚、合)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "housing",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "住房;住宅"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "platform",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "平台;站台;舞台"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "fireplace",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "壁炉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "saucer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "茶碟;杯托"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "kettle",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(烧水用的)壶;水壶"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "pan",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "平底锅;烤盘"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "jar",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "罐子:坛子"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "ripe",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "成熟的;时机成熟的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "grill",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "烤架;烤肉餐馆"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "doorway",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "门口;出入口;门道"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "leftover",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "吃剩的;残留的n.吃剩的食物;遗留物"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "handshake",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "握手"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "drag",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "拖;拽vt. &"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "缓慢而费力地移动"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "privilege",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "优惠待遇;特权"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "plug",
+        "meanings": [
+            {
+                "pos": "v.",
+                "chinese": "封堵;补足n.堵塞物;插头;插座"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "disabled",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "有残疾的;丧失能力的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "resign",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "辞职;辞去"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "deserve",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "值得:应得:应受"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "lately",
+        "meanings": [
+            {
+                "pos": "adv.",
+                "chinese": "最近;不久前;近来"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "input",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "情况;信息;投入;输入vt.输入"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "tune",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "曲调;曲子vt.调音;调节;调频道"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "contract",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": ",感染(疾病) ; 订立合同(或契约)"
+            },
+            {
+                "pos": "n.",
+                "chinese": "合同;契约"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "grant",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "同意;准许n.拨款"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "take for granted",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "认为...是理所当然;.对.-.不予重视"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "cardiac",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "心脏病的:心脏的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "circuit",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "巡回;环形线路"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "disability",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "缺陷;障碍"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "consultation",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "咨询;咨询会"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "capsule",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "胶囊;太空舱"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "relay",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "转发;转播n.接力赛;接班的人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "relay to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "转达--转发给...."
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "criterion ( pl. criteria /-ri/ )",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "标准;准则;原则"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "stability",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "稳定(性);稳固(性)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "pray",
+        "meanings": [
+            {
+                "pos": "vi.",
+                "chinese": "& vr.企盼;祈祷"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "pray that",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "但愿"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "hypothetical",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "假设的;假定的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "Papua New Guinea",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "巴布亚新几内亚(国家名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "Ghana",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "加纳(国家名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "Congo",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "刚果(国家名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 4",
+        "english": "Panama",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "巴拿马(国家名)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "bounce",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "(使)弹起;上下晃动n.弹性;弹跳;活力"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "bounce around",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "蹦来蹦去:弹来弹去"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "aptitude",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "天资;天赋"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "head start",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "起步前的优势"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "scenario",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "设想;方案;预测"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "lawyer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "律师"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "assemble",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "组装;装配vi.&"
+            },
+            {
+                "pos": "vt.",
+                "chinese": "收集;聚集;集合"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "drawer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "抽屉"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "a chest of drawers",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "抽屉柜"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "breast",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "乳房;胸部"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "hydrogen",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "氢;氢气"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "radium",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "镭"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "wrist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "手腕;腕关节"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "bridegroom",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "新邮"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "geometry",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "几何学;几何图形"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "debt",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "债务;欠款"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "categorise",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "....分类(加以归类)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "profile",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "简介;概述;侧面轮廓vt.扼要介绍:概述;写简介"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "participant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "参与者;参加者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "code",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "代码;密码vt.编码;把...译成密码"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "orient",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "使适应;使面对:确定方向"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "detective",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "侦探;警探"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "graphic",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "图表;图形;图画adj.绘画的;图案的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "estate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "庄园;住宅区:工业区"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "( real ) estate agent",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "房地产经纪人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "accountant",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "会计:会计师"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "spy",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "密探;间谍vi.从事间谋活动vt,突然看见;发现"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "justice",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "公平;公正;合理"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "accuse",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "控告;控诉;谴责"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "come to a conclusion",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "得出结论"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "greedy",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "贪婪的;贪心的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "entrepreneur",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "创业者;企业家"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "receptionist",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "接待员"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "resume ( BrE CV)",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(求职用的)覆历;简历"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "socialist",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "社会主义的n.社会主义者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "communist",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "共产主义的n.共产主义者"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "dedicate",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "....献给"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "fox",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "狐狸;狡猾的人"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "council",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "委员会:市政服务机构"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "canal",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "运河;灌溉渠"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "attend to",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "关怀;照料;处理"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "supervise",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "主管:指导;监督"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "handwriting",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "书法;书写;笔迹"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "disk",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "磁盘;盘"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "parking",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "停车位:停车"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "camel",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "骆驼"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "fry",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "油煎的食物vt. &"
+            },
+            {
+                "pos": "vi.",
+                "chinese": "油炸;油炒;油煎"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "purse",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "钱包;皮夹子(尤指女用)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "sew ( sewed, sewn/sewed )",
+        "meanings": [
+            {
+                "pos": "vi. & vt.",
+                "chinese": "缝制;缝;做针线活"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "knit",
+        "meanings": [
+            {
+                "pos": "vt. & vi.",
+                "chinese": "编织;针织; (使)紧密结合n.編织的衣服;针织衫"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "wool",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "毛;毛线;毛料"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "intermediate",
+        "meanings": [
+            {
+                "pos": "adj.",
+                "chinese": "中级的;中等的;中间的"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "priority",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "优先事项;首要的事;优先"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "proficiency",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "熟练;娴熟;精通"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "cage",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "笼子vt,关布签子甲"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "collar",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "(动物)颈圈;衣领"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "flea collar",
+        "meanings": [
+            {
+                "pos": "短语",
+                "chinese": "灭蚤颈圈"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "finance",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "资金;财政;金融vt.提供资金"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "receipt",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "收据;接收"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "certificate",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "合格证书;证明"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "employer",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "雇主;老板"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "desert",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "沙漠;荒漠"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "acquire",
+        "meanings": [
+            {
+                "pos": "vt.",
+                "chinese": "获得;购得"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "Marie Curie",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "玛丽.居里(居里夫人)"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "The Communist Manifesto",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "《共产党宣言》"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "Olivia",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "奧利综娅"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "PETS (Public English Test System)",
+        "meanings": [
+            {
+                "pos": "专有名词",
+                "chinese": "全国英语等级考试"
+            }
+        ]
+    },
+    {
+        "book": "选必修第四册",
+        "unit": "Unit 5",
+        "english": "CV (BrE)",
+        "meanings": [
+            {
+                "pos": "n.",
+                "chinese": "简历;履历"
+            }
+        ]
+    }
 ];

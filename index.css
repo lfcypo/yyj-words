@@ -64,6 +64,13 @@
     text-align: center;
     line-height: 1.5;
 }
+.comment {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.5;
+    color: rgba(0,0,0,0.5);
+}
 .controls {
     display: flex;
     justify-content: center;
